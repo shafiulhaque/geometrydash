@@ -16,6 +16,7 @@ public class Block {
     isSafe = true;
   }
   void place(){
+    fill(220, 220, 220);
     rect(x, y, sideL, sideL);
   }
 }
