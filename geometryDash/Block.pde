@@ -17,6 +17,6 @@ public class Block {
   }
   void place(){
     fill(220, 220, 220);
-    rect(x, y, sideL, sideL);
+    rect(x-sideL, y-sideL, sideL, sideL);
   }
 }

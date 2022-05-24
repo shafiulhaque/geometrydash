@@ -5,7 +5,7 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  block = new Block(width * .75 - 30, height * .75 - 30);
+  block = new Block(width * .75, height * .75);
 }
 
 void draw() {
