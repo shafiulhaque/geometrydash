@@ -5,3 +5,7 @@ void setup(){
   character = new Chars();
 
 }
+
+void draw(){
+
+}
