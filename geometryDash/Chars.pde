@@ -9,26 +9,29 @@ public class Chars {
   public Chars() {
     dead = true;
     sideL = 30;
-    x = 0;
+    x = 30;
     y = (height * .75) - sideL;
     dx = 0;
     dy = 0;
   }
-  
-  void move(){
+
+  void move() {
     x += dx;
     y += dy;
-    if(y != height * .75 - sideL){
-      dy += 3.5;
-    }
-    else{
+    if (y != height * .75 - sideL) {
+      dy += 3;
+    } else {
       dy = 0;
     }
   }
-  
-  void jump(){
-    dy -= 35;
+
+  void jump() {
+    dy -= 30;
   }
-  
-  
+
+
+  void display() {
+    fill(100, 140, 220);
+    rect(x, y, sideL, sideL);
+  }
 }
