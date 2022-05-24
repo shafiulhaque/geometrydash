@@ -9,4 +9,10 @@ public class Block {
     sideL = sideL0;
     isSafe = safe;
   }
+  public Block(float x0, float y0){
+    x = x0;
+    y = y0;
+    sideL = 30;
+    isSafe = true;
+  }
 }
