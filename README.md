@@ -9,5 +9,6 @@ https://docs.google.com/document/d/1DoeC03GguchyTU4rn-WnNg-sOMY7gM8NtqaWRC1FQis/
 
 5/23/22
 Jacob - Added the basic skeleton of the code and then also completed the Chars class.
-5/23/22
+
+
 Shafiul - Added the basic skeleton of the Block class and the Triangle class, the later of which extends the Block class. Made sure that both types of obstacles are able to display on the game screen.
