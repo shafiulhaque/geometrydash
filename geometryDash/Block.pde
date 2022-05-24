@@ -15,4 +15,7 @@ public class Block {
     sideL = 30;
     isSafe = true;
   }
+  void place(){
+    rect(x, y, sideL, sideL);
+  }
 }
