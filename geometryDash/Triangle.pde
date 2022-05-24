@@ -5,5 +5,6 @@ public class Triangle extends Block {
   void place() {
     fill(220, 220, 220);
     triangle(x-sideL+sideL/2, y-sideL, x-sideL, y, x, y);
+    x -= 4;
   }
 }
