@@ -1,9 +1,11 @@
 static Chars character;
+static Block block;
 
 void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
+  block = new Block(width * .75 - 30, height * .75 - 30);
 }
 
 void draw() {
@@ -12,6 +14,7 @@ void draw() {
   rect(0, height * .75, width, height * .25);
   character.move();
   character.display();
+  block.place();
 }
 
 void keyPressed() {
