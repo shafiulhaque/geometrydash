@@ -22,7 +22,7 @@ public class Block {
     rect(x-sideL, y-sideL, sideL, sideL);
     x -= 4;
   }
-  
+
 
   boolean isSafe() {
     return isSafe;

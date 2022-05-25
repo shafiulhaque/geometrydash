@@ -29,9 +29,12 @@ public class Chars {
     dy -= 30;
   }
 
-
   void display() {
     fill(100, 140, 220);
     rect(x, y, sideL, sideL);
+  }
+  
+  boolean dead(Block other){
+    return true;
   }
 }
