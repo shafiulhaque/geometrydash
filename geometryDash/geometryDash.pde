@@ -18,7 +18,7 @@ void draw() {
   fill(0);
   rect(0, height * .75, width, height * .25);
   character.move();
-  character.display();
+  if (!character.dead(block)) character.display();
   block.place();
   //tri.place();
   if(entered) popUp();
