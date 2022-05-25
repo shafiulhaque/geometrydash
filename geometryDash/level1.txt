@@ -1,8 +1,6 @@
 GEOFILE
-
 20 30
-
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
 b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
