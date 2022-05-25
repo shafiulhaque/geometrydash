@@ -8,4 +8,9 @@ Welcome to Gwuh Hawk Productions! We are aiming to make the platform game Geomet
 https://docs.google.com/document/d/1DoeC03GguchyTU4rn-WnNg-sOMY7gM8NtqaWRC1FQis/edit?usp=sharing
 
 5/23/22
+
+
 Jacob - Added the basic skeleton of the code and then also completed the Chars class.
+
+
+Shafiul - Added the basic skeleton of the Block class and the Triangle class, the later of which extends the Block class. Made sure that both types of obstacles are able to display on the game screen.
