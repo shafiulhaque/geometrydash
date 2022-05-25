@@ -2,32 +2,26 @@ static Chars character;
 static Block block;
 static Triangle tri;
 static boolean entered;
-static Levels map;
-
-void settings() {
-  size(900, 600);
-}
 
 void setup() {
+  size(900, 600);
   background(255);
   character = new Chars();
   block = new Block(575, 450);
   tri = new Triangle(300, 450);
   entered = false;
-  map = new Levels("level1.txt");
 }
 
 void draw() {
   background(255);
-  //noStroke();
+  noStroke();
   fill(0);
   rect(0, height * .75, width, height * .25);
   character.move();
   character.display();
-  map.display();
-  //block.place();
-  //tri.place();
-  if (entered) popUp();
+  block.place();
+  tri.place();
+  if(entered) popUp();
 }
 
 void popUp() {
