@@ -1,6 +1,6 @@
 static Chars character;
 static Block block;
-static Triangle tri;
+//static Triangle tri;
 static boolean entered;
 
 void setup() {
@@ -8,7 +8,7 @@ void setup() {
   background(255);
   character = new Chars();
   block = new Block(575, 450);
-  tri = new Triangle(300, 450);
+  //tri = new Triangle(300, 450);
   entered = false;
 }
 
@@ -20,7 +20,7 @@ void draw() {
   character.move();
   character.display();
   block.place();
-  tri.place();
+  //tri.place();
   if(entered) popUp();
 }
 

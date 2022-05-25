@@ -37,6 +37,9 @@ public class Chars {
   }
 
   boolean dead(Block other) {
-    return true;
+    if(other.x - x < sideL && other.y - y < sideL){
+      return true;
+    }
+    return false;
   }
 }
