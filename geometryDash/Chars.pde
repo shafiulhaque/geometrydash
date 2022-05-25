@@ -7,7 +7,7 @@ public class Chars {
   float sideL;
 
   public Chars() {
-    dead = true;
+    dead = false;
     sideL = 30;
     x = 30;
     y = (height * .75) - sideL;
@@ -16,12 +16,14 @@ public class Chars {
   }
 
   void move() {
-    x += dx;
-    y += dy;
-    if (y != height * .75 - sideL) {
-      dy += 3;
-    } else {
-      dy = 0;
+    if (!dead) {
+      x += dx;
+      y += dy;
+      if (y != height * .75 - sideL) {
+        dy += 3;
+      } else {
+        dy = 0;
+      }
     }
   }
 
@@ -33,8 +35,8 @@ public class Chars {
     fill(100, 140, 220);
     rect(x, y, sideL, sideL);
   }
-  
-  boolean dead(Block other){
+
+  boolean dead(Block other) {
     return true;
   }
 }
