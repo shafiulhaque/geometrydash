@@ -14,3 +14,9 @@ Jacob - Added the basic skeleton of the code and then also completed the Chars c
 
 
 Shafiul - Added the basic skeleton of the Block class and the Triangle class, the later of which extends the Block class. Made sure that both types of obstacles are able to display on the game screen.
+
+
+5/24/22
+
+
+Shafiul - Experimenting with the obstacle movement, and successfully made the obstacles move towards the character.
