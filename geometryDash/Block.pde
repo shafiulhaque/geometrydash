@@ -1,20 +1,23 @@
 public class Block {
   float x, y;
   int sideL;
-  boolean isSafe;
+  boolean isSafeSide;
+  boolean isSafeTop;
 
-  public Block(float x0, float y0, int sideL0, boolean safe) {
+  public Block(float x0, float y0, int sideL0, boolean safes, boolean safet) {
     x = x0;
     y = y0;
     sideL = sideL0;
-    isSafe = safe;
+    isSafeSide = safes;
+    isSafeTop = safet
   }
 
   public Block(float x0, float y0) {
     x = x0;
     y = y0;
     sideL = 30;
-    isSafe = true;
+    isSafeSide = false;
+    isSafeTop = true;
   }
 
   void place() {
@@ -23,8 +26,11 @@ public class Block {
     x -= 4;
   }
 
+  boolean isSafeSide() {
+    return isSafeSide;
+  }
 
-  boolean isSafe() {
-    return isSafe;
+  boolean isSafeTop() {
+    return isSafeTop;
   }
 }
