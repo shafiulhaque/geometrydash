@@ -1,6 +1,7 @@
 public class Triangle extends Block {
   public Triangle(float x0, float y0) {
     super(x0, y0);
+    isSafeTop = false;
   }
   void place() {
     fill(220, 220, 220);

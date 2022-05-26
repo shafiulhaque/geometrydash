@@ -9,7 +9,7 @@ public class Block {
     y = y0;
     sideL = sideL0;
     isSafeSide = safes;
-    isSafeTop = safet
+    isSafeTop = safet;
   }
 
   public Block(float x0, float y0) {
