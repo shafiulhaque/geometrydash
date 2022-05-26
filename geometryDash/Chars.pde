@@ -13,14 +13,14 @@ public class Chars {
     y = 420;
     dx = 3;
     dy = 0;
-    platform = height * .75 - sideL;
+    platform = 420;
   }
 
   void move() {
     if (!dead) {
       x += dx;
       y += dy;
-      if (y != platform) {
+      if (y < platform) {
         dy += 3;
       } else {
         dy = 0;
@@ -48,7 +48,11 @@ public class Chars {
     //stroke(225);
     //line(other.x, other.y, x, y);
     float dist = dist(other.x, other.y, x, y);
-    boolean sideHit = (y > other.y && dist < 42.4264069 || y == other.y && dist < sideL || y < other.y && y > other.y - sideL && dist < 42.4264069);
+    boolean sideHit = (y > other.y && dist < 42.4264069 || y == other.y && dist < sideL || y < other.y && y > other.y - sideL && dist < 42.4264069); 
+    //&& !(y < other.y - sideL && x >= other.x)
+    //if (y == other.y - sideL && x >= other.x && y != platform){
+    //  platform -= sideL;
+    //} 
     dead = sideHit;
     }
   }
