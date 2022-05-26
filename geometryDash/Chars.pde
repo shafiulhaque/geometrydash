@@ -35,23 +35,21 @@ public class Chars {
   }
 
   void display() {
+    if (!dead){
     stroke(220); 
     fill(100, 140, 220);
     rect(x, y, sideL, sideL);
+    }
   }
 
   boolean dead(Block other) {
-    text(other.x - x, 20, 20);
-    text(other.y - y, 20, 40);
-    text(x, 20, 60);
-    text(y, 20, 80);
-    text(other.x, 20, 100);
-    text(other.y, 20, 120);
     stroke(225, 0, 0);
     line(other.x, other.y, x, y);
-    if(other.x - x < sideL && other.y - y < sideL){
-      return true;
-    }
-    return false;
+    float dist = dist(other.x, other.y, x, y);
+    boolean sideHit = (y < other.y && dist < 42.4264069 || y == other.y && dist < sideL);
+    //if(other.x - x < sideL && other.y - y < sideL){
+    //  return true;
+    //}
+    return sideHit;
   }
 }
