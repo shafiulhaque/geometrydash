@@ -18,7 +18,6 @@ public class Block {
   }
 
   void place() {
-    fill(col);
     rect(x-sideL, y-sideL, sideL, sideL);
     x -= 4;
   }
