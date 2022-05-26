@@ -9,9 +9,9 @@ public class Chars {
   public Chars() {
     dead = false;
     sideL = 30;
-    x = 30;
+    x = 0;
     y = (height * .75) - sideL;
-    dx = 0;
+    dx = 3;
     dy = 0;
   }
 
@@ -24,11 +24,14 @@ public class Chars {
       } else {
         dy = 0;
       }
+      if (x == 270){
+        dx = 0;
+      }
     }
   }
 
   void jump() {
-    dy -= 30;
+    dy -= 21;
   }
 
   void display() {
