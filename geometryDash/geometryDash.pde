@@ -7,8 +7,8 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  block = new Block(575, 450);
-  //tri = new Triangle(300, 450);
+  block = new Block(900, 420);
+  //tri = new Triangle(1200, 450);
   entered = false;
 }
 
@@ -42,7 +42,7 @@ void popUp() {
 void keyPressed() {
   if (keyCode == 32) {
     if (!entered) {
-      if (character.y == height * .75 - character.sideL) {
+      if (character.y == height * .75 - character.sideL && !character.dead(block)) {
         character.jump();
       }
     }
