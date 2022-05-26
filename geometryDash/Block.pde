@@ -26,7 +26,7 @@ public class Block {
     stroke(220);
     fill(220, 220, 220);
     rect(x, y, sideL, sideL);
-    x -= 7;
+    x -= 3;
   }
 
   boolean isSafeSide() {

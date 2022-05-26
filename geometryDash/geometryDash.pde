@@ -18,6 +18,7 @@ void setup() {
 }
 
 void draw() {
+  delay(500);
   background(255);
   noStroke();
   fill(0);
@@ -51,7 +52,7 @@ void popUp() {
 void keyPressed() {
   if (keyCode == 32) {
     if (!entered) {
-      if (character.y == height * .75 - character.sideL && !character.dead) {
+      if (character.y == character.platform && !character.dead) {
         character.jump();
       }
     }

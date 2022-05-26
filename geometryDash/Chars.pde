@@ -44,6 +44,8 @@ public class Chars {
   }
 
   void dead(Block other) {
+    text(y, 20, 20);
+    text(dy, 20, 40);
     if (!dead) {
       //stroke(225);
       //line(other.x, other.y, x, y);
@@ -54,9 +56,11 @@ public class Chars {
         dead = true;
       } else if (y == other.y && dist < sideL && x < other.x) {
         dead = true;
-      } 
-      if (y == other.y - sideL && x + sideL > other.x && x + sideL < other.x + sideL || x > other.x && x < other.x + sideL) {
+      }
+      
+      if (y == platform && x + sideL > other.x && x + sideL < other.x + sideL || x > other.x && x < other.x + sideL) {
         dead = false;
+        text("OK", 20, 20);
         other.makeTop();
       }
       //boolean sideHit = y < other.y && y > other.y - sideL && dist < 42.4264069); 
