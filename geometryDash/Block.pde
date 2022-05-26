@@ -2,7 +2,6 @@ public class Block {
   float x, y;
   int sideL;
   boolean isSafe;
-  color col;
 
   public Block(float x0, float y0, int sideL0, boolean safe) {
     x = x0;
@@ -16,7 +15,6 @@ public class Block {
     y = y0;
     sideL = 30;
     isSafe = true;
-    col = 220;
   }
 
   void place() {
