@@ -29,7 +29,7 @@ void draw() {
   block1.place();
   block2.place();
   //tri.place();
-  if(entered) popUp();
+  if (entered) popUp();
 }
 
 void popUp() {

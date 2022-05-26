@@ -50,9 +50,6 @@ public class Chars {
     float dist = dist(other.x, other.y, x, y);
     boolean sideHit = (y > other.y && dist < 42.4264069 || y == other.y && dist < sideL || y < other.y && y > other.y - sideL && dist < 42.4264069); 
     //&& !(y < other.y - sideL && x >= other.x)
-    //if (y == other.y - sideL && x >= other.x && y != platform){
-    //  platform -= sideL;
-    //} 
     dead = sideHit;
     }
   }

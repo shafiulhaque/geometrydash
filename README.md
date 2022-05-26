@@ -20,3 +20,9 @@ Shafiul - Added the basic skeleton of the Block class and the Triangle class, th
 
 
 Shafiul - Experimenting with the obstacle movement, and successfully made the obstacles move towards the character.
+
+
+5/25/22
+
+
+Shafiul - Made the character die when interacting with the obstacles, and movement at the beginning of the level is shown.
