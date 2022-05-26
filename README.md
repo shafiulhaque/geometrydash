@@ -20,3 +20,8 @@ Shafiul - Added the basic skeleton of the Block class and the Triangle class, th
 
 
 Jacob - Adding the constructor and fixing some heavy merge issues today.
+
+
+5/25
+
+Jacob - Created the basis of the Levels class, and will now work on extra map features. Also fixing the weird merge issues too.
