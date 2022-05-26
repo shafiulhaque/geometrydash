@@ -25,7 +25,7 @@ public class Chars {
       } else {
         dy = 0;
       }
-      if (x == 270){
+      if (x == 270) {
         dx = 0;
       }
     }
@@ -36,21 +36,32 @@ public class Chars {
   }
 
   void display() {
-    if (!dead){
-    stroke(220); 
-    fill(100, 140, 220);
-    rect(x, y, sideL, sideL);
+    if (!dead) {
+      stroke(220); 
+      fill(100, 140, 220);
+      rect(x, y, sideL, sideL);
     }
   }
 
   void dead(Block other) {
-    if (!dead){
-    //stroke(225);
-    //line(other.x, other.y, x, y);
-    float dist = dist(other.x, other.y, x, y);
-    boolean sideHit = (y > other.y && dist < 42.4264069 || y == other.y && dist < sideL || y < other.y && y > other.y - sideL && dist < 42.4264069); 
-    //&& !(y < other.y - sideL && x >= other.x)
-    dead = sideHit;
+    if (!dead) {
+      //stroke(225);
+      //line(other.x, other.y, x, y);
+      float dist = dist(other.x, other.y, x, y);
+      if (other.y < y - sideL) {
+        dead = false;
+      } else if (y > other.y && y <= other.y + sideL && dist < 42.4264069 && x < other.x) {
+        dead = true;
+      } else if (y == other.y && dist < sideL && x < other.x) {
+        dead = true;
+      } 
+      if (y == other.y - sideL && x + sideL > other.x && x + sideL < other.x + sideL || x > other.x && x < other.x + sideL) {
+        dead = false;
+        other.makeTop();
+      }
+      //boolean sideHit = y < other.y && y > other.y - sideL && dist < 42.4264069); 
+
+      //dead = sideHit;
     }
   }
 }
