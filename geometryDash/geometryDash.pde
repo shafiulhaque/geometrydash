@@ -7,7 +7,7 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  block = new Block(900, 420);
+  block = new Block(800, 420);
   //tri = new Triangle(1200, 450);
   entered = false;
 }
@@ -18,7 +18,8 @@ void draw() {
   fill(0);
   rect(0, height * .75, width, height * .25);
   character.move();
-  if (!character.dead(block)) character.display();
+  character.dead(block);
+  if (!character.dead) character.display();
   block.place();
   //tri.place();
   if(entered) popUp();
@@ -42,7 +43,7 @@ void popUp() {
 void keyPressed() {
   if (keyCode == 32) {
     if (!entered) {
-      if (character.y == height * .75 - character.sideL && !character.dead(block)) {
+      if (character.y == height * .75 - character.sideL && !character.dead) {
         character.jump();
       }
     }
