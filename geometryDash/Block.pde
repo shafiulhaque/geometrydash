@@ -21,6 +21,7 @@ public class Block {
   }
 
   void place() {
+    stroke(220);
     fill(220, 220, 220);
     rect(x, y, sideL, sideL);
     x -= 4;

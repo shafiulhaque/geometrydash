@@ -4,6 +4,7 @@ public class Triangle extends Block {
     isSafeTop = false;
   }
   void place() {
+    stroke(220);
     fill(220, 220, 220);
     triangle(x-sideL+sideL/2, y-sideL, x-sideL, y, x, y);
     x -= 4;

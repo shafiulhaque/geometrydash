@@ -10,7 +10,7 @@ public class Chars {
     dead = false;
     sideL = 30;
     x = 0;
-    y = (height * .75) - sideL;
+    y = 420;
     dx = 3;
     dy = 0;
   }
@@ -35,11 +35,20 @@ public class Chars {
   }
 
   void display() {
+    stroke(220); 
     fill(100, 140, 220);
     rect(x, y, sideL, sideL);
   }
 
   boolean dead(Block other) {
+    text(other.x - x, 20, 20);
+    text(other.y - y, 20, 40);
+    text(x, 20, 60);
+    text(y, 20, 80);
+    text(other.x, 20, 100);
+    text(other.y, 20, 120);
+    stroke(225, 0, 0);
+    line(other.x, other.y, x, y);
     if(other.x - x < sideL && other.y - y < sideL){
       return true;
     }
