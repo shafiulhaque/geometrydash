@@ -3,8 +3,8 @@ public class Chars {
   float x, y;
   float dx, dy;
   color c;
-  boolean jump;
   float sideL;
+  float platform;
 
   public Chars() {
     dead = false;
@@ -13,13 +13,14 @@ public class Chars {
     y = 420;
     dx = 3;
     dy = 0;
+    platform = height * .75 - sideL;
   }
 
   void move() {
     if (!dead) {
       x += dx;
       y += dy;
-      if (y != height * .75 - sideL) {
+      if (y != platform) {
         dy += 3;
       } else {
         dy = 0;
@@ -42,14 +43,13 @@ public class Chars {
     }
   }
 
-  boolean dead(Block other) {
-    stroke(225, 0, 0);
-    line(other.x, other.y, x, y);
+  void dead(Block other) {
+    if (!dead){
+    //stroke(225);
+    //line(other.x, other.y, x, y);
     float dist = dist(other.x, other.y, x, y);
-    boolean sideHit = (y < other.y && dist < 42.4264069 || y == other.y && dist < sideL);
-    //if(other.x - x < sideL && other.y - y < sideL){
-    //  return true;
-    //}
-    return sideHit;
+    boolean sideHit = (y > other.y && dist < 42.4264069 || y == other.y && dist < sideL || y < other.y && y > other.y - sideL && dist < 42.4264069);
+    dead = sideHit;
+    }
   }
 }
