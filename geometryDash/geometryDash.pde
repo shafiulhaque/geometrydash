@@ -18,7 +18,7 @@ void setup() {
 }
 
 void draw() {
-  delay(500);
+  //delay(50);
   background(255);
   noStroke();
   fill(0);
