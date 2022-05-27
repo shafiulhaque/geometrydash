@@ -20,10 +20,10 @@ public class Levels {
           for (int j = 0; j < WIDTH; j++) {
             switch(copy[i][j]) {
             case "b": 
-              map[i][j] = new Block(30 * (j + 1), 30 * (i + 1));
+              map[i][j] = new Block(30 * (j + 1), 30 * (HEIGHT - i));
               break;
             case "t":
-              map[i][j] = new Triangle(30 * (j + 1), 30 * (i + 1));
+              map[i][j] = new Triangle(30 * (j + 1), 30 * (HEIGHT - i));
               break;
             case "n":
               map[i][j] = null;
