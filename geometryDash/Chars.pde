@@ -71,7 +71,9 @@ public class Chars {
         text("OK", 50, 100);
         other.makeTop();
       }
-      
+      if (x > other.x + sideL/2){
+        platform = other.y;
+      }
     }
   }
 }
