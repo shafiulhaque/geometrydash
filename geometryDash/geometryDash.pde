@@ -1,6 +1,6 @@
 static Chars character;
 static Block block;
-//static Block block1;
+static Block block1;
 //static Block block2;
 
 //static Triangle tri;
@@ -11,24 +11,24 @@ void setup() {
   background(255);
   character = new Chars();
   block = new Block(800, 420);
-  //block1 = new Block(800, 390);
+  block1 = new Block(800, 390);
   //block2 = new Block(860, 420);
   //tri = new Triangle(1200, 450);
   entered = false;
 }
 
 void draw() {
-  delay(20);
+  //delay(20);
   background(255);
   noStroke();
   fill(0);
   rect(0, height * .75, width, height * .25);
   character.move();
   character.dead(block);
-  //character.dead(block1);
+  character.dead(block1);
   if (!character.dead) character.display();
+  block1.place();
   block.place();
-  //block1.place();
   //block2.place();
   //tri.place();
   if (entered) popUp();

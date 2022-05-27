@@ -68,10 +68,9 @@ public class Chars {
       if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
         dead = false;
         platform = other.y - sideL;
-        text("OK", 50, 100);
         other.makeTop();
       }
-      if (x > other.x + sideL/2){
+      if (x > other.x + sideL/2 && y < other.y){
         platform = other.y;
       }
     }
