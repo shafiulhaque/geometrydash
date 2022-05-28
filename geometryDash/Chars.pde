@@ -47,32 +47,33 @@ public class Chars {
   }
 
   void dead(Block other) {
-    text(y, 20, 20);
-    text(dy, 20, 40);
-    text(x, 20, 60);
-    text(dx, 20, 80);
-    text(other.x, 20, 100);
-    text(other.y, 20, 120);
-    text(platform, 20, 140);
+    //text(y, 20, 20);
+    //text(dy, 20, 40);
+    //text(x, 20, 60);
+    //text(dx, 20, 80);
+    //text(other.x, 20, 100);
+    //text(other.y, 20, 120);
+    //text(platform, 20, 140);
     
     if (!dead) {
       float dist = dist(other.x, other.y, x, y);
       if (other.y < y - sideL) {
         dead = false;
-      } else if (y > other.y && y <= other.y + sideL && dist < 42.4264069 && x < other.x) {
+      } else if (y > other.y && y <= other.y + sideL && dist < 42.4264069 && x - sideL < other.x) {
         dead = true;
-      } else if (y == other.y && dist < sideL && x < other.x) {
+      } else if (y == other.y && dist < sideL && x -sideL < other.x) {
         dead = true;
       }
 
       if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
         dead = false;
         platform = other.y - sideL;
-        other.makeTop();
       }
+      
       if (x > other.x + sideL/2 && y < other.y){
         platform = other.y;
       }
+      
     }
   }
 }

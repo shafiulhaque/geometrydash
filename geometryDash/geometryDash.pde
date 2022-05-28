@@ -23,9 +23,9 @@ void draw() {
   noStroke();
   fill(0);
   rect(0, height * .75, width, height * .25);
-  character.move();
   character.dead(block);
   character.dead(block1);
+  character.move();
   if (!character.dead) character.display();
   block1.place();
   block.place();
