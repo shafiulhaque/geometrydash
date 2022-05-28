@@ -3,7 +3,6 @@ public class Block {
   int sideL;
   boolean isSafeSide;
   boolean isSafeTop;
-  boolean onTop;
 
   public Block(float x0, float y0, int sideL0, boolean safes, boolean safet) {
     x = x0;
@@ -19,7 +18,6 @@ public class Block {
     sideL = 30;
     isSafeSide = false;
     isSafeTop = true;
-    onTop = false;
   }
 
   void place() {
@@ -37,11 +35,4 @@ public class Block {
     return isSafeTop;
   }
   
-  boolean onTop(){
-    return onTop;
-  }
-  
-  void makeTop(){
-    onTop = !onTop;
-  }
 }
