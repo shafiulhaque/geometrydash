@@ -18,5 +18,18 @@ Shafiul - Added the basic skeleton of the Block class and the Triangle class, th
 
 5/24/22
 
-
 Jacob - Adding the constructor and fixing some heavy merge issues today.
+
+Shafiul - Experimenting with the obstacle movement, and successfully made the obstacles move towards the character.
+
+5/25/22
+
+Shafiul - Made the character die when interacting with the obstacles, and movement at the beginning of the level is shown.
+
+5/26/22
+
+Shafiul - Fixing up movement for the character.
+
+5/27/22
+
+Shafiul - Made the character stay on top of the block when jumping on top of it.
