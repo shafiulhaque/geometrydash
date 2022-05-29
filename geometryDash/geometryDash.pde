@@ -49,6 +49,9 @@ void keyPressed() {
       if (character.type().equals("ROCKET") && !character.dead){
         character.jump();
       }
+      if (character.type().equals("UFO") && !character.dead){
+        character.jump();
+      }
     }
   }
   if (keyCode == ENTER) {
