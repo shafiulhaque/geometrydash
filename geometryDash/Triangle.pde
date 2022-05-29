@@ -9,7 +9,7 @@ public class Triangle extends Block {
     stroke(220);
     fill(220, 220, 220);
     triangle(x+sideL/2, y, x, y+sideL, x+sideL, y+sideL);
-    x -= 5;
+    x -= 7;
   }
 
 }
