@@ -9,7 +9,7 @@ public class Slab extends Block {
     stroke(220);
     fill(220, 220, 220);
     rect(x, y, sideL, sideW);
-    x -= 7.5;
+    x -= 6;
   }
   
 }

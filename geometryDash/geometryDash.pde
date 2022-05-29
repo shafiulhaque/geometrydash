@@ -7,7 +7,7 @@ static Chars character;
 //static Slab slab;
 static boolean entered;
 static Levels level1;
-static float ySpe;
+static float xC;
 
 void setup() {
   size(900, 600);
@@ -21,16 +21,17 @@ void setup() {
   //tri2 = new Triangle(1170, 420);
   //slab = new Slab(1250, 420);
   entered = false;
+  xC = 0;
 }
 
 void draw() {
-  delay(20);
+  //delay(20);
   if (!entered) {
     background(255);
     noStroke();
     fill(0);
     rect(0, height * .75, width, height * .25);
-    level1.display();
+    level1.display(); 
     //character.dead(block);
     //character.dead(block1);
     //character.dead(block2);
@@ -41,25 +42,21 @@ void draw() {
     //print("NEW TEST \n");
     for (int i = 0; i < level1.WIDTH; i++) {
       for (int j = 0; j < level1.HEIGHT; j++) {
+        //if(character.x != 20 && xC != character.x) print(character.x + "\n");
+        //xC = character.x;
         if (level1.map[j][i] != null) {
-          float charBlockDistX = level1.map[j][i].x - character.x;
-          //print(charBlockDistX + "\n ");
-          if(ySpe != character.dy) print("\n"+ character.dy + " yCoor = " + character.y);
-          ySpe = character.dy;
-          if (charBlockDistX <= character.sideL) {
-            character.dead(level1.map[j][i]);
-          }
+          character.dead(level1.map[j][i]);
+          //if (level1.map[j][i].x == character.x) {
+          character.dead(level1.map[j][i]);
+          level1.map[j][i].colr = #FF0000;
+          //if(i + 1 < level1.WIDTH && level1.map[j][i + 1] != null){
+          //  level1.map[j][i + 1].colr = #FF0000;
+          //character.dead(level1.map[j][i + 1]);
+          //}
+          //}
         }
       }
-    }
-    //int currentMapX = 0;
-    //int currentMapY = 0;
-    //while(currentMapX < level1.WIDTH && currentMapY < level1.HEIGHT){
-    //  if(currentMapY >= level1.HEIGHT){
-    //    currentMapY = 0;
-    //    currentMapX++;
-    //  }
-    //} 
+    } 
     if (!character.dead) character.display();
     //block1.place();
     //block.place();
