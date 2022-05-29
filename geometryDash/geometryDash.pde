@@ -4,6 +4,7 @@ static Block block1;
 static Block block2;
 static Triangle tri;
 static Triangle tri2;
+static Slab slab;
 static boolean entered;
 
 void setup() {
@@ -15,6 +16,7 @@ void setup() {
   block2 = new Block(860, 420);
   tri = new Triangle(1200, 420);
   tri2 = new Triangle(1170, 420);
+  slab = new Slab(1250, 420);
   entered = false;
 }
 
@@ -37,6 +39,7 @@ void draw() {
   block2.place();
   tri.place();
   tri2.place();
+  slab.place();
   } else {
     popUp();
   }
