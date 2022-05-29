@@ -2,8 +2,8 @@ public class Rocket extends Chars {
   public Rocket() {
     super();
   }
-  
-  void place() {
+
+  void move() {
     if (!dead) {
       x += dx;
       y += dy;
@@ -11,6 +11,10 @@ public class Rocket extends Chars {
     if (x == 270) {
       dx = 0;
     }
+  }
+
+  void jump() {
+    y -= 10;
   }
 
   void display() {
@@ -25,5 +29,9 @@ public class Rocket extends Chars {
       stroke(255, 165, 0); 
       rect(x-15, y+7, 5, sideL/2);
     }
+  }
+
+  String type() {
+    return "ROCKET";
   }
 }

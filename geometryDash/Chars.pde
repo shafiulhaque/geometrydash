@@ -77,4 +77,8 @@ public class Chars {
       }
     }
   }
+  
+  String type(){
+    return "BLOCK";
+  }
 }
