@@ -23,10 +23,10 @@ public class Block {
   }
 
   void place() {
-    stroke(220);
+    stroke(0);
     fill(220, 220, 220);
     rect(x, y, sideL, sideL);
-    x -= 7;
+    x -= 7.5;
   }
 
   boolean isSafeSide() {

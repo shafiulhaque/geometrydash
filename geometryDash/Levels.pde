@@ -1,5 +1,6 @@
 public class Levels {
   Block[][] map;
+  Block current;
   String[][] copy;
   String[] mapSize;
   int WIDTH;
@@ -55,7 +56,8 @@ public class Levels {
     for (int i = 0; i < HEIGHT; i++) {
       for (int j = 0; j < WIDTH; j++) {
         if (map[i][j] != null) {
-          map[i][j].place();
+          current = map[i][j];
+          current.place();
         }
       }
     }

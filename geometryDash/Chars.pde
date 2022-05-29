@@ -21,7 +21,7 @@ public class Chars {
       x += dx;
       y += dy;
       if (y < platform) {
-        dy += 2.5;
+        dy += 5;
       } else {
         dy = 0;
       }
@@ -35,7 +35,7 @@ public class Chars {
   }
 
   void jump() {
-    dy -= 21;
+    dy -= 30;
   }
 
   void display() {
@@ -55,6 +55,17 @@ public class Chars {
     //text(other.y, 20, 120);
     //text(platform, 20, 140);
 
+    //if (!dead) {
+    //  if (x + sideL >= other.x) {
+    //    if ((y > other.y && y < other.y + sideL) || (y + sideL < other.y && y + sideL > other.y + sideL) ) {
+    //      dead = true;
+    //    }
+    //    else if(y == other. y){
+    //      dead = true;
+    //    }
+    //  }
+    //}
+
     if (!dead) {
       float dist = dist(other.x, other.y, x, y);
       if (other.y < y - sideL) {
@@ -65,16 +76,16 @@ public class Chars {
         dead = true;
       }
 
-      if (other.isSafeTop()) {
-        if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
-          dead = false;
-          platform = other.y - sideL;
-        }
-      }
-
-      if (x > other.x + sideL/2 && y < other.y) {
-        platform = other.y;
+    if (other.isSafeTop() && !dead) {
+      if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
+        dead = false;
+        platform = other.y - sideL;
       }
     }
+
+    if (x > other.x + sideL/2 && y < other.y) {
+      platform = other.y;
+    }
   }
+}
 }
