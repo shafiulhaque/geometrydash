@@ -48,6 +48,6 @@ public class UFO extends Chars {
   }
 
   String type() {
-    return "ROCKET";
+    return "UFO";
   }
 }
