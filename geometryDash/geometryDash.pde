@@ -1,36 +1,25 @@
 static Chars character;
-//static Levels level1;
 static Portal joe;
 static boolean entered;
 
 void setup() {
   size(900, 600);
   background(255);
-  character = new Chars();
-  //level1 = new Levels("level1.txt");
+  character = new Rocket();
   joe = new Portal(400, 300);
   entered = false;
 }
 
 void draw() {
   //delay(20);
-  if (!entered){
-  background(255);
-  noStroke();
-  fill(0);
-  rect(0, height * .75, width, height * .25);
-  character.move();
-  joe.place();
-  //for (int i = 0; i < level1.WIDTH; i++) {
-  //    for (int j = 0; j < level1.HEIGHT; j++) {
-  //      if (level1.map[j][i] != null) {
-  //        character.dead(level1.map[j][i]);
-  //        character.dead(level1.map[j][i]);
-  //        level1.map[j][i].place();
-  //      }
-  //    }
-  //  } 
-  if (!character.dead) character.display();
+  if (!entered) {
+    background(255);
+    noStroke();
+    fill(0);
+    rect(0, height * .75, width, height * .25);
+    character.move();
+    joe.place();
+    if (!character.dead) character.display();
   } else {
     popUp();
   }
@@ -55,6 +44,9 @@ void keyPressed() {
   if (keyCode == 32) {
     if (!entered) {
       if (character.y == character.platform && !character.dead) {
+        character.jump();
+      }
+      if (character.type().equals("ROCKET") && !character.dead){
         character.jump();
       }
     }

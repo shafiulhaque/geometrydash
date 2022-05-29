@@ -1,6 +1,7 @@
 public class Rocket extends Chars {
   public Rocket() {
     super();
+    dy = 10;
   }
 
   void move() {
@@ -11,10 +12,15 @@ public class Rocket extends Chars {
     if (x == 270) {
       dx = 0;
     }
+    if (y == platform) {
+      dy = 0;
+    } else {
+      dy = 10;
+    }
   }
 
   void jump() {
-    y -= 10;
+    dy = -20;
   }
 
   void display() {
