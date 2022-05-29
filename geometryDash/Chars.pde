@@ -21,7 +21,7 @@ public class Chars {
       x += dx;
       y += dy;
       if (y < platform) {
-        dy += 3;
+        dy += 2.5;
       } else {
         dy = 0;
       }
@@ -54,7 +54,7 @@ public class Chars {
     //text(other.x, 20, 100);
     //text(other.y, 20, 120);
     //text(platform, 20, 140);
-    
+
     if (!dead) {
       float dist = dist(other.x, other.y, x, y);
       if (other.y < y - sideL) {
@@ -65,15 +65,16 @@ public class Chars {
         dead = true;
       }
 
-      if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
-        dead = false;
-        platform = other.y - sideL;
+      if (other.isSafeTop()) {
+        if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
+          dead = false;
+          platform = other.y - sideL;
+        }
       }
-      
-      if (x > other.x + sideL/2 && y < other.y){
+
+      if (x > other.x + sideL/2 && y < other.y) {
         platform = other.y;
       }
-      
     }
   }
 }
