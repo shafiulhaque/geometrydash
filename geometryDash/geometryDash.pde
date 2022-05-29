@@ -6,17 +6,19 @@ static Triangle tri;
 static Triangle tri2;
 static Slab slab;
 static boolean entered;
+static Levels level1;
 
 void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  block = new Block(800, 420);
-  block1 = new Block(800, 390);
-  block2 = new Block(860, 420);
-  tri = new Triangle(1200, 420);
-  tri2 = new Triangle(1170, 420);
-  slab = new Slab(1250, 420);
+  level1 = new Levels("level1.txt");
+  //block = new Block(800, 420);
+  //block1 = new Block(800, 390);
+  //block2 = new Block(860, 420);
+  //tri = new Triangle(1200, 420);
+  //tri2 = new Triangle(1170, 420);
+  //slab = new Slab(1250, 420);
   entered = false;
 }
 
@@ -27,20 +29,21 @@ void draw() {
   noStroke();
   fill(0);
   rect(0, height * .75, width, height * .25);
-  character.dead(block);
-  character.dead(block1);
-  character.dead(block2);
-  character.dead(tri);
-  character.dead(tri2);
-  character.dead(slab);
+  level1.display();
+  //character.dead(block);
+  //character.dead(block1);
+  //character.dead(block2);
+  //character.dead(tri);
+  //character.dead(tri2);
+  //character.dead(slab);
   character.move();
   if (!character.dead) character.display();
-  block1.place();
-  block.place();
-  block2.place();
-  tri.place();
-  tri2.place();
-  slab.place();
+  //block1.place();
+  //block.place();
+  //block2.place();
+  //tri.place();
+  //tri2.place();
+  //slab.place();
   } else {
     popUp();
   }

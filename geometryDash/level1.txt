@@ -1,5 +1,5 @@
 GEOFILE
-40 60
+20 60
 n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
 n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
 n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
@@ -19,24 +19,4 @@ n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b 
 n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
 n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
 n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n b n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n b n n b n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n t t t n n b n b n n b n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-b n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
+b b b b b b b n n n n n n n n n n n n n n n n n n n n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
