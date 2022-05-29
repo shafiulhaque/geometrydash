@@ -36,14 +36,12 @@ public class UFO extends Chars {
   void display() {
     if (!dead) {
       stroke(220); 
+      fill(173, 216, 230);
+      arc(x+sideL/2, y+sideL/2 - 3, 50, 50, PI, 2*PI);
       fill(100, 140, 220);
-      quad(x - 10, y, x-10, y+sideL, x, y +sideL - 10, x, y + 10);
-      rect(x+6, y-5, 3*sideL/5, 3*sideL/5);
-      rect(x, y+7, sideL, sideL/2);
-      quad(x+sideL, y+5, x+sideL, y+sideL-5, x+sideL+5, y +sideL - 10, x+sideL+5, y + 10);
-      fill(255, 165, 0);
-      stroke(255, 165, 0); 
-      rect(x-15, y+7, 5, sideL/2);
+      quad(x-10, y+10, x, y+sideL, x+sideL, y+sideL, x+sideL+10, y+10);
+      fill(68, 85, 90);
+      rect(x+6, y-3, 3*sideL/5, 3*sideL/5 - 5);
     }
   }
 
