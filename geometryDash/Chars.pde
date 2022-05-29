@@ -1,4 +1,4 @@
-public class Chars {
+public class Chars { //<>//
   boolean dead;
   float x, y;
   float dx, dy;
@@ -55,36 +55,46 @@ public class Chars {
     //text(other.y, 20, 120);
     //text(platform, 20, 140);
 
-    //if (!dead) {
-    //  if (x + sideL >= other.x) {
-    //    if ((y > other.y && y < other.y + sideL) || (y + sideL < other.y && y + sideL > other.y + sideL) ) {
-    //      dead = true;
-    //    } else if (y == other. y) {
-    //      dead = true;
-    //    }
-    //  }
-    //}
-
     if (!dead) {
-      float dist = dist(other.x, other.y, x, y);
-      if (other.y < y - sideL) {
-        dead = false;
-      } else if (y > other.y && y <= other.y + other.sideW && dist < 42.4264069 && x - sideL < other.x) {
-        dead = true;
-      } else if (y == other.y && dist < sideL && x -sideL < other.x) {
-        dead = true;
-      }
-
-      if (other.isSafeTop() && !dead) {
-        if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
-          dead = false;
-          platform = other.y - sideL;
+      if(x > other.x && x < other.x + sideL){
+        if(y + sideL == other.y){
+          platform = other.y;
+        }
+        else if(y >= other.y && y < other.y + sideL){
+          dead = true;
         }
       }
+      //if ((y > other.y && y < other.y + sideL) || (y + sideL < other.y && y + sideL > other.y + sideL) ) {
+      //  dead = true;
+      //} 
+      //if (y == other. y && x < other.x ) {
+      //  dead = true;
+      //}
 
-      if (x > other.x + sideL/2 && y < other.y) {
-        platform = other.y;
-      }
+      //if (!dead) {
+      //  float dist = dist(other.x, other.y, x, y);
+      //  if (other.y < y - sideL) {
+      //    dead = false;
+      //  } else if (y > other.y && y <= other.y + other.sideW && dist < 42.4264069 && x - sideL < other.x) {
+      //    dead = true;
+      //  } else if (y == other.y && dist < sideL && x -sideL < other.x) {
+      //    dead = true;
+      //  }
+
+      //if (other.isSafeTop() && !dead) {
+      //  if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
+      //    dead = false; 
+      //    platform = other.y - sideL;
+      //  }
+      //}
+
+      //if (x > other.x + sideL/2 && y < other.y) {
+      //  platform = other.y;
+      //}
+
+      //if(x > other.x + sideL && y == other.y - sideL){
+      //  platform = 420;
+      //}
     }
   }
 }
