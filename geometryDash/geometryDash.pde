@@ -1,12 +1,14 @@
 static Chars character;
-static Levels level1;
+//static Levels level1;
+static Portal joe;
 static boolean entered;
 
 void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  level1 = new Levels("level1.txt");
+  //level1 = new Levels("level1.txt");
+  joe = new Portal(400, 300);
   entered = false;
 }
 
@@ -18,15 +20,16 @@ void draw() {
   fill(0);
   rect(0, height * .75, width, height * .25);
   character.move();
-  for (int i = 0; i < level1.WIDTH; i++) {
-      for (int j = 0; j < level1.HEIGHT; j++) {
-        if (level1.map[j][i] != null) {
-          character.dead(level1.map[j][i]);
-          character.dead(level1.map[j][i]);
-          level1.map[j][i].place();
-        }
-      }
-    } 
+  joe.place();
+  //for (int i = 0; i < level1.WIDTH; i++) {
+  //    for (int j = 0; j < level1.HEIGHT; j++) {
+  //      if (level1.map[j][i] != null) {
+  //        character.dead(level1.map[j][i]);
+  //        character.dead(level1.map[j][i]);
+  //        level1.map[j][i].place();
+  //      }
+  //    }
+  //  } 
   if (!character.dead) character.display();
   } else {
     popUp();
