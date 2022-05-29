@@ -1,6 +1,7 @@
 public class Block {
   float x, y;
   int sideL;
+  int sideW;
   boolean isSafeSide;
   boolean isSafeTop;
 
@@ -8,6 +9,7 @@ public class Block {
     x = x0;
     y = y0;
     sideL = sideL0;
+    sideW = sideL0;
     isSafeSide = safes;
     isSafeTop = safet;
   }

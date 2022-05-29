@@ -32,6 +32,7 @@ void draw() {
   character.dead(block2);
   character.dead(tri);
   character.dead(tri2);
+  character.dead(slab);
   character.move();
   if (!character.dead) character.display();
   block1.place();

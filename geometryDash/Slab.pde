@@ -1,5 +1,4 @@
 public class Slab extends Block {
-  float sideW;
   
   public Slab(float x0, float y0) {
     super(x0, y0);
@@ -12,4 +11,5 @@ public class Slab extends Block {
     rect(x, y, sideL, sideW);
     x -= 7;
   }
+  
 }

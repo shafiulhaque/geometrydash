@@ -59,7 +59,7 @@ public class Chars {
       float dist = dist(other.x, other.y, x, y);
       if (other.y < y - sideL) {
         dead = false;
-      } else if (y > other.y && y <= other.y + sideL && dist < 42.4264069 && x - sideL < other.x) {
+      } else if (y > other.y && y <= other.y + other.sideW && dist < 42.4264069 && x - sideL < other.x) {
         dead = true;
       } else if (y == other.y && dist < sideL && x -sideL < other.x) {
         dead = true;
