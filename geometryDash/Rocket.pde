@@ -1,7 +1,11 @@
 public class Rocket extends Chars {
+  float setb;
+  float sett;
   public Rocket() {
     super();
     dy = 10;
+    setb = 420;
+    sett = 50;
   }
 
   void move() {
@@ -15,7 +19,13 @@ public class Rocket extends Chars {
     if (y == platform) {
       dy = 0;
     } else {
-      dy = 10;
+      dy += 2;
+    }
+    if (y > setb){
+      y = setb;
+    }
+    if (y < sett){
+      y = sett;
     }
   }
 
