@@ -11,7 +11,7 @@ public class Portal extends Block {
   void place() {
     fill(0);
     rect(x, y, sideL, sideW);
-    if (type.equals("ROCKET")) fill(186, 85, 211);
+    if (type.equals("ROCKET")) fill(186, 85, 233);
     if (type.equals("UFO")) fill(255, 165, 0);
     if (type.equals("BLOCK")) fill(0, 230, 0);
     rect(x, y, sideL/3, sideW);
