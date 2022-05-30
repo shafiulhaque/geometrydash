@@ -18,31 +18,26 @@ void draw() {
     background(255);
     noStroke();
     fill(0);
-    rect(0, height * .75, width, height * .25); 
+    rect(0, height * .75, width, height * .25);
+    float sideL = character.sideL;
+    int r = 0;
+    for (int i = 0; i < level1.WIDTH; i++) {
+      if (level1.map[0][i] != null && level1.map[0][i].x == character.x) r = i;
+    }
+    Block highest = level1.map[level1.HEIGHT - 1][r];
+    for (int j = 0; j < level1.HEIGHT; j++) {
+      Block currB = level1.map[j][r];
+      stroke(255, 0, 0);
+      fill(255, 0, 0);
+      line(character.x, 0, character.x, currB.y);
+      if (!currB.isEmpty) {
+        if (currB.y < highest.y) highest = currB;
+        character.dead(currB);
+      }
+    }
+    if (level1.map[0][level1.WIDTH - 1].x < 270 ) character.platform = 420;
     level1.display();
     character.move();
-    for (int i = 0; i < level1.WIDTH; i++) {
-      int blockColCount = 0;
-      for (int j = 0; j < level1.HEIGHT; j++) {
-        Block currB = level1.map[j][i];
-        Block highest = null;
-        stroke(255, 0, 0);
-        fill(255, 0, 0);
-        text(character.platform, 50, character.platform);
-        line(0, character.platform, 100, character.platform);
-        if (currB != null) {
-          blockColCount++;
-          character.dead(currB);
-          //if(dist(currB.x, currB.y, character.x, character.y) < 51) character.dead(currB);
-          if (currB.x == character.x && currB.y < character.platform && character.y < character.platform ) highest = currB;
-          if (highest != null) {
-            character.platform = highest.y;
-            character.dead(highest);
-          }
-        }
-      }
-      //if (blockColCount == 0) character.platform = 420;
-    } 
     if (!character.dead) character.display();
   } else {
     popUp();

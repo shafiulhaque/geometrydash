@@ -26,8 +26,8 @@ public class Levels {
             case "t":
               map[i][j] = new Triangle(30 * (j), 30 * (i));
               break;
-            case "n":
-              map[i][j] = null;
+            case "e":
+              map[i][j] = new emptyBlock(30 * (j), 30 * (i));
               break;
             }
           }

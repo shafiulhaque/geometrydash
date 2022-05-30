@@ -4,6 +4,7 @@ public class Block {
   int sideW;
   boolean isSafeSide;
   boolean isSafeTop;
+  boolean isEmpty;
   color colr;
 
   public Block(float x0, float y0, int sideL0, boolean safes, boolean safet) {
@@ -13,6 +14,7 @@ public class Block {
     sideW = sideL0;
     isSafeSide = safes;
     isSafeTop = safet;
+    isEmpty = false;
     colr = color(220, 220, 220);
   }
 
@@ -22,6 +24,7 @@ public class Block {
     sideL = 30;
     isSafeSide = false;
     isSafeTop = true;
+    isEmpty = false;
     colr = 220;
   }
 
