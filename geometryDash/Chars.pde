@@ -5,6 +5,9 @@ public class Chars { //<>//
   color c;
   float sideL;
   float platform;
+  boolean change;
+  String type;
+  float top;
 
   public Chars() {
     dead = false;
@@ -14,6 +17,22 @@ public class Chars { //<>//
     dx = 6;
     dy = 0;
     platform = 420;
+    change = false;
+    type = "BLOCK";
+    top = 0;
+  }
+
+  public Chars(float x0, float y0) {
+    dead = false;
+    sideL = 30;
+    x = x0;
+    y = y0;
+    dx = 3;
+    dy = 0;
+    platform = 420;
+    change = false;
+    type = "BLOCK";
+    top = 0;
   }
 
   void move() {
@@ -62,11 +81,14 @@ public class Chars { //<>//
           platform = other.y - sideL;
         }
       }
-
     } 
     //else if (!other.isSafeTop) {
     //  if (abs(x + (sideL / 2) - other.x) <= 15 && (y + sideL >= other.y && y + sideL <= other.y + sideL)) dead = true;
     //  else if ((x > other.x + sideL / 2 && x <= other.x + sideL)  && (y + sideL > other.y)) dead = true;
     //}
+  }
+
+  String type() {
+    return type;
   }
 }

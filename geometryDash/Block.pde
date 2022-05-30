@@ -4,6 +4,7 @@ public class Block {
   int sideW;
   boolean isSafeSide;
   boolean isSafeTop;
+  String type;
   boolean isEmpty;
   color colr;
 
@@ -14,6 +15,7 @@ public class Block {
     sideW = sideL0;
     isSafeSide = safes;
     isSafeTop = safet;
+    type = "block";
     isEmpty = false;
     colr = color(220, 220, 220);
   }
@@ -24,6 +26,7 @@ public class Block {
     sideL = 30;
     isSafeSide = false;
     isSafeTop = true;
+    type = "block";
     isEmpty = false;
     colr = 220;
   }
@@ -42,5 +45,8 @@ public class Block {
   boolean isSafeTop() {
     return isSafeTop;
   }
-  
+
+  String type() {
+    return type;
+  }
 }
