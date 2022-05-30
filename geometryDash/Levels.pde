@@ -21,13 +21,25 @@ public class Levels {
           for (int j = 0; j < WIDTH; j++) {
             switch(copy[i][j]) {
             case "b": 
-              map[i][j] = new Block(30 * (j), 30 * (i));
+              map[i][j] = new Block(30 * j, 30 * i);
               break;
             case "t":
-              map[i][j] = new Triangle(30 * (j), 30 * (i));
+              map[i][j] = new Triangle(30 * j, 30 * i);
               break;
             case "e":
-              map[i][j] = new emptyBlock(30 * (j), 30 * (i));
+              map[i][j] = new emptyBlock(30 * j, 30 * i);
+              break;
+            case "pR":
+              map[i][j] = new Portal(30 * j, 30 * i, "ROCKET");
+              break;
+            case "pU":
+              map[i][j] = new Portal(30 * j, 30 * i, "UFO");
+              break;
+            case "pB":
+              map[i][j] = new Portal(30 * j, 30 * i, "BLOCK");
+              break;
+            case "pS":
+              map[i][j] = new Portal(30 * j, 30 * i, "SPIKE");
               break;
             }
           }
