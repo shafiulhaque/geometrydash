@@ -1,9 +1,16 @@
 public class UFO extends Chars {
   float setb;
   float sett;
-  
+
   public UFO() {
     super();
+    dy = 10;
+    setb = 420;
+    sett = 50;
+  }
+
+  public UFO(float x0, float y0) {
+    super(x0, y0);
     dy = 10;
     setb = 420;
     sett = 50;
@@ -22,16 +29,16 @@ public class UFO extends Chars {
     } else {
       dy += 2;
     }
-    if (y > setb){
+    if (y > setb) {
       y = setb;
     }
-    if (y < sett){
+    if (y < sett) {
       y = sett;
     }
   }
 
   void jump() {
-    dy = -20;
+    dy = -18;
   }
 
   void display() {
