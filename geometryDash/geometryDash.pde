@@ -5,7 +5,7 @@ static boolean entered;
 void setup() {
   size(900, 600);
   background(255);
-  character = new Chars();
+  character = new UFO();
   joe = new Portal(800, 300, "SHIP");
   entered = false;
 }
