@@ -1,32 +1,51 @@
-public class Chars {
+public class Chars { //<>//
   boolean dead;
   float x, y;
   float dx, dy;
   color c;
   float sideL;
   float platform;
+  boolean change;
+  String type;
+  float top;
 
   public Chars() {
     dead = false;
     sideL = 30;
     x = 0;
-    y = 200;
+    y = 420;
+    dx = 6;
+    dy = 0;
+    platform = 420;
+    change = false;
+    type = "BLOCK";
+    top = 0;
+  }
+
+  public Chars(float x0, float y0) {
+    dead = false;
+    sideL = 30;
+    x = x0;
+    y = y0;
     dx = 3;
     dy = 0;
     platform = 420;
+    change = false;
+    type = "BLOCK";
+    top = 0;
   }
 
   void move() {
     if (!dead) {
+      if (x == 270) {
+        dx = 0;
+      }
       x += dx;
       y += dy;
       if (y < platform) {
-        dy += 2.5;
+        dy += 3;
       } else {
         dy = 0;
-      }
-      if (x == 270) {
-        dx = 0;
       }
       if (y > platform) {
         y = platform;
@@ -35,7 +54,7 @@ public class Chars {
   }
 
   void jump() {
-    dy -= 21;
+    dy -= 30;
   }
 
   void display() {
@@ -47,34 +66,29 @@ public class Chars {
   }
 
   void dead(Block other) {
-    //text(y, 20, 20);
-    //text(dy, 20, 40);
-    //text(x, 20, 60);
-    //text(dx, 20, 80);
-    //text(other.x, 20, 100);
-    //text(other.y, 20, 120);
-    //text(platform, 20, 140);
-
     if (!dead) {
-      float dist = dist(other.x, other.y, x, y);
       if (other.y < y - sideL) {
         dead = false;
-      } else if (y > other.y && y <= other.y + other.sideW && dist < 42.4264069 && x - sideL < other.x) {
+      } else if (x+sideL >= other.x && x+sideL < other.x + sideL && y >= other.y && y < other.y + sideL) {
         dead = true;
-      } else if (y == other.y && dist < sideL && x -sideL < other.x) {
+      } else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
         dead = true;
       }
 
       if (other.isSafeTop()) {
-        if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
+        if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
           dead = false;
           platform = other.y - sideL;
         }
       }
+    } 
+    //else if (!other.isSafeTop) {
+    //  if (abs(x + (sideL / 2) - other.x) <= 15 && (y + sideL >= other.y && y + sideL <= other.y + sideL)) dead = true;
+    //  else if ((x > other.x + sideL / 2 && x <= other.x + sideL)  && (y + sideL > other.y)) dead = true;
+    //}
+  }
 
-      if (x > other.x + sideL/2 && y < other.y) {
-        platform = other.y;
-      }
-    }
+  String type() {
+    return type;
   }
 }
