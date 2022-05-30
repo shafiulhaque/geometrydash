@@ -2,14 +2,18 @@ static Chars character;
 static boolean entered;
 static Levels level1;
 static boolean autoSpawn;
+static boolean won;
+static String currentS;
 
 void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  level1 = new Levels("level1.txt");
+  currentS = "level2.txt";
+  level1 = new Levels(currentS);
   entered = false;
   autoSpawn = false;
+  won = false;
 }
 
 void draw() {
@@ -57,6 +61,8 @@ void draw() {
         textAlign(CENTER);
         text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
         text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
+        currentS = "level2.txt";
+        won = true;
       }
       level1.display();
       character.display();
@@ -78,7 +84,7 @@ void draw() {
       }
     } else {
       if (autoSpawn) {
-        level1 = new Levels("level1.txt");
+        level1 = new Levels(currentS);
         character.dead = false;
       } else {
         popUp();
@@ -120,6 +126,12 @@ void keyPressed() {
     if (!entered) {
       if (character.y == character.platform && !character.dead) {
         character.jump();
+      } else if (character.type().equals("ROCKET") && !character.dead) {
+        character.jump();
+      } else if (character.type().equals("UFO") && !character.dead) {
+        character.jump();
+      } else if (character.type().equals("SPIKE") && !character.dead) {
+        character.jump();
       }
     }
   }
@@ -129,6 +141,10 @@ void keyPressed() {
   if (key == 'a') autoSpawn = !autoSpawn;
   if (key == 'r' && !autoSpawn) {
     character.dead = false;
-    level1 = new Levels("level1.txt");
+    level1 = new Levels(currentS);
+  }
+  if (key == 'n' && won) {
+    character = new Chars();
+    level1 = new Levels(currentS);
   }
 }
