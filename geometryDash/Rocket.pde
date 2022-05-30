@@ -7,6 +7,7 @@ public class Rocket extends Chars {
     dy = 6;
     setb = 420;
     sett = 50;
+    type = "ROCKET";
   }
   
   public Rocket(float x0, float y0){
@@ -14,6 +15,7 @@ public class Rocket extends Chars {
     dy = 6;
     setb = 420;
     sett = 50;
+    type = "ROCKET";
   }
 
   void move() {
@@ -58,6 +60,6 @@ public class Rocket extends Chars {
   }
 
   String type() {
-    return "ROCKET";
+    return type;
   }
 }

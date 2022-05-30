@@ -7,6 +7,7 @@ public class UFO extends Chars {
     dy = 10;
     setb = 420;
     sett = 50;
+    type = "UFO";
   }
 
   public UFO(float x0, float y0) {
@@ -14,6 +15,7 @@ public class UFO extends Chars {
     dy = 10;
     setb = 420;
     sett = 50;
+    type = "UFO";
   }
 
   void move() {
@@ -54,6 +56,6 @@ public class UFO extends Chars {
   }
 
   String type() {
-    return "UFO";
+    return type;
   }
 }
