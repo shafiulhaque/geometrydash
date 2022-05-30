@@ -21,8 +21,6 @@ public class Spike extends Chars {
   }
 
   void move() {
-    text(dy, 100, 100);
-    text(type(), 100, 120);
     if (!dead) {
       x += dx;
       y += dy;
