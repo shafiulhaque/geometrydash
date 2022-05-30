@@ -8,6 +8,13 @@ public class Rocket extends Chars {
     setb = 420;
     sett = 50;
   }
+  
+  public Rocket(float x0, float y0){
+    super(x0, y0);
+    dy = 6;
+    setb = 420;
+    sett = 50;
+  }
 
   void move() {
     if (!dead) {
@@ -33,7 +40,7 @@ public class Rocket extends Chars {
   }
 
   void jump() {
-    dy += -3;
+    dy -= 3;
   }
 
   void display() {
