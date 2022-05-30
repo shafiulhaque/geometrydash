@@ -1,7 +1,6 @@
 static Chars character;
 static boolean entered;
 static Levels level1;
-static float xC;
 
 void setup() {
   size(900, 600);
@@ -9,7 +8,6 @@ void setup() {
   character = new Chars();
   level1 = new Levels("level1.txt");
   entered = false;
-  xC = 0;
 }
 
 void draw() {
@@ -25,15 +23,16 @@ void draw() {
       if (level1.map[0][i] != null && level1.map[0][i].x == character.x) r = i;
     }
     Block highest = level1.map[level1.HEIGHT - 1][r];
-    for (int j = 0; j < level1.HEIGHT; j++) {
+    for (int j = level1.HEIGHT - 1; j > 0; j--) {
       Block currB = level1.map[j][r];
       stroke(255, 0, 0);
       fill(255, 0, 0);
       line(0, character.platform, character.x, character.platform);
       if (!currB.isEmpty) {
-        if (currB.y < highest.y) highest = currB;
-        //character.platform = currB.y;
         character.dead(currB);
+        if (currB.y < highest.y) highest = currB;
+        character.dead(highest);
+        //character.platform = currB.y;
       }
     }
     if (level1.map[0][level1.WIDTH - 1].x < 270 ) character.platform = 420;
