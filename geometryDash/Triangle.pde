@@ -11,5 +11,4 @@ public class Triangle extends Block {
     triangle(x+sideL/2, y, x, y+sideL, x+sideL, y+sideL);
     x -= 7;
   }
-
 }
