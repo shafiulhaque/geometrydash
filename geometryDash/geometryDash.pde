@@ -4,6 +4,8 @@ static Levels level1;
 static boolean autoSpawn;
 static boolean won;
 static String currentS;
+static int countdown;
+static boolean autoSpawn;
 
 void setup() {
   size(900, 600);
@@ -17,22 +19,35 @@ void setup() {
 }
 
 void draw() {
-  won = false;
+  if (countdown > 0) countdown--;
   if (!entered) {
-    if (!character.dead) {
-      background(255);
-      noStroke();
-      fill(0);
-      textAlign(LEFT);
-      textSize(20);
-      text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
-      rect(0, height * .75, width, height * .25);
-      rect(0, 0, width, character.top);
-      float blockC = 0;
-      int c = 0;
-      int cSide = 0;
-      for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x - character.x < 30 && level1.map[0][i].x - character.x > 0) c = i;
+    background(255);
+    noStroke();
+    fill(0);
+    textSize(10);
+    text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
+    rect(0, height * .75, width, height * .25);
+    float blockC = 0;
+    int c = 0;
+    int cSide = 0;
+    for (int i = 0; i < level1.WIDTH; i++) {
+      if (level1.map[0][i].x - character.x < 30 && level1.map[0][i].x - character.x > 0) c = i;
+    }
+    for (int i = 0; i < level1.WIDTH; i++) {
+      if (level1.map[0][i].x + character.sideL - character.x < 30 && level1.map[0][i].x + character.sideL - character.x > 0) cSide = i;
+    }
+    Block highest = level1.map[level1.HEIGHT - 1][c];
+    Block highestXSideL = level1.map[level1.HEIGHT - 1][cSide]; 
+    for (int j = level1.HEIGHT- 1; j > 0; j--) {
+      Block currB = level1.map[j][c];
+      Block currBSide = level1.map[j][cSide];
+      stroke(255, 0, 0);
+      fill(255, 0, 0); 
+      if (!currB.isEmpty) {
+        blockC++;
+        character.dead(currB);
+        if (currB.y < highest.y) highest = currB;
+        character.dead(highest);
       }
       for (int i = 0; i < level1.WIDTH; i++) {
         if (level1.map[0][i].x + character.sideL - character.x < 30 && level1.map[0][i].x + character.sideL - character.x > 0) cSide = i;
@@ -48,7 +63,7 @@ void draw() {
           blockC++;
           character.dead(currB);
           if (currB.y < highest.y) highest = currB;
-          character.dead(highest); 
+          character.dead(highest);
         }
         if (!currBSide.isEmpty) {
           blockC++;
@@ -61,7 +76,7 @@ void draw() {
         textSize(40);
         textAlign(CENTER);
         text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
-        if(!currentS.equals("level2.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
+        if (!currentS.equals("level2.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
         else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
         //currentS = "level2.txt";
         won = true;
@@ -85,13 +100,9 @@ void draw() {
         character.change = false;
       }
     } else {
-      if (autoSpawn) {
-        level1 = new Levels(currentS);
-        character.dead = false;
-      } else {
-        popUp();
-      }
-    }
+  if (autoSpawn) {
+    level1 = new Levels(currentS);
+    character.dead = false;
   } else {
     popUp();
   }
