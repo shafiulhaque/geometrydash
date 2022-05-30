@@ -11,7 +11,7 @@ void setup() {
 }
 
 void draw() {
-  //delay(30);
+  //delay(30); 
   if (!entered) {
     background(255);
     noStroke();
@@ -47,7 +47,7 @@ void draw() {
     popUp();
   }
 }
-
+ 
 void popUp() {
   if (entered) {
     stroke(220);
