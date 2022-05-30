@@ -5,8 +5,8 @@ static boolean entered;
 void setup() {
   size(900, 600);
   background(255);
-  character = new Rocket();
-  joe = new Portal(800, 300, "SHIP");
+  character = new Chars();
+  joe = new Portal(800, 300, "UFO");
   entered = false;
 }
 
@@ -18,8 +18,17 @@ void draw() {
     fill(0);
     rect(0, height * .75, width, height * .25);
     character.move();
+    character.dead(joe);
     joe.place();
-    text(character.dy, 20, 20);
+    if (character.change){
+      if (character.type.equals("ROCKET")){
+        character = new Rocket(character.x, character.y);
+      }
+      if (character.type.equals("UFO")){
+        character = new UFO(character.x, character.y);
+      }
+      character.change = false;
+    }
     if (!character.dead) character.display();
   } else {
     popUp();
