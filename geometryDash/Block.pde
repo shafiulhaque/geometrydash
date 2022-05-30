@@ -13,7 +13,7 @@ public class Block {
     sideW = sideL0;
     isSafeSide = safes;
     isSafeTop = safet;
-    colr = 220;
+    colr = color(220, 220, 220);
   }
 
   public Block(float x0, float y0) {
