@@ -1,12 +1,16 @@
 static Chars character;
 static Portal joe;
+static Block bruh;
+static Block bruh2;
 static boolean entered;
 
 void setup() {
   size(900, 600);
   background(255);
-  character = new Rocket();
+  character = new Chars();
   joe = new Portal(400, 300);
+  bruh = new Block(800, 390);
+  bruh2 = new Block(830, 390);
   entered = false;
 }
 
@@ -19,6 +23,10 @@ void draw() {
     rect(0, height * .75, width, height * .25);
     character.move();
     joe.place();
+    character.dead(bruh);
+    character.dead(bruh2);
+    bruh.place();
+    bruh2.place();
     if (!character.dead) character.display();
   } else {
     popUp();

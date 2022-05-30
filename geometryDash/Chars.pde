@@ -57,16 +57,17 @@ public class Chars {
 
     if (!dead) {
       float dist = dist(other.x, other.y, x, y);
+      
       if (other.y < y - sideL) {
         dead = false;
-      } else if (y > other.y && y <= other.y + other.sideW && dist < 42.4264069 && x - sideL < other.x) {
+      } else if (x+sideL >= other.x && x+sideL < other.x + sideL && y >= other.y && y < other.y + sideL){
         dead = true;
-      } else if (y == other.y && dist < sideL && x -sideL < other.x) {
+      } else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL){
         dead = true;
       }
 
       if (other.isSafeTop()) {
-        if (y < other.y && (x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL)) {
+        if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
           dead = false;
           platform = other.y - sideL;
         }
@@ -75,6 +76,7 @@ public class Chars {
       if (x > other.x + sideL/2 && y < other.y) {
         platform = other.y;
       }
+      
     }
   }
   
