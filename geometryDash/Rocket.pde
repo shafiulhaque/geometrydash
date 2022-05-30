@@ -8,6 +8,7 @@ public class Rocket extends Chars {
     setb = 420;
     sett = 50;
     type = "ROCKET";
+    top = 43;
   }
   
   public Rocket(float x0, float y0){
@@ -16,6 +17,7 @@ public class Rocket extends Chars {
     setb = 420;
     sett = 50;
     type = "ROCKET";
+    top = 43;
   }
 
   void move() {
@@ -30,7 +32,8 @@ public class Rocket extends Chars {
       }
     }
     dy += 0.12;
-    if (x == 270) {
+    if (x >= 270) {
+      x = 270;
       dx = 0;
     }
     if (y > setb){

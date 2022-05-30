@@ -7,6 +7,7 @@ public class Chars {
   float platform;
   boolean change;
   String type;
+  float top;
 
   public Chars() {
     dead = false;
@@ -18,6 +19,7 @@ public class Chars {
     platform = 420;
     change = false;
     type = "BLOCK";
+    top = 0;
   }
   
   public Chars(float x0, float y0) {
@@ -30,6 +32,7 @@ public class Chars {
     platform = 420;
     change = false;
     type = "BLOCK";
+    top = 0;
   }
 
   void move() {
@@ -102,6 +105,6 @@ public class Chars {
   }
 
   String type() {
-    return "BLOCK";
+    return type;
   }
 }

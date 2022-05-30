@@ -8,6 +8,7 @@ public class UFO extends Chars {
     setb = 420;
     sett = 50;
     type = "UFO";
+    top = 35;
   }
 
   public UFO(float x0, float y0) {
@@ -16,6 +17,7 @@ public class UFO extends Chars {
     setb = 420;
     sett = 50;
     type = "UFO";
+    top = 35;
   }
 
   void move() {
@@ -23,7 +25,8 @@ public class UFO extends Chars {
       x += dx;
       y += dy;
     }
-    if (x == 270) {
+    if (x >= 270) {
+      x = 270;
       dx = 0;
     }
     if (y == platform) {

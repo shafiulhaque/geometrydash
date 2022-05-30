@@ -9,6 +9,7 @@ public class Portal extends Block {
     type = t;
   }
   void place() {
+    fill(0);
     rect(x, y, sideL, sideW);
     fill(159, 43, 104);
     rect(x, y, sideL/3, sideW);

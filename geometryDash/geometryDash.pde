@@ -1,5 +1,7 @@
 static Chars character;
 static Portal joe;
+static Portal joe2;
+static Portal joe3;
 static boolean entered;
 
 void setup() {
@@ -7,6 +9,8 @@ void setup() {
   background(255);
   character = new Chars();
   joe = new Portal(800, 300, "UFO");
+  joe2 = new Portal(1800, 300, "ROCKET");
+  joe3 = new Portal(2800, 300, "BLOCK");
   entered = false;
 }
 
@@ -17,15 +21,23 @@ void draw() {
     noStroke();
     fill(0);
     rect(0, height * .75, width, height * .25);
+    rect(0, 0, width, character.top);
     character.move();
     character.dead(joe);
+    character.dead(joe2);
+    character.dead(joe3);
     joe.place();
-    if (character.change){
-      if (character.type.equals("ROCKET")){
+    joe2.place();
+    joe3.place();
+    if (character.change) {
+      if (character.type.equals("ROCKET")) {
         character = new Rocket(character.x, character.y);
       }
-      if (character.type.equals("UFO")){
+      if (character.type.equals("UFO")) {
         character = new UFO(character.x, character.y);
+      }
+      if (character.type.equals("BLOCK")) {
+        character = new Chars(character.x, character.y);
       }
       character.change = false;
     }
