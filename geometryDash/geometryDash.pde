@@ -19,13 +19,13 @@ void draw() {
       noStroke();
       fill(0);
       textAlign(LEFT);
-      textSize(10);
+      textSize(20);
       text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
       rect(0, height * .75, width, height * .25);
+      rect(0, 0, width, character.top);
       float blockC = 0;
       int c = 0;
       int cSide = 0;
-      character.move();
       for (int i = 0; i < level1.WIDTH; i++) {
         if (level1.map[0][i].x - character.x < 30 && level1.map[0][i].x - character.x > 0) c = i;
       }
@@ -52,9 +52,30 @@ void draw() {
         }
       }
       if (blockC == 0) character.platform = 420;
-      if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) character.platform = 420;
+      if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) { 
+        textSize(40);
+        textAlign(CENTER);
+        text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
+        text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
+      }
       level1.display();
       character.display();
+      character.move();
+      if (character.change) {
+        if (character.type.equals("ROCKET")) {
+          character = new Rocket(character.x, character.y);
+        }
+        if (character.type.equals("UFO")) {
+          character = new UFO(character.x, character.y);
+        }
+        if (character.type.equals("BLOCK")) {
+          character = new Chars(character.x, character.y);
+        }
+        if (character.type.equals("SPIKE")) {
+          character = new Spike(character.x, character.y);
+        }
+        character.change = false;
+      }
     } else {
       if (autoSpawn) {
         level1 = new Levels("level1.txt");
@@ -89,7 +110,7 @@ void popUp() {
     text("YOU ARE DEAD", width * .5, height * .3);
     textSize(20);
     text("PRESS R TO RESPAWN", width * .5, height * .5);
-    text("PRESS A TO AUTO RESPAWN", width * .5, height * .7);
+    text("PRESS A TO TOGGLE AUTO RESPAWN", width * .5, height * .7);
   }
 }
 
@@ -103,7 +124,7 @@ void keyPressed() {
     }
   }
   if (keyCode == ENTER) {
-    if(!character.dead)entered = !entered;
+    if (!character.dead)entered = !entered;
   }
   if (key == 'a') autoSpawn = !autoSpawn;
   if (key == 'r' && !autoSpawn) {
