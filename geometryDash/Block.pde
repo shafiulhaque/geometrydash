@@ -4,6 +4,7 @@ public class Block {
   int sideW;
   boolean isSafeSide;
   boolean isSafeTop;
+  String type;
 
   public Block(float x0, float y0, int sideL0, boolean safes, boolean safet) {
     x = x0;
@@ -12,6 +13,7 @@ public class Block {
     sideW = sideL0;
     isSafeSide = safes;
     isSafeTop = safet;
+    type = "block";
   }
 
   public Block(float x0, float y0) {
@@ -20,6 +22,7 @@ public class Block {
     sideL = 30;
     isSafeSide = false;
     isSafeTop = true;
+    type = "block";
   }
 
   void place() {
@@ -35,6 +38,10 @@ public class Block {
 
   boolean isSafeTop() {
     return isSafeTop;
+  }
+  
+  String type(){
+    return type;
   }
   
 }
