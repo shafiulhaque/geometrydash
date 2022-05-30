@@ -20,10 +20,13 @@ void draw() {
     float sideL = character.sideL;
     int r = 0;
     for (int i = 0; i < level1.WIDTH; i++) {
-      if (level1.map[0][i] != null && level1.map[0][i].x == character.x) r = i;
+      if (level1.map[0][i].x - character.x <= 30) {
+        r = i;
+        //break;
+      }
     }
     Block highest = level1.map[level1.HEIGHT - 1][r];
-    for (int j = level1.HEIGHT - 1; j > 0; j--) {
+    for (int j = level1.HEIGHT- 1; j > 0; j--) {
       Block currB = level1.map[j][r];
       stroke(255, 0, 0);
       fill(255, 0, 0);
@@ -31,6 +34,7 @@ void draw() {
       if (!currB.isEmpty) {
         character.dead(currB);
         if (currB.y < highest.y) highest = currB;
+        line(highest.x, 0, highest.x, highest.y);
         character.dead(highest);
         //character.platform = currB.y;
       }

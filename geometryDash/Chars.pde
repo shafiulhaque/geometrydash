@@ -48,28 +48,24 @@ public class Chars { //<>//
 
   void dead(Block other) {
     if (!dead) {
-      if ((x > other.x && x < other.x + sideL) && other.isSafeTop) {
+      if ((x >= other.x && x <= other.x + sideL) && other.isSafeTop) {
         if (y + sideL <= other.y) {
           platform = other.y - sideL;
         } else if (y + sideL > other.y && y + sideL <= other.y + sideL) { 
           dead = true;
+        } else if ((y >= other.y && y < other.y + sideL) || y + sideL < other.y + sideL) {
+          dead = true;
         }
-      } else if ((x == other.x) && other.isSafeTop) {
+      } else if ((x + sideL >= other.x && x + sideL <= other.x + sideL) && other.isSafeTop) {
         if (y + sideL <= other.y) {
           platform = other.y - sideL;
         } else if (y + sideL > other.y && y + sideL <= other.y + sideL) {
           dead = true;
-        }
-      } else if ((x + sideL > other.x && x + sideL < other.x + sideL) && other.isSafeTop) {
-        if (y + sideL <= other.y) {
-          platform = other.y - sideL;
-        } else if (y + sideL > other.y && y + sideL <= other.y + sideL) {
+        } else if ((y >= other.y && y < other.y + sideL) || y + sideL < other.y + sideL) {
           dead = true;
         }
       } else if (!other.isSafeTop) {
-        if (dist(x, y, other.x, other.y) < 30) {
-          dead = true;
-        }
+        if (dist(x, y, other.x, other.y) < 30) dead = true;
       }
     }
   }
