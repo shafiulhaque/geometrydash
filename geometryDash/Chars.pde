@@ -17,6 +17,7 @@ public class Chars {
     dy = 0;
     platform = 420;
     change = false;
+    type = "BLOCK";
   }
   
   public Chars(float x0, float y0) {
@@ -28,6 +29,7 @@ public class Chars {
     dy = 0;
     platform = 420;
     change = false;
+    type = "BLOCK";
   }
 
   void move() {
