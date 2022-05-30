@@ -9,7 +9,7 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  currentS = "level2.txt";
+  currentS = "level1.txt";
   level1 = new Levels(currentS);
   entered = false;
   autoSpawn = false;
@@ -17,6 +17,7 @@ void setup() {
 }
 
 void draw() {
+  won = false;
   if (!entered) {
     if (!character.dead) {
       background(255);
@@ -47,7 +48,7 @@ void draw() {
           blockC++;
           character.dead(currB);
           if (currB.y < highest.y) highest = currB;
-          character.dead(highest);
+          character.dead(highest); 
         }
         if (!currBSide.isEmpty) {
           blockC++;
@@ -60,8 +61,9 @@ void draw() {
         textSize(40);
         textAlign(CENTER);
         text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
-        text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
-        currentS = "level2.txt";
+        if(!currentS.equals("level2.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
+        else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
+        //currentS = "level2.txt";
         won = true;
       }
       level1.display();
@@ -145,6 +147,7 @@ void keyPressed() {
   }
   if (key == 'n' && won) {
     character = new Chars();
+    currentS = "level2.txt";
     level1 = new Levels(currentS);
   }
 }
