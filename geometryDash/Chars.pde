@@ -10,7 +10,7 @@ public class Chars { //<>//
     dead = false;
     sideL = 30;
     x = 0;
-    y = 200;
+    y = 420;
     dx = 3;
     dy = 0;
     platform = 420;
@@ -21,21 +21,21 @@ public class Chars { //<>//
       x += dx;
       y += dy;
       if (y < platform) {
-        dy += 2.5;
+        dy += 3;
       } else {
         dy = 0;
       }
       if (x == 270) {
         dx = 0;
       }
-      if (y > platform) {
-        y = platform;
-      }
+      //if (y > platform) {
+      //  y = platform;
+      //}
     }
   }
 
   void jump() {
-    dy -= 21;
+    dy -= 30;
   }
 
   void display() {
@@ -56,45 +56,25 @@ public class Chars { //<>//
     //text(platform, 20, 140);
 
     if (!dead) {
-      if(x > other.x && x < other.x + sideL){
-        if(y + sideL == other.y){
-          platform = other.y;
+      if ((x > other.x && x < other.x + sideL) && other.isSafeTop) {
+        if (y + sideL <= other.y) {
+          platform = other.y - sideL;
+        } else if (y >= other.y && y < other.y + sideL) { 
+          dead = true;
         }
-        else if(y >= other.y && y < other.y + sideL){
+      } else if ((x == other.x) && other.isSafeTop) {
+        if (y + sideL <= other.y) {
+          platform = other.y - sideL;
+        } else if (y >= other.y && y < other.y + sideL) {
+          dead = true;
+        }
+      } else if ((x + sideL > other.x && x + sideL < other.x + sideL) && other.isSafeTop) {
+        if (y + sideL <= other.y) {
+          platform = other.y - sideL;
+        } else if (y >= other.y && y < other.y + sideL) {
           dead = true;
         }
       }
-      //if ((y > other.y && y < other.y + sideL) || (y + sideL < other.y && y + sideL > other.y + sideL) ) {
-      //  dead = true;
-      //} 
-      //if (y == other. y && x < other.x ) {
-      //  dead = true;
-      //}
-
-      //if (!dead) {
-      //  float dist = dist(other.x, other.y, x, y);
-      //  if (other.y < y - sideL) {
-      //    dead = false;
-      //  } else if (y > other.y && y <= other.y + other.sideW && dist < 42.4264069 && x - sideL < other.x) {
-      //    dead = true;
-      //  } else if (y == other.y && dist < sideL && x -sideL < other.x) {
-      //    dead = true;
-      //  }
-
-      //if (other.isSafeTop() && !dead) {
-      //  if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
-      //    dead = false; 
-      //    platform = other.y - sideL;
-      //  }
-      //}
-
-      //if (x > other.x + sideL/2 && y < other.y) {
-      //  platform = other.y;
-      //}
-
-      //if(x > other.x + sideL && y == other.y - sideL){
-      //  platform = 420;
-      //}
     }
   }
 }
