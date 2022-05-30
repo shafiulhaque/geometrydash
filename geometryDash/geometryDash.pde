@@ -11,7 +11,7 @@ void setup() {
 }
 
 void draw() {
-  delay(15); 
+  delay(10); 
   if (!entered) {
     background(255);
     noStroke();
@@ -35,12 +35,12 @@ void draw() {
       Block currBSide = level1.map[j][cSide];
       stroke(255, 0, 0);
       fill(255, 0, 0);
-      line(0, character.platform, character.x, character.platform);  
+      //line(0, character.platform, character.x, character.platform);  
       if (!currB.isEmpty) {
         blockC++;
         character.dead(currB);
         if (currB.y < highest.y) highest = currB;
-        line(highest.x, 0, highest.x, highest.y);
+        //line(highest.x, 0, highest.x, highest.y);
         character.dead(highest);
       }
       if (!currBSide.isEmpty) {
