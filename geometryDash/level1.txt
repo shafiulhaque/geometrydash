@@ -1,22 +1,22 @@
 GEOFILE
-20 30
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n b n n n n n n n n n
-n n n n n n n n n n n n n n n n n b n n b n n n n n n n n n
-n n n n n n n n n n t t t n n b n b n n b n n n n n n n n n
-n n n n n n n n b b b b b b b b b b b b b b b b b b b b b b
-n n n n b b b b b b b b b b b b b b b b b b b b b b b b b b
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
-n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n
+20 100
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e b b b b b e b b b b b e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e b e e e b e e e e e e e e e e b e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e b e e e e e e e e e t t t e e e e e b e e b e e e e e e e e e e e e b b b e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e
+e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e e

@@ -5,6 +5,8 @@ public class Block {
   boolean isSafeSide;
   boolean isSafeTop;
   String type;
+  boolean isEmpty;
+  color colr;
 
   public Block(float x0, float y0, int sideL0, boolean safes, boolean safet) {
     x = x0;
@@ -14,6 +16,8 @@ public class Block {
     isSafeSide = safes;
     isSafeTop = safet;
     type = "block";
+    isEmpty = false;
+    colr = color(220, 220, 220);
   }
 
   public Block(float x0, float y0) {
@@ -23,13 +27,15 @@ public class Block {
     isSafeSide = false;
     isSafeTop = true;
     type = "block";
+    isEmpty = false;
+    colr = 220;
   }
 
   void place() {
-    stroke(220);
-    fill(220, 220, 220);
+    stroke(0);
+    fill(colr, colr, colr);
     rect(x, y, sideL, sideL);
-    x -= 7;
+    x -= 6;
   }
 
   boolean isSafeSide() {
@@ -39,9 +45,8 @@ public class Block {
   boolean isSafeTop() {
     return isSafeTop;
   }
-  
-  String type(){
+
+  String type() {
     return type;
   }
-  
 }
