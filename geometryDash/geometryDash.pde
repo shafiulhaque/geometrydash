@@ -29,9 +29,10 @@ void draw() {
       Block currB = level1.map[j][r];
       stroke(255, 0, 0);
       fill(255, 0, 0);
-      line(character.x, 0, character.x, currB.y);
+      line(0, character.platform, character.x, character.platform);
       if (!currB.isEmpty) {
         if (currB.y < highest.y) highest = currB;
+        //character.platform = currB.y;
         character.dead(currB);
       }
     }
