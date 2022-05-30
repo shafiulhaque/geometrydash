@@ -11,7 +11,7 @@ void setup() {
 }
 
 void draw() {
-  //delay(20);
+  //delay(30);
   if (!entered) {
     background(255);
     noStroke();
@@ -20,7 +20,7 @@ void draw() {
     float sideL = character.sideL;
     int r = 0;
     for (int i = 0; i < level1.WIDTH; i++) {
-      if (level1.map[0][i].x - character.x <= 30) {
+      if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x > 0) {
         r = i;
         //break;
       }
