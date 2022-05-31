@@ -4,7 +4,6 @@ static Levels level1;
 static boolean autoSpawn;
 static boolean won;
 static String currentS;
-static boolean jump;
 
 void setup() {
   size(900, 600);
@@ -69,9 +68,6 @@ void draw() {
       }
       level1.display();
       character.display();
-      if (jump && character.y == character.platform){
-        character.jump();
-      }
       character.move();
       if (character.change) {
         if (character.type.equals("ROCKET")) {
@@ -131,7 +127,7 @@ void keyPressed() {
   if (keyCode == 32) {
     if (!entered) {
       if (character.y == character.platform && !character.dead) {
-        jump = true;
+        character.jump();
       } else if (character.type().equals("ROCKET") && !character.dead) {
         character.jump();
       } else if (character.type().equals("UFO") && !character.dead) {
@@ -153,11 +149,5 @@ void keyPressed() {
     character = new Chars();
     currentS = "level2.txt";
     level1 = new Levels(currentS);
-  }
-}
-
-void keyReleased(){
-  if (keyCode == 32) {
-    jump = false;
   }
 }
