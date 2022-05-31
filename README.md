@@ -39,28 +39,28 @@ Shafiul - Fixing up movement for the character.
 
 5/27/22
 
-jacob - Not available because I went to Jprom
+Jacob - More testing conceptually, I drew out diagrams with all the block movements to see how it would be implemented.
 
-Shafiul -
+Shafiul - More platforming with the block. When the character moves on top of a block, it's platform changes, which means that the character can stay on top of the block.
 
 
 5/28/22
 
 Jacob - Working on increasing levels size and reading still, settled on a 20 x W dimension. Now working on block interactions in map.
 
-Shafiul - 
+Shafiul - Created a new object slab, and made sure that collisions with the character on the block work.
 
 
 5/29/22
 
 Jacob - Working on platforms and how they stack, and how chars interacts with that.
 
-Shafiul - 
+Shafiul - Worked on creating new characters, such as the rocket and UFO, which extend the Chars class. This character change would allow the user to move in completely different ways.
 
 
 5/30/22
 
 Jacob- Finishing MVP up- massive work with Shafiul to edit the platforming, jumping, and block interaction. Then created a level transition and user interface things.
 
-Shafiul - 
+Shafiul - Worked on creating portals, which would allow the character to change if it jumps inside it. There are different portals based on the different characters, and all of them work. However, we haven't implemented them in the level yet, as we have to see how that changes the platforming. Also created a new ball character.
 
