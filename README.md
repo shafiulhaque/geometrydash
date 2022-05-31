@@ -17,6 +17,7 @@ https://docs.google.com/document/d/1DoeC03GguchyTU4rn-WnNg-sOMY7gM8NtqaWRC1FQis/
 4. Click the play button on the top left of the Processing screen to start the game!
 
 
+## Developer Log:
 5/23/22
 
 
