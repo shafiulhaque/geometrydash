@@ -22,14 +22,45 @@ Jacob - Adding the constructor and fixing some heavy merge issues today.
 
 Shafiul - Experimenting with the obstacle movement, and successfully made the obstacles move towards the character.
 
+
 5/25/22
+
+Jacob - Created the basis of the Levels class, and will now work on extra map features. Also fixing the weird merge issues too.
 
 Shafiul - Made the character die when interacting with the obstacles, and movement at the beginning of the level is shown.
 
+
 5/26/22
+
+Jacob - Bug fixes with the blocks and chars, then starting to try larger level files and testing.
 
 Shafiul - Fixing up movement for the character.
 
+
 5/27/22
 
-Shafiul - Made the character stay on top of the block when jumping on top of it.
+jacob - Not available because I went to Jprom
+
+Shafiul -
+
+
+5/28/22
+
+Jacob - Working on increasing levels size and reading still, settled on a 20 x W dimension. Now working on block interactions in map.
+
+Shafiul - 
+
+
+5/29/22
+
+Jacob - Working on platforms and how they stack, and how chars interacts with that.
+
+Shafiul - 
+
+
+5/30/22
+
+Jacob- Finishing MVP up- massive work with Shafiul to edit the platforming, jumping, and block interaction. Then created a level transition and user interface things.
+
+Shafiul - 
+
