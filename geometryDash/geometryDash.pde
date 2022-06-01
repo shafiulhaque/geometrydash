@@ -56,14 +56,13 @@ void draw() {
           character.dead(currBSide);
         }
       }
-      if (blockC == 0) character.platform = 420;
+      //if (blockC == 0) character.platform = 420;
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) { 
         textSize(40);
         textAlign(CENTER);
         text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
         if (!currentS.equals("level2.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
         else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
-        //currentS = "level2.txt";
         won = true;
       }
       level1.display();
