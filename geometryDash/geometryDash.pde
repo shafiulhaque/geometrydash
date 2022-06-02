@@ -126,6 +126,7 @@ void popUp() {
 void keyPressed() {
   if (keyCode == 32) {
     if (!entered) {
+      text("JUMP", 100, 100); 
       if (character.y == character.platform && !character.dead) {
         character.jump();
       } else if (character.type().equals("ROCKET") && !character.dead) {
