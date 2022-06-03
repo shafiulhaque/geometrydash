@@ -43,7 +43,7 @@ public class Chars { //<>// //<>//
       x += dx;
       y += dy;
       if (y < platform) {
-        dy += 3;
+        dy += 1;
       } else {
         dy = 0;
       }
@@ -54,7 +54,7 @@ public class Chars { //<>// //<>//
   }
 
   void jump() {
-    dy -= 30;
+    dy -= 12;
   }
 
   void display() {
@@ -74,14 +74,18 @@ public class Chars { //<>// //<>//
           dead = true;
         } else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
           dead = true;
+        } else if (x+sideL >= other.x && x+sideL < other.x + sideL && y+sideL >= other.y && y+sideL < other.y + sideL) {
+          dead = true;
         }
-
         if (other.isSafeTop()) {
           if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
             dead = false;
             platform = other.y - sideL;
           }
         }
+        // else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
+        //  dead = true;
+        //}
       } else {
         if (x+sideL > other.x && x+sideL < other.x+other.sideL && y > other.y && y < other.y+other.sideW) {
           change = true;
@@ -90,6 +94,16 @@ public class Chars { //<>// //<>//
       }
     }
   }
+
+  float platformInitial(Block other) {
+    if (other.isSafeTop()) {
+      if (y + sideL <= other.y) {
+        return other.y - sideL;
+      }
+    }
+    return y;
+  }
+
 
   String type() {
     return type;
