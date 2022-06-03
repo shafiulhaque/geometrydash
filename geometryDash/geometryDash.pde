@@ -17,7 +17,7 @@ void setup() {
 }
 
 void draw() {
-  delay(20);
+  //delay(20);
   won = false;
   if (!entered) {
     if (!character.dead) {
@@ -29,17 +29,13 @@ void draw() {
       text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
       rect(0, height * .75, width, height * .25);
       rect(0, 0, width, character.top);
-      //float blockC = 0;
       int c = 0;
       int cSide = 0;
       for (int i = 0; i < level1.WIDTH; i++) {
         if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x >= 0) c = i;
-      }
-      for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x - (character.x + character.sideL ) <= 30 && level1.map[0][i].x - (character.x + character.sideL) >= 0) cSide = i;
+        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cSide = i;
       }
       Block highest = level1.map[level1.HEIGHT - 1][c];
-      //Block highestXSideL = level1 .map[level1.HEIGHT - 1][cSide]; 
       character.display();
       character.move();
       for (int j = level1.HEIGHT- 1; j > 0; j--) {
@@ -48,20 +44,15 @@ void draw() {
         stroke(255, 0, 0);
         fill(255, 0, 0); 
         if (!currB.isEmpty) {
-          //blockC++;
-          //character.dead(currB);
-          if (currB.y < highest.y) highest = currB;
           character.dead(currB);
+          if (currB.y < highest.y) highest = currB;
+          //character.dead(currB);
           character.dead(highest);
         }
         if (!currBSide.isEmpty) {
-          //blockC++;
-          //if (currBSide.y < highestXSideL.y) highestXSideL = currBSide;
           character.dead(currBSide);
-          //character.dead(highestXSideL);
         }
       }
-      //if (blockC == 0) character.platform = 420;
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) { 
         textSize(40);
         textAlign(CENTER);
