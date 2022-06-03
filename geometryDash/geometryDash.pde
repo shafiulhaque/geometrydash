@@ -17,7 +17,7 @@ void setup() {
 }
 
 void draw() {
-  //delay(20);
+  delay(100);
   won = false;
   if (!entered) {
     if (!character.dead) {
@@ -29,6 +29,7 @@ void draw() {
       text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
       rect(0, height * .75, width, height * .25);
       rect(0, 0, width, character.top);
+      level1.display();
       int c = 0;
       int cSide = 0;
       for (int i = 0; i < level1.WIDTH; i++) {
@@ -44,12 +45,16 @@ void draw() {
         stroke(255, 0, 0);
         fill(255, 0, 0); 
         if (!currB.isEmpty) {
+          fill(0, 255, 0);
+          line(currB.x, 0, currB.x, currB.y);
           character.dead(currB);
           if (currB.y < highest.y) highest = currB;
           //character.dead(currB);
-          character.dead(highest);
+          //character.dead(highest);
         }
         if (!currBSide.isEmpty) {
+          fill(255, 0, 0);
+          line(currBSide.x, 0, currBSide.x, currBSide.y);
           character.dead(currBSide);
         }
       }
@@ -61,7 +66,6 @@ void draw() {
         else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
         won = true;
       }
-      level1.display();
       if (character.change) {
         if (character.type.equals("ROCKET")) {
           character = new Rocket(character.x, character.y);
