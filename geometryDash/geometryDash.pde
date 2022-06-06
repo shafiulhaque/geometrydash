@@ -21,7 +21,7 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      delay(50);
+      delay(100);
       background(255);
       noStroke();
       fill(0);
@@ -33,12 +33,14 @@ void draw() {
       
       int c = 0;
       int cSide = 0;
+      //int c = (int)character.x/30;
+      //int cSide = (int)character.x/30 + 1;
       for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x - character.x < 30 && level1.map[0][i].x - character.x > 0) c = i;
+        if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x >= 0) c = i;
       }
       text(c, 100, 200);
       for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x + character.sideL - character.x < 30 && level1.map[0][i].x + character.sideL - character.x > 0) cSide = i;
+        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cSide = i;
       }  
       text(cSide, 100, 250);
       
