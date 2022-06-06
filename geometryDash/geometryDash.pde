@@ -10,12 +10,12 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  currentS = "level1.txt";
+  levelCurr = 3;
+  currentS = "level" + levelCurr + ".txt";
   level1 = new Levels(currentS);
   entered = false;
   autoSpawn = false;
   won = false;
-  levelCurr = 1;
 }
 
 void draw() {
@@ -86,7 +86,7 @@ void draw() {
     } else {
       if (autoSpawn) {
         level1 = new Levels(currentS);
-        character.dead = false;
+        character = new Chars();
       } else {
         popUp();
       }
@@ -146,7 +146,7 @@ void keyPressed() {
   }
   if (key == 'n' && won) {
     character = new Chars();
-    levelCurr++;
+    if(levelCurr != 3) levelCurr++;
     currentS = "level" + levelCurr + ".txt";
     level1 = new Levels(currentS);
   }
