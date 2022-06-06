@@ -4,6 +4,7 @@ static Levels level1;
 static boolean autoSpawn;
 static boolean won;
 static String currentS;
+static int levelCurr;
 
 void setup() {
   size(900, 600);
@@ -14,6 +15,7 @@ void setup() {
   entered = false;
   autoSpawn = false;
   won = false;
+  levelCurr = 1;
 }
 
 void draw() {
@@ -62,8 +64,9 @@ void draw() {
         textSize(40);
         textAlign(CENTER);
         text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
-        if (!currentS.equals("level2.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
+        if (!currentS.equals("level3.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
         else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
+        levelCurr++;
         won = true;
       }
       if (character.change) {
@@ -144,7 +147,7 @@ void keyPressed() {
   }
   if (key == 'n' && won) {
     character = new Chars();
-    currentS = "level2.txt";
+    currentS = "level" + levelCurr + ".txt";
     level1 = new Levels(currentS);
   }
 }
