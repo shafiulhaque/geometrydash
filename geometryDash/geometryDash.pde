@@ -52,7 +52,7 @@ void draw() {
           character.dead(currB);
           if (currB.y < highest.y) highest = currB;
           //character.dead(currB);
-          //character.dead(highest);
+          character.dead(highest);
         }
         if (!currBSide.isEmpty) {
           fill(255, 0, 0);
