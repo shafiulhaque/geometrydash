@@ -19,7 +19,7 @@ void setup() {
 }
 
 void draw() {
-  delay(100);
+  //delay(100);
   won = false;
   if (!entered) {
     if (!character.dead) {
@@ -66,7 +66,6 @@ void draw() {
         text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
         if (!currentS.equals("level3.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
         else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
-        levelCurr++;
         won = true;
       }
       if (character.change) {
@@ -147,6 +146,7 @@ void keyPressed() {
   }
   if (key == 'n' && won) {
     character = new Chars();
+    levelCurr++;
     currentS = "level" + levelCurr + ".txt";
     level1 = new Levels(currentS);
   }
