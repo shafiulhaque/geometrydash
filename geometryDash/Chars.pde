@@ -8,6 +8,8 @@ public class Chars { //<>// //<>//
   boolean change;
   String type;
   float top;
+  float platb;
+  float platf;
 
   public Chars() {
     dead = false;
@@ -20,6 +22,8 @@ public class Chars { //<>// //<>//
     change = false;
     type = "BLOCK";
     top = 0;
+    platb = 420;
+    platf = 420;
   }
 
   public Chars(float x0, float y0) {
@@ -33,6 +37,8 @@ public class Chars { //<>// //<>//
     change = false;
     type = "BLOCK";
     top = 0;
+    platb = 420;
+    platf = 420;
   }
 
   void move() {
