@@ -29,31 +29,12 @@ void draw() {
 
       for (int i = 0; i < level1.WIDTH; i++) {
         if (level1.map[0][i].x - character.x - 15 <= 30 && level1.map[0][i].x - character.x - 15 >= 0) cb = i;
+        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cf = i;
       }
       text(cb, 100, 200);
-      for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cf = i;
-      }  
       text(cf, 100, 250);
 
-      Block highest = level1.map[level1.HEIGHT - 1][cb];
-      Block highestXSideL = level1.map[level1.HEIGHT - 1][cf];
-
-      for (int j = level1.HEIGHT- 1; j > 0; j--) {
-        Block currB = level1.map[j][cb];
-        Block currBSide = level1.map[j][cf];
-        stroke(255, 0, 0);
-        fill(255, 0, 0); 
-        if (!currB.isEmpty) {
-          character.dead(currB);
-          if (currB.y < highest.y) highest = currB;
-          //character.dead(highest);
-        }
-        if (!currBSide.isEmpty) {
-          if (currBSide.y < highestXSideL.y) highestXSideL = currBSide;
-          character.dead(currBSide);
-        }
-      }
+      level1.findPlats(character, cb, cf);
 
       text(character.platform, 100, 100);
       text(character.y, 100, 140);
@@ -62,10 +43,10 @@ void draw() {
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) {
         endScreen();
       }
-      level1.display();
-      character.display();
       if (jump && character.y == character.platform && !character.dead && character.dy == 0.0) character.jump();
       character.move();
+      level1.display();
+      character.display();
       if (character.change) {
         changeChar();
       }

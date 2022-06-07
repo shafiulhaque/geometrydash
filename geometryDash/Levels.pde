@@ -52,7 +52,25 @@ public class Levels {
     catch(IOException e) {
       System.out.print("FILE NOT FOUND");
     }
-  }  
+  }
+
+  void findPlats(Chars character, int cb, int cf) {
+    for (int j = level1.HEIGHT- 1; j > 0; j--) {
+      Block currB = level1.map[j][cb];
+      Block currBSide = level1.map[j][cf];
+      stroke(255, 0, 0);
+      fill(255, 0, 0); 
+      if (!currB.isEmpty) {
+        character.dead(currB);
+        //if (currB.y < highest.y) highest = currB;
+        //character.dead(highest);
+      }
+      if (!currBSide.isEmpty) {
+        //if (currBSide.y < highestXSideL.y) highestXSideL = currBSide;
+        character.dead(currBSide);
+      }
+    }
+  }
 
   void testerPrint(String[][] copy) {
     for (int i = 0; i < HEIGHT; i++) {
