@@ -22,7 +22,7 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      //delay(100);
+      delay(40);
       background(255);
       noStroke();
       fill(0);
@@ -32,35 +32,30 @@ void draw() {
       rect(0, height * .75, width, height * .25);
       rect(0, 0, width, character.top);
       
-      int c = 0;
-      int cSide = 0;
-      //int c = (int)character.x/30;
-      //int cSide = (int)character.x/30 + 1;
-      for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x - character.x - 15 <= 30 && level1.map[0][i].x - character.x - 15 >= 0) c = i;
-      }
-      text(c, 100, 200);
-      for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cSide = i;
-      }  
-      text(cSide, 100, 250);
+      int cb = 0;
+      int cf = 0;
       
-      Block highest = level1.map[level1.HEIGHT - 1][c];
-      Block highestXSideL = level1.map[level1.HEIGHT - 1][cSide];
-      float max = 500;
+      for (int i = 0; i < level1.WIDTH; i++) {
+        if (level1.map[0][i].x - character.x - 15 <= 30 && level1.map[0][i].x - character.x - 15 >= 0) cb = i;
+      }
+      text(cb, 100, 200);
+      for (int i = 0; i < level1.WIDTH; i++) {
+        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cf = i;
+      }  
+      text(cf, 100, 250);
+      
+      Block highest = level1.map[level1.HEIGHT - 1][cb];
+      Block highestXSideL = level1.map[level1.HEIGHT - 1][cf];
       
       for (int j = level1.HEIGHT- 1; j > 0; j--) {
-        Block currB = level1.map[j][c];
-        Block currBSide = level1.map[j][cSide];
+        Block currB = level1.map[j][cb];
+        Block currBSide = level1.map[j][cf];
         stroke(255, 0, 0);
         fill(255, 0, 0); 
         if (!currB.isEmpty) {
           character.dead(currB);
           if (currB.y < highest.y) highest = currB;
           //character.dead(highest);
-          if (character.platformInitial(currB) < max){
-            max = character.platformInitial(currB);
-          }
         }
         if (!currBSide.isEmpty) {
           if (currBSide.y < highestXSideL.y) highestXSideL = currBSide;
@@ -68,8 +63,6 @@ void draw() {
         }
       }
       
-      text(max, 100, 120);
-      //character.platform = max;
       text(character.platform, 100, 100);
       text(character.y, 100, 140);
       text(character.dy, 100, 160);
