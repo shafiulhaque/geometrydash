@@ -67,12 +67,11 @@ public class Levels {
     return copy;
   }
 
-  void display() {
+  void display(PImage img) {
     for (int i = 0; i < HEIGHT; i++) {
       for (int j = 0; j < WIDTH; j++) {
-        if (map[i][j] != null) {
-          current = map[i][j];
-          current.place();
+        if (!map[i][j].isEmpty) {
+          map[i][j].place(img);
         }
       }
     }

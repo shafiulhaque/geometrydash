@@ -5,12 +5,15 @@ static boolean autoSpawn;
 static boolean won;
 static String currentS;
 static int levelCurr;
+PImage blockIm;
 
 void setup() {
+  blockIm = loadImage("geoBlockImg.jpg");
+  blockIm.resize(30, 30);
   size(900, 600);
   background(255);
   character = new Chars();
-  levelCurr = 3;
+  levelCurr = 1;
   currentS = "level" + levelCurr + ".txt";
   level1 = new Levels(currentS);
   entered = false;
@@ -31,7 +34,7 @@ void draw() {
       text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
       rect(0, height * .75, width, height * .25);
       rect(0, 0, width, character.top);
-      level1.display();
+      level1.display(blockIm);
       int c = 0;
       int cSide = 0;
       for (int i = 0; i < level1.WIDTH; i++) {
@@ -146,7 +149,7 @@ void keyPressed() {
   }
   if (key == 'n' && won) {
     character = new Chars();
-    if(levelCurr != 3) levelCurr++;
+    if (levelCurr != 3) levelCurr++;
     currentS = "level" + levelCurr + ".txt";
     level1 = new Levels(currentS);
   }

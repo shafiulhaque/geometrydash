@@ -31,10 +31,8 @@ public class Block {
     colr = 220;
   }
 
-  void place() {
-    stroke(0);
-    fill(colr, colr, colr);
-    rect(x, y, sideL, sideL);
+  void place(PImage img) {
+    image(img, x, y);
     x -= 6;
   }
 
