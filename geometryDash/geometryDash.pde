@@ -1,24 +1,24 @@
 static Chars character;
 static boolean entered;
-static Levels level1;
+static Levels level;
 static boolean autoSpawn;
 static boolean won;
 static String currentS;
 static int levelCurr;
-PImage blockIm;
+static PImage blockIm;
 
 void setup() {
-  blockIm = loadImage("geoBlockImg.jpg");
-  blockIm.resize(30, 30);
   size(900, 600);
   background(255);
   character = new Chars();
   levelCurr = 1;
   currentS = "level" + levelCurr + ".txt";
-  level1 = new Levels(currentS);
+  level = new Levels(currentS);
   entered = false;
   autoSpawn = false;
   won = false;
+  blockIm = loadImage("geoBlockImg.jpg");
+  blockIm.resize(30, 30);
 }
 
 void draw() {
@@ -34,19 +34,19 @@ void draw() {
       text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
       rect(0, height * .75, width, height * .25);
       rect(0, 0, width, character.top);
-      level1.display(blockIm);
+      level.display(blockIm);
       int c = 0;
       int cSide = 0;
-      for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x >= 0) c = i;
-        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cSide = i;
+      for (int i = 0; i < level.WIDTH; i++) {
+        if (level.map[0][i].x - character.x <= 30 && level.map[0][i].x - character.x >= 0) c = i;
+        if (level.map[0][i].x + character.sideL - character.x <= 30 && level.map[0][i].x + character.sideL - character.x >= 0) cSide = i;
       }
-      Block highest = level1.map[level1.HEIGHT - 1][c];
+      Block highest = level.map[level.HEIGHT - 1][c];
       character.display();
       character.move();
-      for (int j = level1.HEIGHT- 1; j > 0; j--) {
-        Block currB = level1.map[j][c];
-        Block currBSide = level1.map[j][cSide];
+      for (int j = level.HEIGHT- 1; j > 0; j--) {
+        Block currB = level.map[j][c];
+        Block currBSide = level.map[j][cSide];
         stroke(255, 0, 0);
         fill(255, 0, 0); 
         if (!currB.isEmpty) {
@@ -63,7 +63,7 @@ void draw() {
           character.dead(currBSide);
         }
       }
-      if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) { 
+      if (level.map[0][level.WIDTH - 1].x < 270 && !character.dead) { 
         textSize(40);
         textAlign(CENTER);
         text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
@@ -88,7 +88,7 @@ void draw() {
       }
     } else {
       if (autoSpawn) {
-        level1 = new Levels(currentS);
+        level = new Levels(currentS);
         character = new Chars();
       } else {
         popUp();
@@ -145,12 +145,12 @@ void keyPressed() {
   if (key == 'a') autoSpawn = !autoSpawn;
   if (key == 'r' && !autoSpawn) {
     character.dead = false;
-    level1 = new Levels(currentS);
+    level = new Levels(currentS);
   }
   if (key == 'n' && won) {
     character = new Chars();
     if (levelCurr != 3) levelCurr++;
     currentS = "level" + levelCurr + ".txt";
-    level1 = new Levels(currentS);
+    level = new Levels(currentS);
   }
 }
