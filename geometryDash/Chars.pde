@@ -68,29 +68,21 @@ public class Chars { //<>// //<>//
   void dead(Block other) {
     if (!dead) {
       if (!(other.isSafeTop() && other.isSafeSide())) {
-        if (other.y < y - sideL || y < other.y) {
+        if (other.y < y - sideL) {
           dead = false;
         } else if (x+sideL >= other.x && x+sideL < other.x + sideL && y >= other.y && y < other.y + sideL) {
           dead = true;
         } else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
           dead = true;
-        } else if (x+sideL >= other.x && x+sideL < other.x + sideL && y+sideL >= other.y && y+sideL < other.y + sideL) {
-          dead = true;
-        } else if (x > other.x && x < other.x + sideL && y+sideL > other.y && y+sideL < other.y + sideL) {
-          dead = true;
         }
-        
+        line(x, y, other.x, other.y);
+
         if (other.isSafeTop()) {
-          if (y-sideL < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
+          if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
             dead = false;
             platform = other.y - sideL;
           }
         }
-        line(x+sideL, y+sideL, other.x, other.y);
-        
-        // else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
-        //  dead = true;
-        //}
       } else {
         if (x+sideL > other.x && x+sideL < other.x+other.sideL && y > other.y && y < other.y+other.sideW) {
           change = true;

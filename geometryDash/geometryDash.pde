@@ -1,9 +1,10 @@
 static Chars character;
-static boolean entered;
 static Levels level1;
+static boolean entered;
 static boolean autoSpawn;
 static boolean won;
 static String currentS;
+static boolean jump;
 
 void setup() {
   size(900, 600);
@@ -21,7 +22,7 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      delay(100);
+      //delay(100);
       background(255);
       noStroke();
       fill(0);
@@ -36,7 +37,7 @@ void draw() {
       //int c = (int)character.x/30;
       //int cSide = (int)character.x/30 + 1;
       for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x >= 0) c = i;
+        if (level1.map[0][i].x - character.x - 15 <= 30 && level1.map[0][i].x - character.x - 15 >= 0) c = i;
       }
       text(c, 100, 200);
       for (int i = 0; i < level1.WIDTH; i++) {
@@ -71,6 +72,7 @@ void draw() {
       //character.platform = max;
       text(character.platform, 100, 100);
       text(character.y, 100, 140);
+      text(character.dy, 100, 160);
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) { 
         textSize(40);
         textAlign(CENTER);
@@ -82,6 +84,7 @@ void draw() {
       }
       level1.display();
       character.display();
+      if (jump && character.y == character.platform && !character.dead && character.dy == 0.0) character.jump();
       character.move();
       if (character.change) {
         if (character.type.equals("ROCKET")) {
@@ -111,6 +114,43 @@ void draw() {
   }
 }
 
+
+void keyPressed() {
+  if (keyCode == 32) {
+    if (!entered) {
+      text("JUMP", 100, 100); 
+      if (character.y == character.platform && !character.dead && character.dy == 0.0) {
+        jump = true;
+      } else if (character.type().equals("ROCKET") && !character.dead) {
+        character.jump();
+      } else if (character.type().equals("UFO") && !character.dead) {
+        character.jump();
+      } else if (character.type().equals("SPIKE") && !character.dead) {
+        character.jump();
+      }
+    }
+  }
+  if (keyCode == ENTER) {
+    if (!character.dead)entered = !entered;
+  }
+  if (key == 'a') autoSpawn = !autoSpawn;
+  if (key == 'r' && !autoSpawn) {
+    character.dead = false;
+    level1 = new Levels(currentS);
+  }
+  if (key == 'n' && won) {
+    character = new Chars();
+    currentS = "level2.txt";
+    level1 = new Levels(currentS);
+  }
+}
+
+void keyReleased(){
+  if (keyCode == 32) {
+    jump = false;
+  }
+}
+
 void popUp() {
   if (entered && !character.dead) {
     stroke(220);
@@ -133,36 +173,5 @@ void popUp() {
     textSize(20);
     text("PRESS R TO RESPAWN", width * .5, height * .5);
     text("PRESS A TO TOGGLE AUTO RESPAWN", width * .5, height * .7);
-  }
-}
-
-
-void keyPressed() {
-  if (keyCode == 32) {
-    if (!entered) {
-      text("JUMP", 100, 100); 
-      if (character.y == character.platform && !character.dead) {
-        character.jump();
-      } else if (character.type().equals("ROCKET") && !character.dead) {
-        character.jump();
-      } else if (character.type().equals("UFO") && !character.dead) {
-        character.jump();
-      } else if (character.type().equals("SPIKE") && !character.dead) {
-        character.jump();
-      }
-    }
-  }
-  if (keyCode == ENTER) {
-    if (!character.dead)entered = !entered;
-  }
-  if (key == 'a') autoSpawn = !autoSpawn;
-  if (key == 'r' && !autoSpawn) {
-    character.dead = false;
-    level1 = new Levels(currentS);
-  }
-  if (key == 'n' && won) {
-    character = new Chars();
-    currentS = "level2.txt";
-    level1 = new Levels(currentS);
   }
 }
