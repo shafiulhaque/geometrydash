@@ -75,7 +75,6 @@ public class Chars { //<>// //<>//
         } else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
           dead = true;
         }
-        line(x, y, other.x, other.y);
 
         if (other.isSafeTop()) {
           if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
