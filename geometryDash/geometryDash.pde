@@ -22,14 +22,14 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      //delay(40);
+      delay(40);
       start1();
       int cb = 0;
       int cf = 0;
 
       for (int i = 0; i < level1.WIDTH; i++) {
-        if (level1.map[0][i].x - character.x - 15 <= 30 && level1.map[0][i].x - character.x - 15 >= 0) cb = i;
-        if (level1.map[0][i].x + character.sideL - character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cf = i;
+        if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x >= 0) cb = i;
+        if (level1.map[0][i].x + character.sideL- character.x <= 30 && level1.map[0][i].x + character.sideL- character.x >= 0) cf = i;
       }
       text(cb, 100, 200);
       text(cf, 100, 250);
@@ -37,13 +37,15 @@ void draw() {
       level1.findPlats(character, cb, cf);
 
       text(character.platform, 100, 100);
+      text(character.x, 100, 120);
       text(character.y, 100, 140);
       text(character.dy, 100, 160);
+      text(character.platf, 100, 280);
+      text(character.platb, 100, 300);
 
-      if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) {
-        endScreen();
-      }
-      if (jump && character.y == character.platform && !character.dead && character.dy == 0.0) character.jump();
+      if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) endScreen();
+
+      if (jump && (character.y == character.platf || character.y == character.platb) && !character.dead && character.dy == 0.0) character.jump();
       character.move();
       level1.display();
       character.display();
