@@ -70,8 +70,9 @@ public class Levels {
   void display(PImage img) {
     for (int i = 0; i < HEIGHT; i++) {
       for (int j = 0; j < WIDTH; j++) {
-        if (!map[i][j].isEmpty) {
-          map[i][j].place(img);
+        current = map[i][j];
+        if (current != null) {
+          current.place(img);
         }
       }
     }

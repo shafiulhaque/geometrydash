@@ -41,6 +41,9 @@ void draw() {
         if (level.map[0][i].x - character.x <= 30 && level.map[0][i].x - character.x >= 0) c = i;
         if (level.map[0][i].x + character.sideL - character.x <= 30 && level.map[0][i].x + character.sideL - character.x >= 0) cSide = i;
       }
+      textSize(15);
+      text("c= " + c, 200, 200);
+      text("cSide = " + cSide, 200, 230);
       Block highest = level.map[level.HEIGHT - 1][c];
       character.display();
       character.move();
@@ -127,7 +130,7 @@ void popUp() {
 
 void keyPressed() {
   if (keyCode == 32) {
-    if (!entered) {
+    if (!entered && !character.dead) {
       if (character.y == character.platform && !character.dead) {
         character.jump();
       } else if (character.type().equals("ROCKET") && !character.dead) {
