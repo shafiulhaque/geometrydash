@@ -53,7 +53,7 @@ public class Chars { //<>// //<>//
       } else {
         dy = 0;
       }
-      if (y > platform) {
+      if (y >= platform) {
         y = platform;
         dy = 0;
       }

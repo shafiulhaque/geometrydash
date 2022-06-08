@@ -7,8 +7,8 @@ public class Triangle extends Block {
   }
 
   void place() {
-    stroke(0);
-    fill(220, 220, 220);
+    stroke(255);
+    fill(0);
     triangle(x+sideL/2, y, x, y+sideL, x+sideL, y+sideL);
     x -= 6;
   }

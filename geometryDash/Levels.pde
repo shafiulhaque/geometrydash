@@ -71,9 +71,9 @@ public class Levels {
         character.dead(currBSide);
         if (character.platInt(currBSide) < platf) platf = character.platInt(currBSide);
       }
-      character.platb = platb;
-      character.platf = platf;
     }
+    character.platb = platb;
+    character.platf = platf;
   }
 
   void testerPrint(String[][] copy) {
