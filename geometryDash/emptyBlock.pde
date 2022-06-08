@@ -7,7 +7,7 @@ public class emptyBlock extends Block {
     isEmpty = true;
   }
 
-  void place() {
+  void place(PImage img) {
     x -= 6;
   }
 

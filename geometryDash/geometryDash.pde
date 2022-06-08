@@ -9,7 +9,7 @@ static PImage blockIm;
 
 void setup() {
   size(900, 600);
-  background(255);
+  background(50, 100, 200);
   character = new Chars();
   levelCurr = 1;
   currentS = "level" + levelCurr + ".txt";
@@ -26,7 +26,7 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      background(255);
+      background(50, 100, 200);
       noStroke();
       fill(0);
       textAlign(LEFT);
