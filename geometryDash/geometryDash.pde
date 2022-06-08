@@ -22,26 +22,25 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      delay(40);
+      //delay(100);
       start1();
       int cb = 0;
       int cf = 0;
 
       for (int i = 0; i < level1.WIDTH; i++) {
         if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x >= 0) cb = i;
-        if (level1.map[0][i].x + character.sideL- character.x <= 30 && level1.map[0][i].x + character.sideL- character.x >= 0) cf = i;
+        if (level1.map[0][i].x + character.sideL- character.x <= 30 && level1.map[0][i].x + character.sideL - character.x >= 0) cf = i;
       }
       text(cb, 100, 200);
       text(cf, 100, 250);
-
+      
       level1.findPlats(character, cb, cf);
 
       text(character.platform, 100, 100);
-      text(character.x, 100, 120);
       text(character.y, 100, 140);
       text(character.dy, 100, 160);
-      text(character.platf, 100, 280);
-      text(character.platb, 100, 300);
+      text(character.platf, 100, 60);
+      text(character.platb, 100, 80);
 
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) endScreen();
 
@@ -69,6 +68,7 @@ void draw() {
 
 void keyPressed() {
   if (keyCode == 32) {
+    jump = true;
     if (!entered) {
       text("JUMP", 100, 100); 
       if (character.y == character.platform && !character.dead && character.dy == 0.0) {
@@ -94,6 +94,9 @@ void keyPressed() {
     character = new Chars();
     currentS = "level2.txt";
     level1 = new Levels(currentS);
+  }
+  if (key == 'q'){
+    delay(10000);
   }
 }
 
@@ -145,7 +148,7 @@ void start1() {
   textAlign(LEFT);
   textSize(20);
   text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
-  rect(0, height * .75, width, height * .25);
+  rect(0, height * .75 + 30, width, height * .25);
   rect(0, 0, width, character.top);
 }
 

@@ -31,14 +31,14 @@ public class Chars { //<>// //<>//
     sideL = 30;
     x = x0;
     y = y0;
-    dx = 3;
+    dx = 6;
     dy = 0;
-    platform = 420;
+    //platform = 420;
     change = false;
     type = "BLOCK";
     top = 0;
-    platb = 420;
-    platf = 420;
+    //platb = 420;
+    //platf = 420;
   }
 
   void move() {
@@ -48,13 +48,14 @@ public class Chars { //<>// //<>//
       }
       x += dx;
       y += dy;
-      if (y < platform) {
+      if (y < platf) {
         dy += 1;
       } else {
         dy = 0;
       }
       if (y > platform) {
         y = platform;
+        dy = 0;
       }
     }
   }
@@ -72,6 +73,7 @@ public class Chars { //<>// //<>//
   }
 
   void dead(Block other) {
+    if (!dead)
       if (!(other.isSafeTop() && other.isSafeSide())) {
         if (other.y < y - sideL) {
           dead = false;
