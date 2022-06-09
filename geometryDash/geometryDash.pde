@@ -10,7 +10,7 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  currentS = "stereomadness.txt";
+  currentS = "stereomadness0.txt";
   level1 = new Levels(currentS);
   entered = false;
   autoSpawn = false;

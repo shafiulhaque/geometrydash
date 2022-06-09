@@ -3,6 +3,7 @@ public class Levels {
   Block current;
   String[][] copy;
   String[] mapSize;
+  BufferedReader[] level;
   int WIDTH;
   int HEIGHT;
 
@@ -32,7 +33,7 @@ public class Levels {
         case "b": 
           map[i][j] = new Block(30 * j, 30 * i);
           break;
-        case "r": 
+        case "x": 
           map[i][j] = new SlantTriangle(30 * j, 30 * i);
           break;
         case "t":
@@ -44,16 +45,16 @@ public class Levels {
         case "e":
           map[i][j] = new emptyBlock(30 * j, 30 * i);
           break;
-        case "pR":
+        case "r":
           map[i][j] = new Portal(30 * j, 30 * i, "ROCKET");
           break;
-        case "pU":
+        case "u":
           map[i][j] = new Portal(30 * j, 30 * i, "UFO");
           break;
-        case "pB":
+        case "B":
           map[i][j] = new Portal(30 * j, 30 * i, "BLOCK");
           break;
-        case "pS":
+        case "S":
           map[i][j] = new Portal(30 * j, 30 * i, "SPIKE");
           break;
         }
