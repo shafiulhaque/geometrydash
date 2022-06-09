@@ -16,44 +16,48 @@ public class Levels {
         WIDTH = parseInt(mapSize[1]);
         map = new Block[HEIGHT][WIDTH];
         copy = new String[HEIGHT][WIDTH];
-        for (int i = 0; i < HEIGHT; i++) {
-          copy[i] = reader.readLine().split(" ");
-          for (int j = 0; j < WIDTH; j++) {
-            switch(copy[i][j]) {
-            case "b": 
-              map[i][j] = new Block(30 * j, 30 * i);
-              break;
-            case "r": 
-              map[i][j] = new SlantTriangle(30 * j, 30 * i);
-              break;
-            case "t":
-              map[i][j] = new Triangle(30 * j, 30 * i);
-              break;
-            case "s":
-              map[i][j] = new Slab(30 * j, 30 * i);
-              break;
-            case "e":
-              map[i][j] = new emptyBlock(30 * j, 30 * i);
-              break;
-            case "pR":
-              map[i][j] = new Portal(30 * j, 30 * i, "ROCKET");
-              break;
-            case "pU":
-              map[i][j] = new Portal(30 * j, 30 * i, "UFO");
-              break;
-            case "pB":
-              map[i][j] = new Portal(30 * j, 30 * i, "BLOCK");
-              break;
-            case "pS":
-              map[i][j] = new Portal(30 * j, 30 * i, "SPIKE");
-              break;
-            }
-          }
-        }
+        setLevel(reader);
       }
     }
     catch(IOException e) {
       System.out.print("FILE NOT FOUND");
+    }
+  }
+
+  void setLevel(BufferedReader reader) throws IOException {
+    for (int i = 0; i < HEIGHT; i++) {
+      copy[i] = reader.readLine().split(" ");
+      for (int j = 0; j < WIDTH; j++) {
+        switch(copy[i][j]) {
+        case "b": 
+          map[i][j] = new Block(30 * j, 30 * i);
+          break;
+        case "r": 
+          map[i][j] = new SlantTriangle(30 * j, 30 * i);
+          break;
+        case "t":
+          map[i][j] = new Triangle(30 * j, 30 * i);
+          break;
+        case "s":
+          map[i][j] = new Slab(30 * j, 30 * i);
+          break;
+        case "e":
+          map[i][j] = new emptyBlock(30 * j, 30 * i);
+          break;
+        case "pR":
+          map[i][j] = new Portal(30 * j, 30 * i, "ROCKET");
+          break;
+        case "pU":
+          map[i][j] = new Portal(30 * j, 30 * i, "UFO");
+          break;
+        case "pB":
+          map[i][j] = new Portal(30 * j, 30 * i, "BLOCK");
+          break;
+        case "pS":
+          map[i][j] = new Portal(30 * j, 30 * i, "SPIKE");
+          break;
+        }
+      }
     }
   }
 
