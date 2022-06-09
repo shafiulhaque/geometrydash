@@ -60,8 +60,10 @@ public class Chars { //<>// //<>//
     }
   }
 
-  void jump() {
-    dy -= 12;
+  void jump(boolean jump) {
+    if (jump && (character.y == character.platf || character.y == character.platb) && !character.dead && character.dy == 0.0){
+      dy -= 12;
+    }
   }
 
   void display() {

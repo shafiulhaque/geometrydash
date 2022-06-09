@@ -25,34 +25,20 @@ void draw() {
       //delay(100);
       start1();
       int cb = 0;
-      //int cy = 0;
       int cf = 0;
-
       for (int i = 0; i < level1.WIDTH; i++) {
         if (level1.map[0][i].x - character.x <= 30 && level1.map[0][i].x - character.x >= 0) cb = i;
       }
-      //for (int i = 0; i < level1.HEIGHT; i++) {
-      //  if (level1.map[i][0].y - character.y <= 30 && level1.map[i][0].y - character.y >= 0) cy = i;
-      //}
-      text(cb, 100, 200);
-      //text(cy, 100, 250);
-
       if (cb <= 0) {
         cf = 0;
       } else {
         cf = cb-1;
       }
-
-      if (jump && (character.y == character.platf || character.y == character.platb) && !character.dead && character.dy == 0.0) character.jump();
+      
+      character.jump(jump);
       character.move();
 
       level1.findPlats(character, cb, cf);
-      text(character.platf, 100, 60);
-      text(character.platb, 100, 80);
-      text(character.platform, 100, 100);
-      text(character.y, 100, 140);
-      text(character.dy, 100, 160);
-
       level1.display();
       character.display();
 
@@ -84,11 +70,11 @@ void keyPressed() {
       if (character.y == character.platform && !character.dead && character.dy == 0.0) {
         jump = true;
       } else if (character.type().equals("ROCKET") && !character.dead) {
-        character.jump();
+        character.jump(jump);
       } else if (character.type().equals("UFO") && !character.dead) {
-        character.jump();
+        character.jump(jump);
       } else if (character.type().equals("SPIKE") && !character.dead) {
-        character.jump();
+        character.jump(jump);
       }
     }
   }
