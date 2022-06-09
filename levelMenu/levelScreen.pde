@@ -1,9 +1,9 @@
-public class levelsMenu{
+public class levelScreen{
   int x, y;
   int dx, dy;
   color col;
 
-  public levelsMenu(color c){
+  public levelScreen(color c){
     x = 50;
     y = 50;
     dx = 0;
