@@ -23,6 +23,9 @@ public class Levels {
             case "b": 
               map[i][j] = new Block(30 * j, 30 * i);
               break;
+            case "r": 
+              map[i][j] = new SlantTriangle(30 * j, 30 * i);
+              break;
             case "t":
               map[i][j] = new Triangle(30 * j, 30 * i);
               break;
