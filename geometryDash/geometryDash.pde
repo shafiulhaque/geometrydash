@@ -34,9 +34,10 @@ void draw() {
       } else {
         cf = cb-1;
       }
-
-      character.jump(jump);
+      
+      background(0, 0, 255);
       character.move();
+      character.jump(jump);
 
       level1.findPlats(character, cb, cf);
       level1.display();
