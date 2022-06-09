@@ -55,20 +55,21 @@ public class Levels {
   }
 
   void findPlats(Chars character, int cb, int cf) {
-    float platb = 420, platf = 420;
+    float platb = 600, platf = 600;
+    //character.platform = 600;
     for (int j = level1.HEIGHT- 1; j > 0; j--) {
       Block currB = map[j][cb];
       Block currBSide = map[j][cf];
-      stroke(255, 0, 0);
-      fill(255, 0, 0); 
+      //stroke(255, 0, 0);
+      //fill(255, 0, 0); 
       if (!currB.isEmpty) {
-        line(character.x, character.y, currB.x, currB.y);
+        //line(character.x, character.y, currB.x, currB.y);
         character.dead(currB);
         if (character.platInt(currB) < platb) platb = character.platInt(currB);
       }
       if (!currBSide.isEmpty) {
-        stroke(0, 255, 0);
-        line(character.x, character.y, currBSide.x, currBSide.y);
+        //stroke(0, 255, 0);
+        //line(character.x, character.y, currBSide.x, currBSide.y);
         character.dead(currBSide);
         if (character.platInt(currBSide) < platf) platf = character.platInt(currBSide);
       }

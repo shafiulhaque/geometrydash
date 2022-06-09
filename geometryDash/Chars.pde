@@ -113,7 +113,7 @@ public class Chars { //<>// //<>//
         return other.y - sideL;
       }
     }
-    return 420;
+    return 600;
   }
 
 

@@ -10,7 +10,7 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  currentS = "level1.txt";
+  currentS = "stereomadness.txt";
   level1 = new Levels(currentS);
   entered = false;
   autoSpawn = false;
@@ -98,6 +98,11 @@ void keyPressed() {
     currentS = "level2.txt";
     level1 = new Levels(currentS);
   }
+  if (key == 'm' && won) {
+    character = new Chars();
+    currentS = "stereomadness.txt";
+    level1 = new Levels(currentS);
+  }
   if (key == 'q') {
     delay(10000);
   }
@@ -151,7 +156,7 @@ void start1() {
   textAlign(LEFT);
   textSize(20);
   text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
-  rect(0, height * .75 + 30, width, height * .25);
+  //rect(0, height * .75 + 30, width, height * .25);
   rect(0, 0, width, character.top);
 }
 
