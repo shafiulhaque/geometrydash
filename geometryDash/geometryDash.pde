@@ -22,7 +22,7 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      //delay(100);
+      delay(100);
       start1();
       int cb = 0;
       int cf = 0;
@@ -34,13 +34,19 @@ void draw() {
       } else {
         cf = cb-1;
       }
-      
+
       character.jump(jump);
       character.move();
 
       level1.findPlats(character, cb, cf);
       level1.display();
       character.display();
+
+      text(character.platf, 100, 60);
+      text(character.platb, 100, 80);
+      text(character.platform, 100, 100);
+      text(character.y, 100, 140);
+      text(character.dy, 100, 160);
 
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) endScreen();
 
@@ -69,7 +75,8 @@ void keyPressed() {
       text("JUMP", 100, 100); 
       if (character.y == character.platform && !character.dead && character.dy == 0.0) {
         jump = true;
-      } else if (character.type().equals("ROCKET") && !character.dead) {
+      } 
+      if (character.type().equals("ROCKET") && !character.dead) {
         character.jump(jump);
       } else if (character.type().equals("UFO") && !character.dead) {
         character.jump(jump);
