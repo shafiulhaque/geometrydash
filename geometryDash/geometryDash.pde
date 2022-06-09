@@ -18,14 +18,14 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  background(0);
   won = false;
   if (!entered) {
     if (!character.dead) {
       //delay(100);
       start1();
       int cb = 0;
-      int cy = 0;
+      //int cy = 0;
       int cf = 0;
 
       for (int i = 0; i < level1.WIDTH; i++) {
@@ -43,6 +43,9 @@ void draw() {
         cf = cb-1;
       }
 
+      if (jump && (character.y == character.platf || character.y == character.platb) && !character.dead && character.dy == 0.0) character.jump();
+      character.move();
+
       level1.findPlats(character, cb, cf);
       text(character.platf, 100, 60);
       text(character.platb, 100, 80);
@@ -50,8 +53,6 @@ void draw() {
       text(character.y, 100, 140);
       text(character.dy, 100, 160);
 
-      if (jump && (character.y == character.platf || character.y == character.platb) && !character.dead && character.dy == 0.0) character.jump();
-      character.move();
       level1.display();
       character.display();
 

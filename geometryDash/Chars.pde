@@ -33,12 +33,12 @@ public class Chars { //<>// //<>//
     y = y0;
     dx = 6;
     dy = 0;
-    //platform = 420;
+    platform = 420;
     change = false;
     type = "BLOCK";
     top = 0;
-    //platb = 420;
-    //platf = 420;
+    platb = 420;
+    platf = 420;
   }
 
   void move() {
@@ -74,27 +74,35 @@ public class Chars { //<>// //<>//
 
   void dead(Block other) {
     if (!dead) {
-      if (!(other.isSafeTop() && other.isSafeSide())) {
-        if (other.y < y - sideL) {
-          dead = false;
-        } else if (x+sideL >= other.x && x+sideL < other.x + sideL && y >= other.y && y < other.y + sideL) {
-          dead = true;
-        } else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
-          dead = true;
-        }
+      //if (!(other.isSafeTop() && other.isSafeSide())) {
 
-        if (other.isSafeTop()) {
-          if (y < other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
-            dead = false;
-            platform = other.y - sideL;
-          }
-        }
-      } else {
-        if (x+sideL > other.x && x+sideL < other.x+other.sideL && y > other.y && y < other.y+other.sideW) {
-          change = true;
-          type = other.type;
+      if (other.y < y - sideL) {
+        dead = false;
+      } 
+      
+      if (x+sideL >= other.x && x+sideL < other.x + sideL && y >= other.y && y < other.y + sideL) {
+        dead = true;
+      } else if (x >= other.x && x < other.x + sideL && y >= other.y && y < other.y + sideL) {
+        dead = true;
+      } else if (x+sideL > other.x && x+sideL < other.x + sideL && y+sideL > other.y && y+sideL < other.y + sideL) {
+        dead = true;
+      } else if (x > other.x && x < other.x + sideL && y+sideL > other.y && y+sideL < other.y + sideL) {
+        dead = true;
+      } 
+
+      if (other.isSafeTop()) {
+        if (y <= other.y - sideL && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
+          dead = false;
+          platform = other.y - sideL;
         }
       }
+      
+      //} else {
+      //  if (x+sideL > other.x && x+sideL < other.x+other.sideL && y > other.y && y < other.y+other.sideW) {
+      //    change = true;
+      //    type = other.type;
+      //  }
+      //}
     }
   }
 
