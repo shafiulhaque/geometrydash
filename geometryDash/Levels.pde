@@ -67,6 +67,7 @@ public class Levels {
         if (character.platInt(currB) < platb) platb = character.platInt(currB);
       }
       if (!currBSide.isEmpty) {
+        stroke(0, 255, 0);
         line(character.x, character.y, currBSide.x, currBSide.y);
         character.dead(currBSide);
         if (character.platInt(currBSide) < platf) platf = character.platInt(currBSide);

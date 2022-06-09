@@ -73,7 +73,7 @@ public class Chars { //<>// //<>//
   }
 
   void dead(Block other) {
-    if (!dead)
+    if (!dead) {
       if (!(other.isSafeTop() && other.isSafeSide())) {
         if (other.y < y - sideL) {
           dead = false;
@@ -95,6 +95,7 @@ public class Chars { //<>// //<>//
           type = other.type;
         }
       }
+    }
   }
 
   float platInt(Block other) {
