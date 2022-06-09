@@ -31,7 +31,8 @@ void draw() {
       fill(0);
       textAlign(LEFT);
       textSize(20);
-      text("AUTORESPAWN: " + autoSpawn + " (PRESS A TO CHANGE)", 20, 20);
+      if(autoSpawn) text("AUTORESPAWN: ON (PRESS A TO CHANGE)", 20, 20);
+      else text("AUTORESPAWN: OFF (PRESS A TO CHANGE)", 20, 20);
       rect(0, height * .75, width, height * .25);
       rect(0, 0, width, character.top);
       level.display(blockIm);

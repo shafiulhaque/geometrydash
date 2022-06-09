@@ -7,8 +7,8 @@ public class Slab extends Block {
   }
 
   void place(PImage img) {
-    stroke(220);
-    fill(220, 220, 220);
+    stroke(255);
+    fill(0);
     rect(x, y, sideL, sideW);
     x -= 6;
   }
