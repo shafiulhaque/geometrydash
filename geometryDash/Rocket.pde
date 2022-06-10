@@ -46,7 +46,11 @@ public class Rocket extends Chars {
   }
 
   void jump(boolean jump) {
-    if (jump) dy -= 3;
+    if (jump){
+      dy = -7;
+    } else {
+      dy = 7;
+    }
   }
 
   void display() {

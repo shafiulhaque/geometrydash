@@ -77,7 +77,7 @@ void keyPressed() {
         jump = true;
       } 
       if (character.type().equals("ROCKET") && !character.dead) {
-        character.jump(jump);
+        jump = true;
       } else if (character.type().equals("UFO") && !character.dead) {
         character.jump(jump);
       } else if (character.type().equals("SPIKE") && !character.dead) {
