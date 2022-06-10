@@ -28,6 +28,7 @@ public class Spike extends Chars {
         x = 270;
         dx = 0;
       }
+      setb = platb;
       if (y > setb) {
         y = setb;
       }
@@ -37,8 +38,8 @@ public class Spike extends Chars {
     }
   }
 
-  void jump() {
-    dy = -dy;
+  void jump(boolean jump) {
+    if (jump) dy = -dy;
   }
 
   void display() {
