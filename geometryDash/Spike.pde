@@ -1,6 +1,7 @@
 public class Spike extends Chars {
   float setb;
   float sett;
+  boolean rev;
 
   public Spike() {
     super();
@@ -39,7 +40,10 @@ public class Spike extends Chars {
   }
 
   void jump(boolean jump) {
-    if (jump) dy = -dy;
+    if (jump && rev){
+      dy = -dy;
+      rev = false;
+    }
   }
 
   void display() {
