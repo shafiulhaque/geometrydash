@@ -10,7 +10,7 @@ PImage startText;
 int timer;
 ArrayList<levelsMenu> levelList;
 infoMenu info = new infoMenu();
-levelsMenu level1 = new levelsMenu(color(200, 25, 0), "level1.txt");
+levelsMenu level1 = new levelsMenu(color(50, 95, 170), "level1.txt");
 levelsMenu level2 = new levelsMenu(color(100, 125, 30), "level2.txt");
 levelsMenu level3 = new levelsMenu(color(150, 45, 70), "level3.txt"); 
 boolean inMenu;
@@ -19,12 +19,6 @@ int currLevel;
 void setup() {
   size(900, 600);
   character = new Chars();
-  //currLevel = 0;
-  //currentS = "level" + currLevel + ".txt";
-  //level = new Levels(currentS);
-  //entered = false;
-  //autoSpawn = false;
-  //won = false;
   blockIm = loadImage("geoBlockImg.jpg");
   blockIm.resize(30, 30);
   inMenu = true;
@@ -46,14 +40,14 @@ void setup() {
 }
 
 void draw() {
-  //delay(100);
   if (timer != 0) timer--;
   else {
     currentS = levelList.get(currLevel).levelName;
     if (inMenu) {
       background(0);
+      fill(0);
       levelList.get(currLevel).display(width - 100, height - 100);
-      text(levelList.get(currLevel).levelName, 450, 200);
+      if(!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, 450, 200);
     } else {
       if (!entered) {
         if (!character.dead) {
@@ -183,11 +177,13 @@ void keyPressed() {
       inMenu = true;
     }
   } else {
-    if (keyCode == LEFT) {
+    if (keyCode == LEFT  && timer == 0) {
+      timer = 20;
       currLevel--;
       if (currLevel < 0) currLevel = levelList.size() - 1;
     }
-    if (keyCode == RIGHT) {
+    if (keyCode == RIGHT && timer == 0) {
+      timer = 20;
       currLevel++;
       if (currLevel > levelList.size() - 1) currLevel = 0;
     }

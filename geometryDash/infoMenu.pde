@@ -17,6 +17,16 @@ public class infoMenu extends levelsMenu{
     fill(col);
     rect(x, y, sideX, sideY);
     fill(0);
-    text("HELP", 200, 200);
+    textSize(20);
+    textAlign(LEFT);
+    text("Level Menu Controls: ", 120, 120);
+    text("LEFT ARROW: MOVE TO THE PREVIOUS LEVEL SCREEN", 120, 160);
+    text("RIGHT ARROW: MOVE TO THE NEXT LEVEL SCREEN", 120, 200);
+    text("Game Menu Controls: ", 120, 270);
+    text("SPACEBAR: JUMP", 120, 310);
+    text("ENTER/RETURN: PAUSE", 120, 350);
+    text("ENTER/RETURN + N: RETURN TO MENU", 120, 390);
+    text("R: RESPAWN", 120, 430);
+    text("A: TOGGLE AUTO-RESPAWN", 120, 470);
   }
 }

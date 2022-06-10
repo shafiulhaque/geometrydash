@@ -25,7 +25,7 @@ public class levelsMenu{
   void display(int sideX, int sideY){
     fill(col);
     rect(x, y, sideX, sideY);
-    fill(col - 100);
+    fill(col + 50);
     rect(x + 100, y + 100, sideX - 200, sideY - 200);
     fill(255);
     ellipse(450, 300, 50, 50);
