@@ -15,6 +15,7 @@ levelsMenu level2 = new levelsMenu(color(100, 125, 30), "level2.txt");
 levelsMenu level3 = new levelsMenu(color(150, 45, 70), "level3.txt"); 
 boolean inMenu;
 int currLevel;
+PImage skin;
 
 void setup() {
   size(900, 600);
@@ -40,14 +41,23 @@ void setup() {
 }
 
 void draw() {
-  if (timer != 0) timer--;
-  else {
+  if (timer != 0) { 
+    if(inMenu && timer >= 30){
+      noFill();
+      stroke(255, 255, 0);
+      rect(200, 300, 450, 10);
+      fill(0, 255, 0);
+      rect(200, 300, 5 * (120 - timer), 10);
+    }
+    timer--;
+  } else {
     currentS = levelList.get(currLevel).levelName;
     if (inMenu) {
+      stroke(255);
       background(0);
       fill(0);
       levelList.get(currLevel).display(width - 100, height - 100);
-      if(!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, 450, 200);
+      if (!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, 450, 200);
     } else {
       if (!entered) {
         if (!character.dead) {

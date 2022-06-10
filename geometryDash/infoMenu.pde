@@ -22,7 +22,7 @@ public class infoMenu extends levelsMenu{
     text("Level Menu Controls: ", 120, 120);
     text("LEFT ARROW: MOVE TO THE PREVIOUS LEVEL SCREEN", 120, 160);
     text("RIGHT ARROW: MOVE TO THE NEXT LEVEL SCREEN", 120, 200);
-    text("Game Menu Controls: ", 120, 270);
+    text("Game Controls: ", 120, 270);
     text("SPACEBAR: JUMP", 120, 310);
     text("ENTER/RETURN: PAUSE", 120, 350);
     text("ENTER/RETURN + N: RETURN TO MENU", 120, 390);
