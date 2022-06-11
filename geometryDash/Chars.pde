@@ -103,8 +103,8 @@ public class Chars { //<>// //<>//
           change = true;
           type = other.type;
         }
-        if (other.type.equals("MID")){
-          dy = -10;
+        if (other.type.equals("MID") && x+sideL > other.x && x+sideL < other.x+other.sideL && y+sideL >= other.y && y+sideL <= other.y+other.sideW){
+          dy = -16;
         }
       }
     }

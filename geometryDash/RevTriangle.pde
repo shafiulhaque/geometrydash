@@ -1,6 +1,6 @@
-public class Triangle extends Block {
+public class RevTriangle extends Block {
 
-  public Triangle(float x0, float y0) {
+  public RevTriangle(float x0, float y0) {
     super(x0, y0);
     isSafeTop = false;
     isEmpty = false;
@@ -9,7 +9,7 @@ public class Triangle extends Block {
   void place() {
     stroke(255);
     fill(0);
-    triangle(x+sideL/2, y, x, y+sideL, x+sideL, y+sideL);
+    triangle(x+sideL/2, y+sideL, x, y, x+sideL, y);
     x -= 6;
   }
 }
