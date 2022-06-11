@@ -10,7 +10,7 @@ void setup() {
   size(900, 600);
   background(255);
   character = new Chars();
-  currentS = "stereomadness0.txt";
+  currentS = "backontrack0.txt";
   level1 = new Levels(currentS);
   entered = false;
   autoSpawn = false;
@@ -35,7 +35,7 @@ void draw() {
         cf = cb-1;
       }
 
-      background(0, 0, 255);
+      background(255, 20, 147);
       character.jump(jump);
       character.move();
 

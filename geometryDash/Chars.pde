@@ -104,7 +104,7 @@ public class Chars { //<>// //<>//
           type = other.type;
         }
         if (other.type.equals("MID")){
-          dy = -11;
+          dy = -10;
         }
       }
     }
