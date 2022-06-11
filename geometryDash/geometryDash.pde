@@ -10,12 +10,13 @@ PImage startText;
 int timer;
 ArrayList<levelsMenu> levelList;
 infoMenu info = new infoMenu();
-levelsMenu level1 = new levelsMenu(color(50, 95, 170), "level1.txt");
-levelsMenu level2 = new levelsMenu(color(100, 125, 30), "level2.txt");
-levelsMenu level3 = new levelsMenu(color(150, 45, 70), "level3.txt"); 
+levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "level1.txt");
+levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2.txt");
+levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3.txt"); 
 boolean inMenu;
 int currLevel;
 PImage skin;
+float infoX = 0;
 
 void setup() {
   size(900, 600);
@@ -42,7 +43,7 @@ void setup() {
 
 void draw() {
   if (timer != 0) { 
-    if(inMenu && timer >= 30){
+    if (inMenu && timer >= 30) {
       noFill();
       stroke(255, 255, 0);
       rect(200, 300, 450, 10);
@@ -56,8 +57,13 @@ void draw() {
       stroke(255);
       background(0);
       fill(0);
-      levelList.get(currLevel).display(width - 100, height - 100);
-      if (!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, 450, 200);
+      if (infoX != info.x) print(infoX + '\n');
+      for (int i = 0; i < levelList.size(); i++) {
+        levelList.get(i).move();
+        levelList.get(i).display(width - 100, height - 100);
+      }
+      infoX = info.x;
+      if (!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, levelList.get(currLevel).x + 450, 200);
     } else {
       if (!entered) {
         if (!character.dead) {
@@ -189,11 +195,13 @@ void keyPressed() {
   } else {
     if (keyCode == LEFT  && timer == 0) {
       timer = 20;
+      for (int i = 0; i < levelList.size(); i++) levelList.get(i).moveR();
       currLevel--;
       if (currLevel < 0) currLevel = levelList.size() - 1;
     }
     if (keyCode == RIGHT && timer == 0) {
       timer = 20;
+      for (int i = 0; i < levelList.size(); i++) levelList.get(i).moveL();
       currLevel++;
       if (currLevel > levelList.size() - 1) currLevel = 0;
     }
