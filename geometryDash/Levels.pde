@@ -20,7 +20,7 @@ public class Levels {
         int numcol = parseInt(mapSize[2]);
         map = new Block[HEIGHT][WIDTH];
         copy = new String[HEIGHT][WIDTH];
-        colors = new int[numcol][3];
+        colors = new int[numcol][4];
         color1 = 0;
         setColor(reader, numcol);
         setLevel(reader);
@@ -35,6 +35,7 @@ public class Levels {
     for (int i = 0; i < num; i++) {
       colors[i] = parseInt(reader.readLine().split(" "));
     }
+    System.out.println(colors[color1][0]);
   }
 
   void setLevel(BufferedReader reader) throws IOException {
@@ -81,8 +82,7 @@ public class Levels {
   }
 
   void findPlats(Chars character, int cb, int cf) {
-    if (cb == 100) color1++;
-    if (color1 >= 1) color1 = 1;
+    if (cb == colors[color1][0]) color1++;
     float platb = 600, platf = 600;
     //character.platform = 600;
     for (int j = level1.HEIGHT- 1; j > 0; j--) {

@@ -38,7 +38,7 @@ void draw() {
       }
 
       colors = level1.colors[level1.color1];
-      background(colors[0], colors[1], colors[2]);
+      background(colors[1], colors[2], colors[3]);
       character.jump(jump);
       character.move();
 
