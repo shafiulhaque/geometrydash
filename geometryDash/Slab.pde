@@ -8,7 +8,7 @@ public class Slab extends Block {
   }
 
   void place() {
-    stroke(220);
+    stroke(0);
     fill(220, 220, 220);
     rect(x, y, sideL, sideW);
     x -= 6;

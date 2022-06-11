@@ -60,6 +60,9 @@ public class Levels {
         case "k":
           map[i][j] = new Transporter(30 * j, 30 * i, "MID");
           break;
+        case "q":
+          map[i][j] = new RevTriangle(30 * j, 30 * i);
+          break;
         }
       }
     }
