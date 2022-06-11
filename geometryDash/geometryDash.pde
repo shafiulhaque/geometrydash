@@ -22,7 +22,7 @@ void draw() {
   won = false;
   if (!entered) {
     if (!character.dead) {
-      //delay(100);
+      //delay(10);
       start1();
       int cb = 0;
       int cf = 0;
@@ -51,9 +51,8 @@ void draw() {
 
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) endScreen();
 
-      if (character.change) {
-        changeChar();
-      }
+      if (character.change) changeChar();
+      
     } else {
 
       if (autoSpawn) {

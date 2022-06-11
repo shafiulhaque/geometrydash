@@ -76,16 +76,16 @@ public class Levels {
       Block currBSide = map[j][cf];
       //stroke(255, 0, 0);
       //fill(255, 0, 0); 
-      if (!currB.isEmpty) {
-        //line(character.x, character.y, currB.x, currB.y);
-        character.dead(currB);
-        if (character.platInt(currB) < platb) platb = character.platInt(currB);
-      }
       if (!currBSide.isEmpty) {
         //stroke(0, 255, 0);
         //line(character.x, character.y, currBSide.x, currBSide.y);
         character.dead(currBSide);
         if (character.platInt(currBSide) < platf) platf = character.platInt(currBSide);
+      }
+      if (!currB.isEmpty) {
+        //line(character.x, character.y, currB.x, currB.y);
+        character.dead(currB);
+        if (character.platInt(currB) < platb) platb = character.platInt(currB);
       }
     }
     character.platb = platb;

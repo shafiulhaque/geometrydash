@@ -48,7 +48,7 @@ public class Chars { //<>// //<>//
       }
       x += dx;
       y += dy;
-      if (y < platf) {
+      if (y < platb) {
         dy += 1;
       } else {
         dy = 0;
@@ -103,7 +103,7 @@ public class Chars { //<>// //<>//
           change = true;
           type = other.type;
         }
-        if (other.type.equals("MID") && x+sideL > other.x && x+sideL < other.x+other.sideL && y+sideL >= other.y && y+sideL <= other.y+other.sideW){
+        if (other.type.equals("MID") && (x > other.x && x < other.x+other.sideL || x+sideL > other.x && x+sideL < other.x+other.sideL) && y+sideL >= other.y && y+sideL <= other.y+other.sideW){
           dy = -16;
         }
       }
