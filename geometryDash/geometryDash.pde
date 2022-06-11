@@ -67,7 +67,7 @@ void draw() {
     } else {
       if (!entered) {
         if (!character.dead) {
-          background(40, 90, 190);
+          background(levelList.get(currLevel).col);
           noStroke();
           fill(0);
           textAlign(LEFT);
@@ -195,13 +195,18 @@ void keyPressed() {
   } else {
     if (keyCode == LEFT  && timer == 0) {
       timer = 20;
-      for (int i = 0; i < levelList.size(); i++) levelList.get(i).moveR();
+      if(currLevel == 0) levelList.get(levelList.size() - 1).x = -850;
+      if(currLevel > 0) levelList.get(currLevel - 1).x = -850;
+      for (int i = 0; i < levelList.size(); i++) levelList.get(i).arrR();
       currLevel--;
       if (currLevel < 0) currLevel = levelList.size() - 1;
     }
     if (keyCode == RIGHT && timer == 0) {
       timer = 20;
-      for (int i = 0; i < levelList.size(); i++) levelList.get(i).moveL();
+      if(currLevel == levelList.size() - 1) levelList.get(0).x = 950;
+      if(currLevel < levelList.size() - 1) levelList.get(currLevel + 1).x = 950;
+      //if(currLevel == 0) levelList.get(levelList.size() - 1).x = -850;
+      for (int i = 0; i < levelList.size(); i++) levelList.get(i).arrL();
       currLevel++;
       if (currLevel > levelList.size() - 1) currLevel = 0;
     }
@@ -211,7 +216,7 @@ void keyPressed() {
 void mouseClicked() {
   if (inMenu) {
     if (dist(mouseX, mouseY, 450, 300) < 15 && !currentS.equals("tutorial")) { 
-      currentS = "level" + currLevel + ".txt";
+      currentS = levelList.get(currLevel).levelName;
       inMenu = false;
       level = new Levels(currentS);
     }

@@ -42,11 +42,11 @@ public class levelsMenu{
     if(x % 900 == 50 || x % 900 == -850) dx = 0;
   }
   
-  void moveL(){
+  void arrL(){
     dx = -50;
   }
   
-  void moveR(){
+  void arrR(){
     dx = 50;
   }
 }
