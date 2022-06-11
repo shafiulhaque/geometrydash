@@ -24,12 +24,6 @@ public class Rocket extends Chars {
     if (!dead) {
       x += dx;
       y += dy;
-      //if (dy > 6) {
-      //  dy = 6;
-      //}
-      //if (dy < -6) {
-      //  dy = -6;
-      //}
     }
     setb = platform;
     if (x >= 270) {
@@ -42,19 +36,18 @@ public class Rocket extends Chars {
     }
     if (y < sett) {
       y = sett;
+      dy = 0;
     }
   }
 
   void jump(boolean jump) {
-    if (jump){
-      if (dy != 10){
-        dy -= 1;
-      }
+    if (jump) {
+      if (dy != 7) dy -= 0.5;
     } else {
-      if (dy != -10){
-        dy += 1;
-      }
+      if (dy != -7) dy += 0.3;
     }
+    if (dy > 10) dy = 10;
+    if (dy < -10) dy = -10;
   }
 
   void display() {
