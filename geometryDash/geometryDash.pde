@@ -5,6 +5,7 @@ static boolean autoSpawn;
 static boolean won;
 static String currentS;
 static boolean jump;
+static int[] colors;
 
 void setup() {
   size(900, 600);
@@ -15,6 +16,7 @@ void setup() {
   entered = false;
   autoSpawn = false;
   won = false;
+  colors = level1.colors[level1.color1];
 }
 
 void draw() {
@@ -35,7 +37,8 @@ void draw() {
         cf = cb-1;
       }
 
-      background(255, 20, 147);
+      colors = level1.colors[level1.color1];
+      background(colors[0], colors[1], colors[2]);
       character.jump(jump);
       character.move();
 
@@ -52,7 +55,6 @@ void draw() {
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) endScreen();
 
       if (character.change) changeChar();
-      
     } else {
 
       if (autoSpawn) {

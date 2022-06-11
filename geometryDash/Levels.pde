@@ -6,6 +6,8 @@ public class Levels {
   BufferedReader[] level;
   int WIDTH;
   int HEIGHT;
+  int[][] colors;
+  int color1;
 
   public Levels(String file) {
     try {
@@ -15,13 +17,23 @@ public class Levels {
         mapSize = reader.readLine().split(" ");
         HEIGHT = parseInt(mapSize[0]);
         WIDTH = parseInt(mapSize[1]);
+        int numcol = parseInt(mapSize[2]);
         map = new Block[HEIGHT][WIDTH];
         copy = new String[HEIGHT][WIDTH];
+        colors = new int[numcol][3];
+        color1 = 0;
+        setColor(reader, numcol);
         setLevel(reader);
       }
     }
     catch(IOException e) {
       System.out.print("FILE NOT FOUND");
+    }
+  }
+
+  void setColor(BufferedReader reader, int num) throws IOException {
+    for (int i = 0; i < num; i++) {
+      colors[i] = parseInt(reader.readLine().split(" "));
     }
   }
 
@@ -69,6 +81,8 @@ public class Levels {
   }
 
   void findPlats(Chars character, int cb, int cf) {
+    if (cb == 100) color1++;
+    if (color1 >= 1) color1 = 1;
     float platb = 600, platf = 600;
     //character.platform = 600;
     for (int j = level1.HEIGHT- 1; j > 0; j--) {
