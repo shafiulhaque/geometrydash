@@ -57,6 +57,9 @@ public class Levels {
         case "S":
           map[i][j] = new Portal(30 * j, 30 * i, "SPIKE");
           break;
+        case "k":
+          map[i][j] = new Transporter(30 * j, 30 * i, "MID");
+          break;
         }
       }
     }
