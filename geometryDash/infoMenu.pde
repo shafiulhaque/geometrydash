@@ -19,14 +19,27 @@ public class infoMenu extends levelsMenu{
     fill(0);
     textSize(20);
     textAlign(LEFT);
-    text("Level Menu Controls: ", 120, 120);
-    text("LEFT ARROW: MOVE TO THE PREVIOUS LEVEL SCREEN", 120, 160);
-    text("RIGHT ARROW: MOVE TO THE NEXT LEVEL SCREEN", 120, 200);
-    text("Game Controls: ", 120, 270);
-    text("SPACEBAR: JUMP", 120, 310);
-    text("ENTER/RETURN: PAUSE", 120, 350);
-    text("ENTER/RETURN + N: RETURN TO MENU", 120, 390);
-    text("R: RESPAWN", 120, 430);
-    text("A: TOGGLE AUTO-RESPAWN", 120, 470);
+    text("Level Menu Controls: ", x + 70, 120);
+    text("LEFT ARROW: MOVE TO THE PREVIOUS LEVEL SCREEN", x + 70, 160);
+    text("RIGHT ARROW: MOVE TO THE NEXT LEVEL SCREEN", x + 70, 200);
+    text("Game Controls: ", x + 70, 270);
+    text("SPACEBAR: JUMP", x + 70, 310);
+    text("ENTER/RETURN: PAUSE", x + 70, 350);
+    text("ENTER/RETURN + N: RETURN TO MENU", x + 70, 390);
+    text("R: RESPAWN", x + 70, 430);
+    text("A: TOGGLE AUTO-RESPAWN", x + 70, 470);
+  }
+  
+  void move(){
+    x += dx;
+    if(x % 900 == 50 || x % 900 == -850) dx = 0;
+  }
+  
+  void moveL(){
+    dx = -50;
+  }
+  
+  void moveR(){
+    dx = 50;
   }
 }

@@ -28,13 +28,13 @@ public class levelsMenu{
     fill(col + 50);
     rect(x + 100, y + 100, sideX - 200, sideY - 200);
     fill(255);
-    ellipse(x + 450, 300, 50, 50);
+    ellipse(x + 400, 300, 50, 50);
     fill(0);
     textSize(30);
     textAlign(CENTER);
-    text("PLAY!", x + 450, 250);
+    text("PLAY!", x + 400, 250);
     fill(0, 255, 0);
-    triangle(x + 453 + (25 * (cos(PI / 6) / 2)), 300, x + 453 - (25 * (cos(PI / 6) / 2)), 300 + 12.5, x + 453 - (25 * (cos(PI / 6) / 2)), 300 - 12.5);
+    triangle(x + 403 + (25 * (cos(PI / 6) / 2)), 300, x + 403 - (25 * (cos(PI / 6) / 2)), 300 + 12.5, x + 403 - (25 * (cos(PI / 6) / 2)), 300 - 12.5);
   }
   
   void move(){
