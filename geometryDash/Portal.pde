@@ -4,7 +4,7 @@ public class Portal extends Block {
     super(x0, y0);
     isSafeSide = true;
     isSafeTop = true;
-    sideW = 100;
+    sideW = 90;
     sideL = 50;
     type = t;
   }
