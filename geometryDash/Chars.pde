@@ -102,28 +102,29 @@ public class Chars { //<>// //<>//
         } 
 
         if (other.isSafeTop()) {
+          if (y <= other.y && ((x+sideL > other.x && x+sideL < other.x + sideL && y+sideL > other.y && y+sideL < other.y + sideL))) {
+            y = other.y - sideL;
+          }
           if (y <= other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
             dead = false;
             platform = other.y - sideL;
           }
-          
+
           if (y >= other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
             dead = false;
             if (platformu < other.y - sideL) platformu = other.y + sideL;
           }
         }
-        
       } else {
-        
+
         if (x+sideL > other.x && x+sideL < other.x+other.sideL && y > other.y && y < other.y+other.sideW) {
           change = true;
           type = other.type;
         }
-        
+
         if (other.type.equals("MID") && (x > other.x && x < other.x+other.sideL || x+sideL > other.x && x+sideL < other.x+other.sideL) && y+sideL >= other.y && y+sideL <= other.y+other.sideW) {
           dy = -16;
         }
-        
       }
     }
   }
