@@ -29,10 +29,11 @@ public class UFO extends Chars {
       x = 270;
       dx = 0;
     }
+    setb = platform;
     if (y == platform) {
       dy = 0;
     } else {
-      dy += 2;
+      dy += 1;
     }
     if (y > setb) {
       y = setb;
@@ -42,8 +43,8 @@ public class UFO extends Chars {
     }
   }
 
-  void jump() {
-    dy = -18;
+  void jump(boolean jump) {
+    if (jump) dy = -8;
   }
 
   void display() {

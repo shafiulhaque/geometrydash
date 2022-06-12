@@ -1,19 +1,19 @@
 public class Rocket extends Chars {
   float setb;
   float sett;
-  
+
   public Rocket() {
     super();
-    dy = 6;
+    dy = 0;
     setb = 420;
     sett = 50;
     type = "ROCKET";
     top = 43;
   }
-  
-  public Rocket(float x0, float y0){
+
+  public Rocket(float x0, float y0) {
     super(x0, y0);
-    dy = 6;
+    dy = 0;
     setb = 420;
     sett = 50;
     type = "ROCKET";
@@ -24,28 +24,31 @@ public class Rocket extends Chars {
     if (!dead) {
       x += dx;
       y += dy;
-      if (dy > 6){
-        dy = 6;
-      }
-      if (dy < -6){
-        dy = -6;
-      }
     }
-    dy += 0.12;
+    setb = platform;
+    sett = platformu;
     if (x >= 270) {
       x = 270;
       dx = 0;
     }
-    if (y > setb){
+    if (y > setb) {
       y = setb;
+      dy = 0;
     }
-    if (y < sett){
+    if (y < sett) {
       y = sett;
+      dy = 0;
     }
   }
 
-  void jump() {
-    dy -= 3;
+  void jump(boolean jump) {
+    if (jump) {
+      if (dy != 7) dy -= 0.5;
+    } else {
+      if (dy != -7) dy += 0.3;
+    }
+    if (dy > 10) dy = 10;
+    if (dy < -10) dy = -10;
   }
 
   void display() {

@@ -1,16 +1,19 @@
 static Chars character;
-static boolean entered;
 static Levels level;
+static boolean entered;
 static boolean autoSpawn;
 static boolean won;
 static String currentS;
+static boolean jump;
+static int[] colors;
+
 static PImage blockIm;
 PImage startUp;
 PImage startText;
 int timer;
 ArrayList<levelsMenu> levelList;
 levelsMenu info = new levelsMenu();
-levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "level1");
+levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "backontrack0");
 levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2");
 levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3"); 
 levelsMenu level4 = new levelsMenu(3650, 50, color(150, 45, 70), "level4"); 
@@ -51,6 +54,7 @@ void setup() {
   font = createFont("PUSAB___.otf", 40);
   textFont(font);
   pauseScr = loadImage("pauseScreen.png");
+  //colors = level1.colors[level1.color1];
 }
 
 void draw() {
@@ -77,62 +81,26 @@ void draw() {
     } else {
       if (!entered) {
         if (!character.dead) {
-          background(levelList.get(currLevel).col);
-          noStroke();
-          fill(0);
-          textAlign(LEFT);
-          textSize(20);
-          if (autoSpawn) text("AUTORESPAWN: ON (PRESS A TO CHANGE)", 20, 20);
-          else text("AUTORESPAWN: OFF (PRESS A TO CHANGE)", 20, 20);
-          rect(0, height * .75, width, height * .25);
-          rect(0, 0, width, character.top);
-          level.display(blockIm);
-          int c = 0;
-          int cSide = 0;
+          start1();
+          int cb = 0;
+          int cf = 0;
           for (int i = 0; i < level.WIDTH; i++) {
-            if (level.map[0][i].x - character.x <= 30 && level.map[0][i].x - character.x >= 0) c = i;
-            if (level.map[0][i].x + character.sideL - character.x <= 30 && level.map[0][i].x + character.sideL - character.x >= 0) cSide = i;
+            if (level.map[0][i].x - character.x <= 30 && level.map[0][i].x - character.x >= 0) cb = i;
           }
-          Block highest = level.map[level.HEIGHT - 1][c];
-          character.display();
+          if (cb <= 0) {
+            cf = 0;
+          } else {
+            cf = cb-1;
+          }
+          colors = level.colors[level.color1];
+          background(colors[1], colors[2], colors[3]);
+          character.jump(jump);
           character.move();
-          for (int j = level.HEIGHT- 1; j > 0; j--) {
-            Block currB = level.map[j][c];
-            Block currBSide = level.map[j][cSide];
-            stroke(255, 0, 0);
-            fill(255, 0, 0); 
-            if (!currB.isEmpty) {
-              character.dead(currB);
-              if (currB.y < highest.y) highest = currB;
-              //character.dead(currB);
-              character.dead(highest);
-            }
-            if (!currBSide.isEmpty) {
-              character.dead(currBSide);
-            }
-          }
-          if (level.map[0][level.WIDTH - 1].x < 270 && !character.dead) { 
-            textSize(40);
-            textAlign(CENTER);
-            text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
-            text("PRESS N TO GO BACK TO THE MENU", width / 2, height / 2);
-            won = true;
-          }
-          if (character.change) {
-            if (character.type.equals("ROCKET")) {
-              character = new Rocket(character.x, character.y);
-            }
-            if (character.type.equals("UFO")) {
-              character = new UFO(character.x, character.y);
-            }
-            if (character.type.equals("BLOCK")) {
-              character = new Chars(character.x, character.y);
-            }
-            if (character.type.equals("SPIKE")) {
-              character = new Spike(character.x, character.y);
-            }
-            character.change = false;
-          }
+          level.findPlats(character, cb, cf);
+          level.display(blockIm);
+          character.display();
+          if (level.map[0][level.WIDTH - 1].x < 270 && !character.dead) endScreen();
+          if (character.change) changeChar();
         } else {
           if (autoSpawn) {
             level = new Levels(currentS);
@@ -146,6 +114,60 @@ void draw() {
         popUp();
       }
     }
+  }
+}
+
+
+void keyPressed() {
+  if (!inMenu) {
+    if (keyCode == 32 && !character.dead) {
+      if (!entered) {
+        jump = true;
+        if (character.y == character.platform) {
+          jump = true;
+        } else if (character.type().equals("ROCKET")) {
+          jump = true;
+        } else if (character.type().equals("UFO")) {
+          character.jump(jump);
+        } else if (character.type().equals("SPIKE")) {
+          character.jump(jump);
+        }
+      }
+    }
+    if (keyCode == ENTER) if (!character.dead)entered = !entered;
+    if (key == 'a') autoSpawn = !autoSpawn;
+    //if (key == 'n' && (won || entered)) {
+    //  entered = false;
+    //  inMenu = true;
+    //}
+  } else {
+    if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
+      for (int i = 0; i < size; i++) levelList.get(i).arrL();
+      for (int i = 0; i < size; i++) { 
+        if (levelList.get(i).x ==  900 * (size - 1) + 50) {
+          levelList.get(i).x = -850;
+          break;
+        }
+      }
+      if (currLevel == 0) currLevel = size - 1;
+      else currLevel--;
+    } else if (keyCode == RIGHT && levelList.get(currLevel).x == 50) {
+      for (int i = 0; i < size; i++) levelList.get(i).arrR();
+      for (int i = 0; i < size; i++) { 
+        if (levelList.get(i).x == -850) {
+          levelList.get(i).x = 900 * (size - 1) + 50;
+          break;
+        }
+      }
+      if (currLevel == size - 1) currLevel = 0;
+      else currLevel++;
+    }
+  }
+}
+
+void keyReleased() {
+  if (keyCode == 32) {
+    jump = false;
   }
 }
 
@@ -180,52 +202,44 @@ void popUp() {
   }
 }
 
-
-void keyPressed() {
-  if (!inMenu) {
-    if (keyCode == 32 && !character.dead) {
-      if (!entered) {
-        if (character.y == character.platform) {
-          character.jump();
-        } else if (character.type().equals("ROCKET")) {
-          character.jump();
-        } else if (character.type().equals("UFO")) {
-          character.jump();
-        } else if (character.type().equals("SPIKE")) {
-          character.jump();
-        }
-      }
-    }
-    if (keyCode == ENTER) if (!character.dead)entered = !entered;
-    if (key == 'a') autoSpawn = !autoSpawn;
-    //if (key == 'n' && (won || entered)) {
-    //  entered = false;
-    //  inMenu = true;
-    //}
-  } else {
-    if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
-      for (int i = 0; i < size; i++) levelList.get(i).arrL();
-      for (int i = 0; i < size; i++) { 
-        if (levelList.get(i).x ==  900 * (size - 1) + 50) {
-          levelList.get(i).x = -850;
-          break;
-        }
-      }
-      if (currLevel == 0) currLevel = size - 1;
-      else currLevel--;
-    } else if (keyCode == RIGHT && levelList.get(currLevel).x == 50) {
-      for (int i = 0; i < size; i++) levelList.get(i).arrR();
-      for (int i = 0; i < size; i++) { 
-        if (levelList.get(i).x == -850) {
-          levelList.get(i).x = 900 * (size - 1) + 50;
-          break;
-        }
-      }
-      if (currLevel == size - 1) currLevel = 0;
-      else currLevel++;
-    }
-  }
+void endScreen() {
+  textSize(40);
+  textAlign(CENTER);
+  text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
+  if (!currentS.equals("level2.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
+  else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
+  //currentS = "level2.txt";
+  won = true;
 }
+
+void start1() {
+  background(levelList.get(currLevel).col);
+  noStroke();
+  fill(0);
+  textAlign(LEFT);
+  textSize(20);
+  if (autoSpawn) text("AUTORESPAWN: ON (PRESS A TO CHANGE)", 20, 20);
+  else text("AUTORESPAWN: OFF (PRESS A TO CHANGE)", 20, 20);
+  //rect(0, height * .75 + 30, width, height * .25);
+  //rect(0, 0, width, character.top);
+}
+
+void changeChar() {
+  if (character.type.equals("ROCKET")) {
+    character = new Rocket(character.x, character.y);
+  }
+  if (character.type.equals("UFO")) {
+    character = new UFO(character.x, character.y);
+  }
+  if (character.type.equals("BLOCK")) {
+    character = new Chars(character.x, character.y);
+  }
+  if (character.type.equals("SPIKE")) {
+    character = new Spike(character.x, character.y);
+  }
+  character.change = false;
+}
+
 
 void mouseClicked() {
   if (inMenu) {
