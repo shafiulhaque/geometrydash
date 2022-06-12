@@ -160,6 +160,11 @@ void popUp() {
       textAlign(CENTER);
       text(levelList.get(currLevel).levelName, 420, 100);
     }
+    fill(0);
+    rect(10, 10, 100, 80);
+    fill(255);
+    textAlign(LEFT);
+    text(mouseX + ", " + mouseY, 20, 30);
     image(pauseScr, 175, 100);
   } else if (!autoSpawn && character.dead) {
     if (opaqCheck == 0) {
@@ -191,14 +196,12 @@ void keyPressed() {
         }
       }
     }
-    if (keyCode == ENTER) {
-      if (!character.dead)entered = !entered;
-    }
+    if (keyCode == ENTER) if (!character.dead)entered = !entered;
     if (key == 'a') autoSpawn = !autoSpawn;
-    if (key == 'n' && (won || entered)) {
-      entered = false;
-      inMenu = true;
-    }
+    //if (key == 'n' && (won || entered)) {
+    //  entered = false;
+    //  inMenu = true;
+    //}
   } else {
     if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrL();
@@ -239,13 +242,16 @@ void mouseClicked() {
         character.dead = false;
         level = new Levels(currentS);
         opaqCheck = 0;
-      }
-      else if (dist(mouseX, mouseY, 550, 440) < 40) {
+      } else if (dist(mouseX, mouseY, 550, 440) < 40)inMenu = true;
+    }
+    if (entered && !character.dead) {
+      if (dist(mouseX, mouseY, 343, 325) < 87) {
+        entered = false;
+        opaqCheck = 0;
+      } else if (dist(mouseX, mouseY, 579, 325) < 87) {
+        entered = false;
         inMenu = true;
       }
-    }
-    if(entered && !character.dead){
-    
     }
   }
 }
