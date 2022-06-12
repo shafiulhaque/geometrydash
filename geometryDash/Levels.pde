@@ -24,13 +24,15 @@ public class Levels {
         color1 = 0;
         setColor(reader, numcol);
         setLevel(reader);
-        blockskin = new PImage[3];
+        blockskin = new PImage[4];
         blockskin[0] = loadImage("geoBlockImg.jpg");
         blockskin[0].resize(30, 30);
         blockskin[1] = loadImage("NormBlock.png");
         blockskin[1].resize(30, 30);
         blockskin[2] = loadImage("SeeThrough.png");
         blockskin[2].resize(30, 30);
+        blockskin[3] = loadImage("Slab.png");
+        blockskin[3].resize(30, 10);
       }
     }
     catch(IOException e) {
