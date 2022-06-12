@@ -64,7 +64,7 @@ void draw() {
 
       if (autoSpawn) {
         level1 = new Levels(currentS);
-        character.dead = false;
+        character = new Chars();
       } else {
         popUp();
       }

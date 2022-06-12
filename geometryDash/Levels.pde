@@ -55,7 +55,7 @@ public class Levels {
           map[i][j] = new Slab(30 * j, 30 * i);
           break;
         case "e":
-          map[i][j] = new emptyBlock(30 * j, 30 * i);
+          map[i][j] = new emptyBlock(30 * j, 30 * i, "empty");
           break;
         case "r":
           map[i][j] = new Portal(30 * j, 30 * i, "ROCKET");
@@ -77,6 +77,9 @@ public class Levels {
           break;
         case "l":
           map[i][j] = new Triangle(30 * j, 30 * i, "left triangle");
+          break;
+        case "n":
+          map[i][j] = new emptyBlock(30 * j, 30 * i, "black");
           break;
         }
       }
