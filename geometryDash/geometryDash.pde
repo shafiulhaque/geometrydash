@@ -114,7 +114,7 @@ void draw() {
             noStroke();
             rect(150, 60, (float)600 * cb / level.WIDTH, 10);
           }
-          if (perc) {
+          if (perc && !won) {
             fill(255);
             textFont(font);
             text(cb * 100 / level.WIDTH + "%", 430, 50);
@@ -227,9 +227,6 @@ void popUp() {
     noStroke();
     rect(300, 240, (float) 300 * cbU / level.WIDTH, 10);
     image(deathScr, 205, 100);
-    fill(255);
-    textFont(font);
-    text("100%", 430, 50);
   }
 }
 
@@ -244,6 +241,9 @@ void endScreen() {
   text("LEVEL COMPLETE!", 280, 220);
   textFont(font);
   image(deathScr, 205, 100);
+  fill(255);
+  textFont(font);
+  text("100%", 430, 50);
 }
 
 void start1() {
