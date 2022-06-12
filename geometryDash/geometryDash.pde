@@ -43,7 +43,7 @@ void setup() {
 
 void draw() {
   if (timer != 0) { 
-    if (inMenu && timer >= 30) {
+    if (inMenu && timer > 30) {
       noFill();
       stroke(255, 255, 0);
       rect(200, 300, 450, 10);
@@ -57,12 +57,11 @@ void draw() {
       stroke(255);
       background(0);
       fill(0);
-      if (infoX != info.x) print(infoX + '\n');
       for (int i = 0; i < levelList.size(); i++) {
         levelList.get(i).move();
         levelList.get(i).display(width - 100, height - 100);
       }
-      infoX = info.x;
+      text(currLevel + " x: " + levelList.get(currLevel).x, 300, 300);
       if (!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, levelList.get(currLevel).x + 450, 200);
     } else {
       if (!entered) {
@@ -193,22 +192,11 @@ void keyPressed() {
       inMenu = true;
     }
   } else {
-    if (keyCode == LEFT  && timer == 0) {
-      timer = 20;
-      if(currLevel == 0) levelList.get(levelList.size() - 1).x = -850;
-      if(currLevel > 0) levelList.get(currLevel - 1).x = -850;
-      for (int i = 0; i < levelList.size(); i++) levelList.get(i).arrR();
-      currLevel--;
-      if (currLevel < 0) currLevel = levelList.size() - 1;
+    if (keyCode == LEFT  ) {
+      
     }
-    if (keyCode == RIGHT && timer == 0) {
-      timer = 20;
-      if(currLevel == levelList.size() - 1) levelList.get(0).x = 950;
-      if(currLevel < levelList.size() - 1) levelList.get(currLevel + 1).x = 950;
-      //if(currLevel == 0) levelList.get(levelList.size() - 1).x = -850;
-      for (int i = 0; i < levelList.size(); i++) levelList.get(i).arrL();
-      currLevel++;
-      if (currLevel > levelList.size() - 1) currLevel = 0;
+    else if (keyCode == RIGHT ) {
+      
     }
   }
 }

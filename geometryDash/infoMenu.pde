@@ -35,11 +35,11 @@ public class infoMenu extends levelsMenu{
     if(x % 900 == 50 || x % 900 == -850) dx = 0;
   }
   
-  void arrL(){
+  void arrR(){
     dx = -50;
   }
   
-  void arrR(){
+  void arrL(){
     dx = 50;
   }
 }
