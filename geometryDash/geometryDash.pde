@@ -194,19 +194,17 @@ void keyPressed() {
       inMenu = true;
     }
   } else {
-    if (keyCode == LEFT && timer == 0 ) {
-      timer = 30;
+    if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrL();
-      for (int i = 0; i < size; i++) { 
-        if (levelList.get(i).x == 2750) {
-          levelList.get(i).x = -850;
-          break;
+        for (int i = 0; i < size; i++) { 
+          if (levelList.get(i).x == 2750) {
+            levelList.get(i).x = -850;
+            break;
+          }
         }
-      }
-      if(currLevel == 0) currLevel = size - 1;
-      else currLevel--;
-    } else if (keyCode == RIGHT ) {
-      timer = 30;
+        if (currLevel == 0) currLevel = size - 1;
+        else currLevel--;
+    } else if (keyCode == RIGHT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrR();
       for (int i = 0; i < size; i++) { 
         if (levelList.get(i).x == -850) {
@@ -214,7 +212,7 @@ void keyPressed() {
           break;
         }
       }
-      if(currLevel == size - 1) currLevel = 0;
+      if (currLevel == size - 1) currLevel = 0;
       else currLevel++;
     }
   }
