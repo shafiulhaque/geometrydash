@@ -206,6 +206,16 @@ void keyPressed() {
       if(currLevel == 0) currLevel = size - 1;
       else currLevel--;
     } else if (keyCode == RIGHT ) {
+      timer = 30;
+      for (int i = 0; i < size; i++) levelList.get(i).arrR();
+      for (int i = 0; i < size; i++) { 
+        if (levelList.get(i).x == -850) {
+          levelList.get(i).x = 2750;
+          break;
+        }
+      }
+      if(currLevel == size - 1) currLevel = 0;
+      else currLevel++;
     }
   }
 }
