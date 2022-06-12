@@ -13,7 +13,7 @@ PImage startText;
 int timer;
 ArrayList<levelsMenu> levelList;
 levelsMenu info = new levelsMenu();
-levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "backontrack0");
+levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "back on track");
 levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2");
 levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3"); 
 levelsMenu level4 = new levelsMenu(3650, 50, color(150, 45, 70), "level4"); 
