@@ -10,9 +10,7 @@ public class emptyBlock extends Block {
 
   void place(PImage[] img) {
     if (type.equals("black")) {
-      stroke(105, 105, 105);
-      fill(105, 105, 105);
-      rect(x, y, sideL, sideL);
+      image(img[2], x, y);
     }
     x -= 6;
   }

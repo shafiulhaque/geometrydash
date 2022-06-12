@@ -43,7 +43,8 @@ public class Block {
   }
 
   void place(PImage[] img) {
-    image(img[0], x, y);
+    if (type.equals("block")) image(img[0], x, y);
+    if (type.equals("main block")) image(img[1], x, y);
     x -= 6;
   }
 

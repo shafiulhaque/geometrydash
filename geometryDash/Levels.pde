@@ -24,11 +24,13 @@ public class Levels {
         color1 = 0;
         setColor(reader, numcol);
         setLevel(reader);
-        blockskin = new PImage[2];
+        blockskin = new PImage[3];
         blockskin[0] = loadImage("geoBlockImg.jpg");
         blockskin[0].resize(30, 30);
         blockskin[1] = loadImage("NormBlock.png");
         blockskin[1].resize(30, 30);
+        blockskin[2] = loadImage("SeeThrough.png");
+        blockskin[2].resize(30, 30);
       }
     }
     catch(IOException e) {
@@ -49,6 +51,9 @@ public class Levels {
         switch(copy[i][j]) {
         case "b": 
           map[i][j] = new Block(30 * j, 30 * i, "block");
+          break;
+        case "d": 
+          map[i][j] = new Block(30 * j, 30 * i, "main block");
           break;
         case "x": 
           map[i][j] = new SlantTriangle(30 * j, 30 * i);

@@ -250,7 +250,7 @@ void mouseClicked() {
   } else {
     if (!autoSpawn && character.dead) {
       if (dist(mouseX, mouseY, 297, 440) < 40) {
-        character.dead = false;
+        character = new Chars();
         level = new Levels(currentS);
         opaqCheck = 0;
       } else if (dist(mouseX, mouseY, 550, 440) < 40)inMenu = true;
