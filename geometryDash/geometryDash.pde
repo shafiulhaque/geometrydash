@@ -10,9 +10,9 @@ PImage startText;
 int timer;
 ArrayList<levelsMenu> levelList;
 levelsMenu info = new levelsMenu();
-levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "level1.txt");
-levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2.txt");
-levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3.txt"); 
+levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "level1");
+levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2");
+levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3"); 
 boolean inMenu;
 int currLevel;
 PImage skin;
@@ -60,7 +60,7 @@ void draw() {
     }
     timer--;
   } else {
-    currentS = levelList.get(currLevel).levelName;
+    currentS = levelList.get(currLevel).levelName + ".txt";
     if (inMenu) {
       stroke(255);
       background(0);
@@ -159,12 +159,14 @@ void popUp() {
     text("PRESS N TO LEAVE", width * .5, height * .7);
   } else if (!autoSpawn && character.dead) {
     if (opaqCheck == 0) {
-      noStroke();
       fill(0, 0, 0, 100);
-      rect(180, 100, 480, 350);
+      rect(190, 110, 470, 330);
       opaqCheck++;
       textFont(font);
-      text("PROGRESS", 320, 200);
+      stroke(0);
+      fill(255);
+      textAlign(CENTER);
+      text(levelList.get(currLevel).levelName, 420, 200);
     }
     image(deathScr, 175, 100);
   }
@@ -190,11 +192,6 @@ void keyPressed() {
       if (!character.dead)entered = !entered;
     }
     if (key == 'a') autoSpawn = !autoSpawn;
-    if (key == 'r' && (!autoSpawn && character.dead)) {
-      character.dead = false;
-      level = new Levels(currentS);
-      opaqCheck = 0;
-    }
     if (key == 'n' && (won || entered)) {
       entered = false;
       inMenu = true;
@@ -229,7 +226,18 @@ void mouseClicked() {
     if (dist(mouseX, mouseY, 450, 300) < 15 && !currentS.equals("tutorial")) { 
       currentS = levelList.get(currLevel).levelName;
       inMenu = false;
-      level = new Levels(currentS);
+      level = new Levels(currentS + ".txt");
+    }
+  } else {
+    if (!autoSpawn && character.dead) {
+      if (dist(mouseX, mouseY, 297, 440) < 40) {
+        character.dead = false;
+        level = new Levels(currentS);
+        opaqCheck = 0;
+      }
+      else if (dist(mouseX, mouseY, 550, 440) < 40) {
+        inMenu = true;
+      }
     }
   }
 }
