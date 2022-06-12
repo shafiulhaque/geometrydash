@@ -226,6 +226,8 @@ void mouseClicked() {
     if (dist(mouseX, mouseY, 450, 300) < 15 && !currentS.equals("tutorial")) { 
       currentS = levelList.get(currLevel).levelName;
       inMenu = false;
+      character = new Chars();
+      opaqCheck = 0;
       level = new Levels(currentS + ".txt");
     }
   } else {
