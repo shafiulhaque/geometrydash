@@ -39,6 +39,7 @@ void draw() {
 
       colors = level1.colors[level1.color1];
       background(colors[1], colors[2], colors[3]);
+
       character.jump(jump);
       character.move();
 
@@ -54,6 +55,7 @@ void draw() {
       text(character.platformu, 100, 180);
       text(character.platuf, 100, 200);
       text(character.platub, 100, 220);
+      text(cb, 100, 240);
 
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) endScreen();
 
