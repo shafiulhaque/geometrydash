@@ -26,6 +26,7 @@ public class Rocket extends Chars {
       y += dy;
     }
     setb = platform;
+    sett = platformu;
     if (x >= 270) {
       x = 270;
       dx = 0;

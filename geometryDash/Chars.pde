@@ -10,6 +10,9 @@ public class Chars { //<>// //<>//
   float top;
   float platb;
   float platf;
+  float platub;
+  float platuf;
+  float platformu;
 
   public Chars() {
     dead = false;
@@ -24,6 +27,9 @@ public class Chars { //<>// //<>//
     top = 0;
     platb = 420;
     platf = 420;
+    platformu = 0;
+    platub = 0;
+    platuf = 0;
   }
 
   public Chars(float x0, float y0) {
@@ -34,11 +40,14 @@ public class Chars { //<>// //<>//
     dx = 6;
     dy = 0;
     platform = 420;
+    platformu = 0;
     change = false;
     type = "BLOCK";
     top = 0;
     platb = 420;
     platf = 420;
+    platub = 0;
+    platuf = 0;
   }
 
   void move() {
@@ -97,15 +106,23 @@ public class Chars { //<>// //<>//
             dead = false;
             platform = other.y - sideL;
           }
+          if (y >= other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
+            dead = false;
+            if (platformu < other.y - sideL) platformu = other.y + sideL;
+          }
         }
+        
       } else {
+        
         if (x+sideL > other.x && x+sideL < other.x+other.sideL && y > other.y && y < other.y+other.sideW) {
           change = true;
           type = other.type;
         }
-        if (other.type.equals("MID") && (x > other.x && x < other.x+other.sideL || x+sideL > other.x && x+sideL < other.x+other.sideL) && y+sideL >= other.y && y+sideL <= other.y+other.sideW){
+        
+        if (other.type.equals("MID") && (x > other.x && x < other.x+other.sideL || x+sideL > other.x && x+sideL < other.x+other.sideL) && y+sideL >= other.y && y+sideL <= other.y+other.sideW) {
           dy = -16;
         }
+        
       }
     }
   }
@@ -117,6 +134,15 @@ public class Chars { //<>// //<>//
       }
     }
     return 600;
+  }
+
+  float platIntUp(Block other) {
+    if (other.isSafeTop()) {
+      if (y > other.y - sideL) {
+        return other.y + sideL;
+      }
+    }
+    return 0;
   }
 
 

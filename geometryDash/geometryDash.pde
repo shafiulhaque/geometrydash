@@ -51,6 +51,9 @@ void draw() {
       text(character.platform, 100, 100);
       text(character.y, 100, 140);
       text(character.dy, 100, 160);
+      text(character.platformu, 100, 180);
+      text(character.platuf, 100, 200);
+      text(character.platub, 100, 220);
 
       if (level1.map[0][level1.WIDTH - 1].x < 270 && !character.dead) endScreen();
 
