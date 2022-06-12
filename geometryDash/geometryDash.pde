@@ -123,7 +123,11 @@ void draw() {
           if (character.change) changeChar();
         } else {
           if (autoSpawn) {
+            int jumpy = level.jumps;
+            int attempt = level.attempts;
             level = new Levels(currentS);
+            level.jumps = jumpy;
+            level.attempts = attempt + 1;
             character = new Chars();
             opaqCheck = 0;
           } else {
@@ -142,6 +146,7 @@ void keyPressed() {
   if (!inMenu) {
     if (keyCode == 32 && !character.dead) {
       if (!entered) {
+        level.jumps++;
         jump = true;
         if (character.y == character.platform) {
           jump = true;
@@ -244,6 +249,7 @@ void endScreen() {
   fill(255);
   textFont(font);
   text("100%", 430, 50);
+  text("Attempts: " + level.attempts, 280, 260);
 }
 
 void start1() {
@@ -281,12 +287,17 @@ void mouseClicked() {
       character = new Chars();
       opaqCheck = 0;
       level = new Levels(currentS + ".txt");
+      level.attempts++;
     }
   } else {
     if (!autoSpawn && character.dead) {
       if (dist(mouseX, mouseY, 297, 440) < 40) {
+        int jumpy = level.jumps;
+        int attempt = level.attempts;
         character.dead = false;
         level = new Levels(currentS);
+        level.jumps = jumpy;
+        level.attempts = attempt + 1;
         opaqCheck = 0;
       } else if (dist(mouseX, mouseY, 550, 440) < 40)inMenu = true;
     }
