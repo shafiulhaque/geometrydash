@@ -13,6 +13,7 @@ levelsMenu info = new levelsMenu();
 levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "level1");
 levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2");
 levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3"); 
+levelsMenu level4 = new levelsMenu(3650, 50, color(150, 45, 70), "level4"); 
 boolean inMenu;
 int currLevel;
 PImage skin;
@@ -40,6 +41,7 @@ void setup() {
   levelList.add(level1);
   levelList.add(level2);
   levelList.add(level3);
+  levelList.add(level4);
   entered = false;
   won = false;
   autoSpawn = false;
@@ -201,7 +203,7 @@ void keyPressed() {
     if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrL();
       for (int i = 0; i < size; i++) { 
-        if (levelList.get(i).x == 2750) {
+        if (levelList.get(i).x ==  900 * (size - 1) + 50) {
           levelList.get(i).x = -850;
           break;
         }
@@ -212,7 +214,7 @@ void keyPressed() {
       for (int i = 0; i < size; i++) levelList.get(i).arrR();
       for (int i = 0; i < size; i++) { 
         if (levelList.get(i).x == -850) {
-          levelList.get(i).x = 2750;
+          levelList.get(i).x = 900 * (size - 1) + 50;
           break;
         }
       }
@@ -241,6 +243,9 @@ void mouseClicked() {
       else if (dist(mouseX, mouseY, 550, 440) < 40) {
         inMenu = true;
       }
+    }
+    if(entered && !character.dead){
+    
     }
   }
 }
