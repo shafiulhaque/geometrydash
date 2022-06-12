@@ -18,6 +18,9 @@ int currLevel;
 PImage skin;
 float infoX = 0;
 int size;
+PImage deathScr;
+int opaqCheck;
+PFont font;
 
 void setup() {
   size(900, 600);
@@ -41,6 +44,9 @@ void setup() {
   won = false;
   autoSpawn = false;
   size = levelList.size();
+  deathScr = loadImage("deathScreen.png");
+  opaqCheck = 0;
+  font = createFont("PUSAB___.otf", 40);
 }
 
 void draw() {
@@ -63,7 +69,6 @@ void draw() {
         levelList.get(i).move();
         levelList.get(i).display(width - 100, height - 100);
       }
-      text(currLevel + " x: " + levelList.get(currLevel).x, 300, 300);
       if (!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, levelList.get(currLevel).x + 450, 200);
     } else {
       if (!entered) {
@@ -128,6 +133,7 @@ void draw() {
           if (autoSpawn) {
             level = new Levels(currentS);
             character = new Chars();
+            opaqCheck = 0;
           } else {
             popUp();
           }
@@ -152,16 +158,15 @@ void popUp() {
     text("PRESS ENTER TO RESUME", width * .5, height * .5);
     text("PRESS N TO LEAVE", width * .5, height * .7);
   } else if (!autoSpawn && character.dead) {
-    stroke(220);
-    fill(130);
-    rect(width * .15, height * .15, width * .7, height * .7);
-    textAlign(CENTER);
-    fill(0);
-    textSize(40);
-    text("YOU ARE DEAD", width * .5, height * .3);
-    textSize(20);
-    text("PRESS R TO RESPAWN", width * .5, height * .5);
-    text("PRESS A TO TOGGLE AUTO RESPAWN", width * .5, height * .7);
+    if (opaqCheck == 0) {
+      noStroke();
+      fill(0, 0, 0, 100);
+      rect(180, 100, 480, 350);
+      opaqCheck++;
+      textFont(font);
+      text("PROGRESS", 320, 200);
+    }
+    image(deathScr, 175, 100);
   }
 }
 
@@ -188,6 +193,7 @@ void keyPressed() {
     if (key == 'r' && (!autoSpawn && character.dead)) {
       character.dead = false;
       level = new Levels(currentS);
+      opaqCheck = 0;
     }
     if (key == 'n' && (won || entered)) {
       entered = false;
@@ -196,14 +202,14 @@ void keyPressed() {
   } else {
     if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrL();
-        for (int i = 0; i < size; i++) { 
-          if (levelList.get(i).x == 2750) {
-            levelList.get(i).x = -850;
-            break;
-          }
+      for (int i = 0; i < size; i++) { 
+        if (levelList.get(i).x == 2750) {
+          levelList.get(i).x = -850;
+          break;
         }
-        if (currLevel == 0) currLevel = size - 1;
-        else currLevel--;
+      }
+      if (currLevel == 0) currLevel = size - 1;
+      else currLevel--;
     } else if (keyCode == RIGHT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrR();
       for (int i = 0; i < size; i++) { 
