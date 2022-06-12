@@ -16,9 +16,9 @@ levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3");
 boolean inMenu;
 int currLevel;
 PImage skin;
-float infoX = 0;
 int size;
 PImage deathScr;
+PImage pauseScr;
 int opaqCheck;
 PFont font;
 
@@ -48,6 +48,7 @@ void setup() {
   opaqCheck = 0;
   font = createFont("PUSAB___.otf", 40);
   textFont(font);
+  pauseScr = loadImage("pauseScreen.png");
 }
 
 void draw() {
@@ -70,7 +71,7 @@ void draw() {
         levelList.get(i).move();
         levelList.get(i).display(width - 100, height - 100);
       }
-      if (!currentS.equals("tutorial")) text(levelList.get(currLevel).levelName, levelList.get(currLevel).x + 450, 200);
+      if (!levelList.get(currLevel).levelName.equals("tutorial")) text(levelList.get(currLevel).levelName, levelList.get(currLevel).x + 400, 200);
     } else {
       if (!entered) {
         if (!character.dead) {
@@ -148,16 +149,16 @@ void draw() {
 
 void popUp() {
   if (entered && !character.dead) {
-    stroke(220);
-    fill(130);
-    rect(width * .15, height * .15, width * .7, height * .7);
-    textAlign(CENTER);
-    fill(0);
-    textSize(40);
-    text("GAME IS PAUSED", width * .5, height * .3);
-    textSize(20);
-    text("PRESS ENTER TO RESUME", width * .5, height * .5);
-    text("PRESS N TO LEAVE", width * .5, height * .7);
+    if (opaqCheck == 0) {
+      noStroke();
+      fill(0, 0, 0, 200);
+      rect(25, 25, 850, 550);
+      opaqCheck++;
+      fill(255);
+      textAlign(CENTER);
+      text(levelList.get(currLevel).levelName, 420, 100);
+    }
+    image(pauseScr, 175, 100);
   } else if (!autoSpawn && character.dead) {
     if (opaqCheck == 0) {
       fill(0, 0, 0, 100);
