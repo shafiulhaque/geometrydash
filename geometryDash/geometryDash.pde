@@ -47,6 +47,7 @@ void setup() {
   deathScr = loadImage("deathScreen.png");
   opaqCheck = 0;
   font = createFont("PUSAB___.otf", 40);
+  textFont(font);
 }
 
 void draw() {
@@ -162,7 +163,6 @@ void popUp() {
       fill(0, 0, 0, 100);
       rect(190, 110, 470, 330);
       opaqCheck++;
-      textFont(font);
       stroke(0);
       fill(255);
       textAlign(CENTER);
