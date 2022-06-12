@@ -27,6 +27,7 @@ PFont font;
 PFont fontW;
 boolean progBar;
 int cbU;
+boolean perc;
 
 void setup() {
   size(900, 600);
@@ -58,6 +59,7 @@ void setup() {
   fontW = createFont("OXYGENE1.TTF", 40);
   pauseScr = loadImage("pauseScreen.png");
   progBar = false;
+  perc = false;
   //colors = level1.colors[level1.color1];
 }
 
@@ -148,7 +150,6 @@ void keyPressed() {
       }
     }
     if (keyCode == ENTER) if (!character.dead)entered = !entered;
-    if (key == 'a') autoSpawn = !autoSpawn;
   } else {
     if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrL();
@@ -192,6 +193,18 @@ void popUp() {
       text(levelList.get(currLevel).levelName, 450, 100);
     }
     image(pauseScr, 175, 100);
+    if (autoSpawn) {
+      fill(0, 255, 0);
+      rect(205, 475, 35, 35);
+    }
+    if (progBar) {
+      fill(0, 255, 0);
+      rect(468, 475, 35, 35);
+    }
+    if (perc) {
+      fill(0, 255, 0);
+      rect(620, 475, 35, 35);
+    }
   } else if (!autoSpawn && character.dead) {
     if (opaqCheck == 0) {
       fill(0, 0, 0, 100);
@@ -231,8 +244,6 @@ void start1() {
   fill(0);
   textAlign(LEFT);
   textSize(20);
-  if (autoSpawn) text("AUTORESPAWN: ON (PRESS A TO CHANGE)", 20, 20);
-  else text("AUTORESPAWN: OFF (PRESS A TO CHANGE)", 20, 20);
   //rect(0, height * .75 + 30, width, height * .25);
   //rect(0, 0, width, character.top);
 }
@@ -278,7 +289,9 @@ void mouseClicked() {
       } else if (dist(mouseX, mouseY, 579, 325) < 87) {
         entered = false;
         inMenu = true;
-      }
+      } else if (dist(mouseX, mouseY, 220, 490) < 23) autoSpawn = !autoSpawn;
+      else if (dist(mouseX, mouseY, 483, 490) < 23) progBar = !progBar;
+      else if (dist(mouseX, mouseY, 635, 490) < 23) perc = !perc;
     }
     if (won) {
       if (dist(mouseX, mouseY, 297, 440) < 40) {
