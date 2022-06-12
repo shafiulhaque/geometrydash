@@ -294,7 +294,7 @@ void mouseClicked() {
       if (dist(mouseX, mouseY, 297, 440) < 40) {
         int jumpy = level.jumps;
         int attempt = level.attempts;
-        character.dead = false;
+        character = new Chars();
         level = new Levels(currentS);
         level.jumps = jumpy;
         level.attempts = attempt + 1;
