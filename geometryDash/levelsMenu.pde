@@ -35,9 +35,7 @@ public class levelsMenu {
       text("Game Controls: ", x + 70, 270);
       text("SPACEBAR: JUMP", x + 70, 310);
       text("ENTER/RETURN: PAUSE", x + 70, 350);
-      text("ENTER/RETURN + N: RETURN TO MENU", x + 70, 390);
-      text("R: RESPAWN", x + 70, 430);
-      text("A: TOGGLE AUTO-RESPAWN", x + 70, 470);
+      text("A: TOGGLE AUTO-RESPAWN", x + 70, 390);
     } else {
       fill(col);
       rect(x, y, sideX, sideY);

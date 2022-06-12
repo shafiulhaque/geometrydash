@@ -7,6 +7,8 @@ public class Block {
   String type;
   boolean isEmpty;
   color colr;
+  int attempts;
+  int jumps;
 
   public Block(float x0, float y0, int sideL0, boolean safes, boolean safet) {
     x = x0;

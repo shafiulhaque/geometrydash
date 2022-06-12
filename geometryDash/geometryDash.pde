@@ -6,7 +6,6 @@ static boolean won;
 static String currentS;
 static boolean jump;
 static int[] colors;
-
 static PImage blockIm;
 PImage startUp;
 PImage startText;
@@ -25,6 +24,9 @@ PImage deathScr;
 PImage pauseScr;
 int opaqCheck;
 PFont font;
+PFont fontW;
+boolean progBar;
+int cbU;
 
 void setup() {
   size(900, 600);
@@ -53,7 +55,9 @@ void setup() {
   opaqCheck = 0;
   font = createFont("PUSAB___.otf", 40);
   textFont(font);
+  fontW = createFont("OXYGENE1.TTF", 40);
   pauseScr = loadImage("pauseScreen.png");
+  progBar = false;
   //colors = level1.colors[level1.color1];
 }
 
@@ -87,6 +91,7 @@ void draw() {
           for (int i = 0; i < level.WIDTH; i++) {
             if (level.map[0][i].x - character.x <= 30 && level.map[0][i].x - character.x >= 0) cb = i;
           }
+          cbU = cb;
           if (cb <= 0) {
             cf = 0;
           } else {
@@ -99,6 +104,14 @@ void draw() {
           level.findPlats(character, cb, cf);
           level.display(blockIm);
           character.display();
+          if (progBar) {
+            noFill();
+            stroke(255);
+            rect(150, 60, 600, 10);
+            fill(0, 255, 0);
+            noStroke();
+            rect(150, 60, (float)600 * cb / level.WIDTH, 10);
+          }
           if (level.map[0][level.WIDTH - 1].x < 270 && !character.dead) endScreen();
           if (character.change) changeChar();
         } else {
@@ -136,10 +149,6 @@ void keyPressed() {
     }
     if (keyCode == ENTER) if (!character.dead)entered = !entered;
     if (key == 'a') autoSpawn = !autoSpawn;
-    //if (key == 'n' && (won || entered)) {
-    //  entered = false;
-    //  inMenu = true;
-    //}
   } else {
     if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrL();
@@ -176,40 +185,44 @@ void popUp() {
     if (opaqCheck == 0) {
       noStroke();
       fill(0, 0, 0, 200);
-      rect(25, 25, 850, 550);
+      rect(55, 25, 800, 550);
       opaqCheck++;
       fill(255);
       textAlign(CENTER);
-      text(levelList.get(currLevel).levelName, 420, 100);
+      text(levelList.get(currLevel).levelName, 450, 100);
     }
-    fill(0);
-    rect(10, 10, 100, 80);
-    fill(255);
-    textAlign(LEFT);
-    text(mouseX + ", " + mouseY, 20, 30);
     image(pauseScr, 175, 100);
   } else if (!autoSpawn && character.dead) {
     if (opaqCheck == 0) {
       fill(0, 0, 0, 100);
-      rect(190, 110, 470, 330);
-      opaqCheck++;
+      rect(220, 110, 470, 330);
       stroke(0);
+      opaqCheck++;
       fill(255);
       textAlign(CENTER);
-      text(levelList.get(currLevel).levelName, 420, 200);
+      text(levelList.get(currLevel).levelName, 450, 200);
     }
-    image(deathScr, 175, 100);
+    noFill();
+    stroke(255);
+    rect(300, 240, 300, 10);
+    fill(0, 255, 0);
+    noStroke();
+    rect(300, 240, (float) 300 * cbU / level.WIDTH, 10);
+    image(deathScr, 205, 100);
   }
 }
 
 void endScreen() {
-  textSize(40);
-  textAlign(CENTER);
-  text("YOU BEAT THE LEVEL! CONGRATS! ", width / 2, height / 3);
-  if (!currentS.equals("level2.txt")) text("PRESS N FOR THE NEXT MAP", width / 2, height / 2);
-  else text("PRESS N TO RETRY THIS MAP", width / 2, height / 2);
-  //currentS = "level2.txt";
   won = true;
+  fill(0);
+  rect(220, 110, 470, 330);
+  fill(0, 255, 0);
+  rect(150, 60, 600, 10);
+  stroke(255);
+  textFont(fontW);
+  text("LEVEL COMPLETE!", 280, 220);
+  textFont(font);
+  image(deathScr, 205, 100);
 }
 
 void start1() {
@@ -266,6 +279,13 @@ void mouseClicked() {
         entered = false;
         inMenu = true;
       }
+    }
+    if (won) {
+      if (dist(mouseX, mouseY, 297, 440) < 40) {
+        character.dead = false;
+        level = new Levels(currentS);
+        opaqCheck = 0;
+      } else if (dist(mouseX, mouseY, 550, 440) < 40)inMenu = true;
     }
   }
 }
