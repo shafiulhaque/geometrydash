@@ -1,4 +1,4 @@
-public class Chars { //<>// //<>//
+public class Chars { //<>//
   boolean dead;
   float x, y;
   float dx, dy;

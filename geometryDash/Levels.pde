@@ -32,16 +32,16 @@ public class Levels {
             case "e":
               map[i][j] = new emptyBlock(30 * j, 30 * i);
               break;
-            case "pR":
+            case "r":
               map[i][j] = new Portal(30 * j, 30 * i, "ROCKET");
               break;
-            case "pU":
+            case "u":
               map[i][j] = new Portal(30 * j, 30 * i, "UFO");
               break;
-            case "pB":
+            case "B":
               map[i][j] = new Portal(30 * j, 30 * i, "BLOCK");
               break;
-            case "pS":
+            case "S":
               map[i][j] = new Portal(30 * j, 30 * i, "SPIKE");
               break;
             }
@@ -67,12 +67,12 @@ public class Levels {
     return copy;
   }
 
-  void display() {
+  void display(PImage img) {
     for (int i = 0; i < HEIGHT; i++) {
       for (int j = 0; j < WIDTH; j++) {
-        if (map[i][j] != null) {
-          current = map[i][j];
-          current.place();
+        current = map[i][j];
+        if (current != null) {
+          current.place(img);
         }
       }
     }
