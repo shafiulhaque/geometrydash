@@ -50,7 +50,7 @@ public class Levels {
           map[i][j] = new SlantTriangle(30 * j, 30 * i);
           break;
         case "t":
-          map[i][j] = new Triangle(30 * j, 30 * i);
+          map[i][j] = new Triangle(30 * j, 30 * i, "up triangle");
           break;
         case "s":
           map[i][j] = new Slab(30 * j, 30 * i);
@@ -74,7 +74,10 @@ public class Levels {
           map[i][j] = new Transporter(30 * j, 30 * i, "MID");
           break;
         case "q":
-          map[i][j] = new RevTriangle(30 * j, 30 * i);
+          map[i][j] = new Triangle(30 * j, 30 * i, "down triangle");
+          break;
+        case "l":
+          map[i][j] = new Triangle(30 * j, 30 * i, "left triangle");
           break;
         }
       }
@@ -82,7 +85,7 @@ public class Levels {
   }
 
   void findPlats(Chars character, int cb, int cf) {
-    if (cb == colors[color1][0]) color1++;
+    if (cb == colors[color1][0] || cf == colors[color1][0]) color1++;
     float platb = 600, platf = 600;
     //character.platform = 600;
     for (int j = level1.HEIGHT- 1; j > 0; j--) {
