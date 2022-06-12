@@ -249,7 +249,8 @@ void endScreen() {
   fill(255);
   textFont(font);
   text("100%", 430, 50);
-  text("Attempts: " + level.attempts, 280, 260);
+  text("Attempts: " + level.attempts, 280, 280);
+  text("Jumps: " + level.jumps, 280, 320);
 }
 
 void start1() {
@@ -287,7 +288,6 @@ void mouseClicked() {
       character = new Chars();
       opaqCheck = 0;
       level = new Levels(currentS + ".txt");
-      level.attempts++;
     }
   } else {
     if (!autoSpawn && character.dead) {

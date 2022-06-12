@@ -26,7 +26,7 @@ public class Levels {
         setColor(reader, numcol);
         setLevel(reader);
         jumps = 0;
-        attempts = 0;
+        attempts = 1;
       }
     }
     catch(IOException e) {
