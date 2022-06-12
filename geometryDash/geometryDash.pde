@@ -9,7 +9,7 @@ PImage startUp;
 PImage startText;
 int timer;
 ArrayList<levelsMenu> levelList;
-infoMenu info = new infoMenu();
+levelsMenu info = new levelsMenu();
 levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "level1.txt");
 levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2.txt");
 levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3.txt"); 
@@ -17,6 +17,7 @@ boolean inMenu;
 int currLevel;
 PImage skin;
 float infoX = 0;
+int size;
 
 void setup() {
   size(900, 600);
@@ -39,6 +40,7 @@ void setup() {
   entered = false;
   won = false;
   autoSpawn = false;
+  size = levelList.size();
 }
 
 void draw() {
@@ -57,7 +59,7 @@ void draw() {
       stroke(255);
       background(0);
       fill(0);
-      for (int i = 0; i < levelList.size(); i++) {
+      for (int i = 0; i < size; i++) {
         levelList.get(i).move();
         levelList.get(i).display(width - 100, height - 100);
       }
@@ -192,11 +194,18 @@ void keyPressed() {
       inMenu = true;
     }
   } else {
-    if (keyCode == LEFT  ) {
-      
-    }
-    else if (keyCode == RIGHT ) {
-      
+    if (keyCode == LEFT && timer == 0 ) {
+      timer = 30;
+      for (int i = 0; i < size; i++) levelList.get(i).arrL();
+      for (int i = 0; i < size; i++) { 
+        if (levelList.get(i).x == 2750) {
+          levelList.get(i).x = -850;
+          break;
+        }
+      }
+      if(currLevel == 0) currLevel = size - 1;
+      else currLevel--;
+    } else if (keyCode == RIGHT ) {
     }
   }
 }
