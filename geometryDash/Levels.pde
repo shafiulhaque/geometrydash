@@ -107,6 +107,7 @@ public class Levels {
     character.platuf = platuf;
     character.platub = platub;
     character.platformu = platuf;
+    if (character.y > character.platform) character.y = character.platform;
   }
 
   void testerPrint(String[][] copy) {
