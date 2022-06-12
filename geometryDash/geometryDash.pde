@@ -7,7 +7,6 @@ static String currentS;
 static boolean jump;
 static int[] colors;
 
-static PImage blockIm;
 PImage startUp;
 PImage startText;
 int timer;
@@ -29,8 +28,6 @@ PFont font;
 void setup() {
   size(900, 600);
   character = new Chars();
-  blockIm = loadImage("geoBlockImg.jpg");
-  blockIm.resize(30, 30);
   inMenu = true;
   startUp = loadImage("startUp.jpg");
   startUp.resize(900, 600);
@@ -97,7 +94,7 @@ void draw() {
           character.jump(jump);
           character.move();
           level.findPlats(character, cb, cf);
-          level.display(blockIm);
+          level.display();
           character.display();
           if (level.map[0][level.WIDTH - 1].x < 270 && !character.dead) endScreen();
           if (character.change) changeChar();

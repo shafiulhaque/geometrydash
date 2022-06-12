@@ -7,7 +7,7 @@ public class Triangle extends Block {
     type = t;
   }
 
-  void place(PImage img) {
+  void place(PImage[] img) {
     stroke(255);
     fill(0);
     if (type.equals("up triangle")) triangle(x+sideL/2, y, x, y+sideL, x+sideL, y+sideL);

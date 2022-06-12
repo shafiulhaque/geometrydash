@@ -7,6 +7,7 @@ public class Levels {
   int HEIGHT;
   int[][] colors;
   int color1;
+  PImage[] blockskin;
 
   public Levels(String file) {
     try {
@@ -23,6 +24,11 @@ public class Levels {
         color1 = 0;
         setColor(reader, numcol);
         setLevel(reader);
+        blockskin = new PImage[2];
+        blockskin[0] = loadImage("geoBlockImg.jpg");
+        blockskin[0].resize(30, 30);
+        blockskin[1] = loadImage("NormBlock.png");
+        blockskin[1].resize(30, 30);
       }
     }
     catch(IOException e) {
@@ -42,7 +48,7 @@ public class Levels {
       for (int j = 0; j < WIDTH; j++) {
         switch(copy[i][j]) {
         case "b": 
-          map[i][j] = new Block(30 * j, 30 * i);
+          map[i][j] = new Block(30 * j, 30 * i, "block");
           break;
         case "x": 
           map[i][j] = new SlantTriangle(30 * j, 30 * i);
@@ -123,12 +129,12 @@ public class Levels {
     return copy;
   }
 
-  void display(PImage img) {
+  void display() {
     for (int i = 0; i < HEIGHT; i++) {
       for (int j = 0; j < WIDTH; j++) {
         current = map[i][j];
         if (current != null) {
-          current.place(img);
+          current.place(blockskin);
         }
       }
     }
