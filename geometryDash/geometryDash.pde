@@ -114,6 +114,11 @@ void draw() {
             noStroke();
             rect(150, 60, (float)600 * cb / level.WIDTH, 10);
           }
+          if (perc) {
+            fill(255);
+            textFont(font);
+            text(cb * 100 / level.WIDTH + "%", 430, 50);
+          }
           if (level.map[0][level.WIDTH - 1].x < 270 && !character.dead) endScreen();
           if (character.change) changeChar();
         } else {
@@ -222,6 +227,9 @@ void popUp() {
     noStroke();
     rect(300, 240, (float) 300 * cbU / level.WIDTH, 10);
     image(deathScr, 205, 100);
+    fill(255);
+    textFont(font);
+    text("100%", 430, 50);
   }
 }
 
