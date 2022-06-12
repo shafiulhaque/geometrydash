@@ -6,7 +6,7 @@ public class SlantTriangle extends Block {
     isEmpty = false;
   }
 
-  void place() {
+  void place(PImage img) {
     stroke(255);
     fill(0);
     triangle(x+sideL/2, y, x, y+10, x+sideL, y+10);

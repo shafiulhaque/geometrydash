@@ -3,7 +3,6 @@ public class Levels {
   Block current;
   String[][] copy;
   String[] mapSize;
-  BufferedReader[] level;
   int WIDTH;
   int HEIGHT;
   int[][] colors;
@@ -89,7 +88,7 @@ public class Levels {
   void findPlats(Chars character, int cb, int cf) {
     if (cb == colors[color1][0] || cf == colors[color1][0]) color1++;
     float platb = 600, platf = 600, platub = 0, platuf = 0;
-    for (int j = level1.HEIGHT- 1; j > 0; j--) {
+    for (int j = level.HEIGHT- 1; j > 0; j--) {
       Block currB = map[j][cb];
       Block currBSide = map[j][cf];
       if (!currBSide.isEmpty) {
@@ -123,12 +122,12 @@ public class Levels {
     return copy;
   }
 
-  void display() {
+  void display(PImage img) {
     for (int i = 0; i < HEIGHT; i++) {
       for (int j = 0; j < WIDTH; j++) {
-        if (map[i][j] != null) {
-          current = map[i][j];
-          current.place();
+        current = map[i][j];
+        if (current != null) {
+          current.place(img);
         }
       }
     }

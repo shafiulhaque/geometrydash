@@ -1,13 +1,13 @@
 public class Triangle extends Block {
 
-  public Triangle(float x0, float y0, String dir) {
+  public Triangle(float x0, float y0, String t) {
     super(x0, y0);
     isSafeTop = false;
     isEmpty = false;
-    type = dir;
+    type = t;
   }
 
-  void place() {
+  void place(PImage img) {
     stroke(255);
     fill(0);
     if (type.equals("up triangle")) triangle(x+sideL/2, y, x, y+sideL, x+sideL, y+sideL);

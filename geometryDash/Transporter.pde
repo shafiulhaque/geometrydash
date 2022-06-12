@@ -7,7 +7,7 @@ public class Transporter extends Block {
     sideL = 30;
     type = t;
   }
-  void place() {
+  void place(PImage img) {
     stroke(220);
     fill(220, 220, 0);
     rect(x, y, sideL, sideW);

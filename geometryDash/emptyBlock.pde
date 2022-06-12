@@ -8,7 +8,7 @@ public class emptyBlock extends Block {
     type = t;
   }
 
-  void place() {
+  void place(PImage img) {
     if (type.equals("black")) {
       stroke(105, 105, 105);
       fill(105, 105, 105);
