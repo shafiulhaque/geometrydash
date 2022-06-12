@@ -106,6 +106,7 @@ public class Chars { //<>// //<>//
             dead = false;
             platform = other.y - sideL;
           }
+          
           if (y >= other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
             dead = false;
             if (platformu < other.y - sideL) platformu = other.y + sideL;
