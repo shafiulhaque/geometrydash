@@ -1,11 +1,33 @@
 # Geometry Dash!
+# Group Name: Gwuh Hawk Productions
+# Group Members: Shafiul Haque and Jacob Guo
 
-## Group Name: Gwuh Hawk Productions
-## Group Members: Shafiul Haque and Jacob Guo
-
+## Brief Project Description
 Welcome to Gwuh Hawk Productions! We are aiming to make the platform game Geometry Dash in Processing using Java. We plan on developing this game through loading pre set maps (levels) and having a square block character play through the level. The playing screen is 900 (width) by 600 (height) on Processing. Depending on what modes each level has to offer, the square block may switch to a rocket ship, upside down, backwards mode, etc. as the level progresses. The character will face obstacles in its path, such as triangles or colliding with objects, and interacting with these obstacles will cause the character to die and reset the game. In the home screen, the user will have the option to alternate between levels, see their progress on levels, and click the level of their choice. The ultimate goal of Geometry Dash is for the user to complete the levels successfully without dying.
 
+
+## Prototype Document:
 https://docs.google.com/document/d/1DoeC03GguchyTU4rn-WnNg-sOMY7gM8NtqaWRC1FQis/edit?usp=sharing
+
+
+## Compile/Run Instructions:
+In Words:
+1. Clone the repository.
+2. Change working director to the main geometrydash folder.
+3. Change current working directory to geometryDash folder.
+4. Open geometryDash.pde in Processing.
+5. Click the play button on the top left of the Processing screen to start the game!
+
+Terminal Commands:
+```git clone git@github.com:shafiulhaque/geometrydash.git
+cd geometrydash
+cd geometryDash
+open geometryDash.pde
+```
+
+
+## Developer Log:
+Note: Because Shafiul's family suffered from COVID-19 for a week and Jacob's computer was busted for a few days, there are some times where we were unable to push code of the project because we did not have access to a computer athome. However, on those days, we were always developing the project and designing the game before writing code for it, and as always, we were working on the code during class time.
 
 5/23/22
 Jacob - Added the basic skeleton of the code and then also completed the Chars class.
