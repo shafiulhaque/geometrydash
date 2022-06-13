@@ -103,13 +103,13 @@ public class Chars { //<>//
 
         if (other.isSafeTop()) {
 
+          if ((y >= other.y - sideL) && ((x+sideL > other.x && x+sideL < other.x + sideL && y+sideL > other.y && y+sideL < other.y + sideL))) {
+            y = other.y-sideL;
+          }
+
           if (y <= other.y && ((x + sideL > other.x && x + sideL < other.x + sideL) || (x > other.x && x < other.x + sideL))) {
             dead = false;
             platform = other.y - sideL;
-          }
-
-          if ((y >= other.y - sideL) && ((x+sideL > other.x && x+sideL < other.x + sideL && y+sideL > other.y && y+sideL < other.y + sideL))) {
-            y = other.y-sideL;
           }
 
 
