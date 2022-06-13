@@ -212,6 +212,7 @@ void popUp() {
       rect(55, 25, 800, 550);
       opaqCheck++;
       fill(255);
+      textSize(20);
       textAlign(CENTER);
       text(levelList.get(currLevel).levelName, 450, 100);
     }
@@ -235,6 +236,7 @@ void popUp() {
       stroke(0);
       opaqCheck++;
       fill(255);
+      textSize(20);
       textAlign(CENTER);
       text(levelList.get(currLevel).levelName, 450, 200);
       textAlign(LEFT);
@@ -257,6 +259,7 @@ void endScreen() {
   fill(0);
   rect(220, 110, 470, 330);
   stroke(255);
+  textSize(20);
   textFont(fontW);
   fill(0, 255, 0);
   text("LEVEL COMPLETE!", 280, 220);
