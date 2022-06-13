@@ -41,7 +41,7 @@ public class levelsMenu {
       fill(col);
       rect(x - 50, y - 50, sideX, sideY);
       fill(0, 0, 0, 100);
-      rect(x + 100, y + 25, sideX - 300, sideY - 410);
+      rect(x + 100, y + 25, sideX - 300, sideY - 300);
       fill(255);
       ellipse(x + 400, 300, 50, 50);
       fill(0);
