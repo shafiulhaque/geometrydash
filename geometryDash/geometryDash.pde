@@ -125,18 +125,14 @@ void keyPressed() {
         } else if (character.type().equals("ROCKET")) {
           jump = true;
         } else if (character.type().equals("UFO")) {
-          character.jump(jump);
+          jump = true;
         } else if (character.type().equals("SPIKE")) {
-          character.jump(jump);
+          jump = true;
         }
       }
     }
     if (keyCode == ENTER) if (!character.dead)entered = !entered;
     if (key == 'a') autoSpawn = !autoSpawn;
-    //if (key == 'n' && (won || entered)) {
-    //  entered = false;
-    //  inMenu = true;
-    //}
   } else {
     if (keyCode == LEFT && levelList.get(currLevel).x == 50) {
       for (int i = 0; i < size; i++) levelList.get(i).arrL();

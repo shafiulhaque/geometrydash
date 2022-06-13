@@ -25,11 +25,12 @@ public class Spike extends Chars {
     if (!dead) {
       x += dx;
       y += dy;
+      setb = platform;
+      sett = platformu;
       if (x >= 270) {
         x = 270;
         dx = 0;
       }
-      setb = platb;
       if (y > setb) {
         y = setb;
       }
@@ -40,7 +41,7 @@ public class Spike extends Chars {
   }
 
   void jump(boolean jump) {
-    if (jump && rev){
+    if (jump && rev) {
       dy = -dy;
       rev = false;
     }

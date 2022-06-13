@@ -30,10 +30,15 @@ public class UFO extends Chars {
       dx = 0;
     }
     setb = platform;
-    if (y == platform) {
-      dy = 0;
-    } else {
+    sett = platformu;
+    if (y < platb) {
       dy += 1;
+    } else {
+      dy = 0;
+    }
+    if (y >= platform) {
+      y = platform;
+      dy = 0;
     }
     if (y > setb) {
       y = setb;
