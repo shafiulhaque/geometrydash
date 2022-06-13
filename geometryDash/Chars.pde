@@ -77,8 +77,17 @@ public class Chars { //<>//
 
   void display(PImage[] img) {
     if (!dead) {
-      if (type.equals("BLOCK")) image(img[0], x, y);
-      if (type.equals("ROCKET")) image(img[1], x, y);
+      if (type.equals("BLOCK")) {
+        image(img[0], x, y);
+      }
+      if (type.equals("ROCKET")) {
+        image(img[1], x, y);
+        image(img[3], x+15, y);
+      }
+      if (type.equals("UFO")) {
+        image(img[2], x, y+4);
+        image(img[3], x+10, y);
+      }
     }
   }
 

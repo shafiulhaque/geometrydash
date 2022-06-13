@@ -51,11 +51,15 @@ void setup() {
   font = createFont("PUSAB___.otf", 40);
   textFont(font);
   pauseScr = loadImage("pauseScreen.png");
-  charimg = new PImage[3];
+  charimg = new PImage[4];
   charimg[0] = loadImage("Batman.png");
   charimg[0].resize(30, 30);
   charimg[1] = loadImage("Rocket.png");
   charimg[1].resize(40, 30);
+  charimg[2] = loadImage("UFO.png");
+  charimg[2].resize(30, 20);
+  charimg[3] = loadImage("Batman.png");
+  charimg[3].resize(10, 10);
 }
 
 void draw() {
