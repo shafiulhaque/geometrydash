@@ -75,11 +75,10 @@ public class Chars { //<>//
     }
   }
 
-  void display() {
+  void display(PImage[] img) {
     if (!dead) {
-      stroke(220); 
-      fill(100, 140, 220);
-      rect(x, y, sideL, sideL);
+      if (type.equals("BLOCK")) image(img[0], x, y);
+      if (type.equals("ROCKET")) image(img[1], x, y);
     }
   }
 

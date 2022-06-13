@@ -6,7 +6,6 @@ static boolean won;
 static String currentS;
 static boolean jump;
 static int[] colors;
-
 PImage startUp;
 PImage startText;
 int timer;
@@ -24,6 +23,7 @@ PImage deathScr;
 PImage pauseScr;
 int opaqCheck;
 PFont font;
+PImage[] charimg;
 
 void setup() {
   size(900, 600);
@@ -51,7 +51,11 @@ void setup() {
   font = createFont("PUSAB___.otf", 40);
   textFont(font);
   pauseScr = loadImage("pauseScreen.png");
-  //colors = level1.colors[level1.color1];
+  charimg = new PImage[3];
+  charimg[0] = loadImage("Batman.png");
+  charimg[0].resize(30, 30);
+  charimg[1] = loadImage("Rocket.png");
+  charimg[1].resize(40, 30);
 }
 
 void draw() {
@@ -95,7 +99,7 @@ void draw() {
           character.move();
           level.findPlats(character, cb, cf);
           level.display();
-          character.display();
+          character.display(charimg);
           if (level.map[0][level.WIDTH - 1].x < 270 && !character.dead) endScreen();
           if (character.change) changeChar();
         } else {
