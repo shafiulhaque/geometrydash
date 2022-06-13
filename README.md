@@ -114,6 +114,7 @@ Worked on creating portals, which would allow the character to change if it jump
 
 ### Jacob 🗿
 
+Presenting our project. My laptop's screen got cracked and I had to go to a repair shop and order a replacement screen - kept my laptop to work.
 
 ### Shafiul 🙈
 
@@ -123,6 +124,7 @@ Presentation day!! 🎉 Testing out edge cases for the jump and move functions o
 
 ### Jacob 🗿
 
+Sort of hooked up my laptop to a tv to try and code. Made a few diagrams for collisions when I was not able to use my laptop.
 
 ### Shafiul 🙈
 
@@ -132,6 +134,7 @@ Conceptual work: Debugging for the jump functions; seeing how the new platform f
 
 ### Jacob 🗿
 
+Laptop still broken, still trying to figure out jump during class and adding more visualization.
 
 ### Shafiul 🙈
 
@@ -141,6 +144,7 @@ Testing exceptions with jumping, and simplified code in the main class as well a
 
 ### Jacob 🗿
 
+Still waiting on replacement screen to arrive. Used TV again after parents were done and still  trying to work on block collisions.
 
 ### Shafiul 🙈
 
@@ -150,6 +154,7 @@ Worked on block collisions and platforming checking between blocks of different 
 
 ### Jacob 🗿
 
+Brought laptop to repair shop and gave it in for the whole day, so no work done.
 
 ### Shafiul 🙈
 
@@ -159,6 +164,7 @@ Attempted to make a level, using both the block and triangle obstacles. Using pl
 
 ### Jacob 🗿
 
+Troubleshooting laptop - adding more features to new levels and debugging for collisions.
 
 ### Shafiul 🙈
 
@@ -167,6 +173,8 @@ Fixing movement up with additional characters in order to make the level work.
 6/6/22
 
 ### Jacob 🗿
+
+Designing levelsMenu with shafiul and also starting to do the additions for more levels. Also starting to use PImage with blocks.
 
 
 ### Shafiul 🙈
@@ -177,6 +185,7 @@ More designing along with Jacob, planning how to use the levelsMenu and incorpor
 
 ### Jacob 🗿
 
+Decided to use PImages for the blocks and everything bugged out on me. Designing with shafiul, working on ideas for displaying levelMenus. Tried to debug for the rest of the day. 
 
 ### Shafiul 🙈
 
@@ -186,6 +195,7 @@ Additional designing with Jacob, we got the basics for the levelsMenu just now n
 
 ### Jacob 🗿
 
+Laptop not responsive at home. In class work with shafiul to fix the bug from last night.
 
 ### Shafiul 🙈
 
@@ -194,6 +204,8 @@ Starting making levels: made a 250 character level and added new types of triang
 6/9/22
 
 ### Jacob 🗿
+
+Implementing levelsMenu and fixing the display especially. Trying to make it look basic now, will update later. Also added new info class for the menu.
 
 
 ### Shafiul 🙈
@@ -204,6 +216,7 @@ Starting making levels part two, from the original game (stereo madness and back
 
 ### Jacob 🗿
 
+Laptop not working again - worked on loading bar and other cosmetic things.
 
 ### Shafiul 🙈
 
@@ -213,6 +226,7 @@ Added a new transporter object which moves the character upwards, and did more o
 
 ### Jacob 🗿
 
+Completely confused about the menu sliding but I got it to work ! also fixed the holding button problem with the menu.
 
 ### Shafiul 🙈
 
@@ -222,6 +236,7 @@ Successfully completed back on track, now working on stereo madness. More organi
 
 ### Jacob 🗿
 
+cosmetics for death, menu, and pause screen. also doing more with levels with shafiul and helping test for bugs. changing up a lot of the buttons to replicare geometrydash too. also creating a new level with shafiul.
 
 ### Shafiul 🙈
 
