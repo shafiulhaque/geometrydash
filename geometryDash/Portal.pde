@@ -8,7 +8,7 @@ public class Portal extends Block {
     sideL = 50;
     type = t;
   }
-  void place(PImage img) {
+  void place(PImage[] img) {
     fill(0);
     rect(x, y, sideL, sideW);
     if (type.equals("ROCKET")) fill(186, 85, 233);

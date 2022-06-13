@@ -25,7 +25,7 @@ public class levelsMenu {
   void display(int sideX, int sideY) {
     if (levelName.equals("tutorial")) {
       fill(col);
-      rect(x, y, sideX, sideY);
+      rect(x - 50, y - 50, sideX, sideY);
       fill(0);
       textSize(20);
       textAlign(LEFT);
@@ -35,20 +35,19 @@ public class levelsMenu {
       text("Game Controls: ", x + 70, 270);
       text("SPACEBAR: JUMP", x + 70, 310);
       text("ENTER/RETURN: PAUSE", x + 70, 350);
-      text("ENTER/RETURN + N: RETURN TO MENU", x + 70, 390);
-      text("R: RESPAWN", x + 70, 430);
-      text("A: TOGGLE AUTO-RESPAWN", x + 70, 470);
+      text("CLICK LEFT BUTTON: RESTART/RESUME", x + 70, 390);
+      text("CLICK RIGHT BUTTON: RETURN TO MENU", x + 70, 430);
     } else {
       fill(col);
-      rect(x, y, sideX, sideY);
-      fill(col + 50);
-      rect(x + 100, y + 100, sideX - 200, sideY - 200);
+      rect(x - 50, y - 50, sideX, sideY);
+      fill(0, 0, 0, 100);
+      rect(x + 100, y + 25, sideX - 300, sideY - 300);
       fill(255);
       ellipse(x + 400, 300, 50, 50);
       fill(0);
       textSize(30);
       textAlign(CENTER);
-      text("PLAY!", x + 400, 250);
+      text("PLAY!", x + 400, 190);
       fill(0, 255, 0);
       triangle(x + 403 + (25 * (cos(PI / 6) / 2)), 300, x + 403 - (25 * (cos(PI / 6) / 2)), 300 + 12.5, x + 403 - (25 * (cos(PI / 6) / 2)), 300 - 12.5);
     }
