@@ -35,6 +35,8 @@ public class levelsMenu {
       text("Game Controls: ", x + 70, 270);
       text("SPACEBAR: JUMP", x + 70, 310);
       text("ENTER/RETURN: PAUSE", x + 70, 350);
+      text("CLICK LEFT BUTTON: RESTART/RESUME", x + 70, 390);
+      text("CLICK RIGHT BUTTON: RETURN TO MENU", x + 70, 430);
     } else {
       fill(col);
       rect(x, y, sideX, sideY);

@@ -224,6 +224,10 @@ void popUp() {
       fill(255);
       textAlign(CENTER);
       text(levelList.get(currLevel).levelName, 450, 200);
+      textAlign(LEFT);
+      fill(255);
+      text("Attempt " + level.attempts, 400, 300);
+      text(100 * cbU / level.WIDTH + "%", 610, 250);
     }
     noFill();
     stroke(255);
