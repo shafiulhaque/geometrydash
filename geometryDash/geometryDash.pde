@@ -18,7 +18,7 @@ PFont fontW;
 ArrayList<levelsMenu> levelList;
 levelsMenu info = new levelsMenu();
 levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "backontrack0");
-levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2");
+levelsMenu level2 = new levelsMenu(1850, 50, color(0, 135, 23), "spacejam");
 levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3"); 
 levelsMenu level4 = new levelsMenu(3650, 50, color(150, 45, 70), "level4"); 
 boolean inMenu;
@@ -119,7 +119,7 @@ void draw() {
             noStroke();
             rect(150, 60, (float)600 * cb / level.WIDTH, 10);
           }
-          if (perc && !won) {
+          if (perc) {
             fill(255);
             textFont(font);
             text(cb * 100 / level.WIDTH + "%", 430, 50);
@@ -248,16 +248,14 @@ void endScreen() {
   won = true;
   fill(0);
   rect(220, 110, 470, 330);
-  fill(0, 255, 0);
-  rect(150, 60, 600, 10);
   stroke(255);
   textFont(fontW);
+  fill(0, 255, 0);
   text("LEVEL COMPLETE!", 280, 220);
   textFont(font);
   image(deathScr, 205, 100);
   fill(255);
   textFont(font);
-  text("100%", 430, 50);
   text("Attempts: " + level.attempts, 280, 280);
   text("Jumps: " + level.jumps, 280, 320);
 }
