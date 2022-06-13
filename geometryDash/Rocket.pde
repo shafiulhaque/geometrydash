@@ -47,6 +47,7 @@ public class Rocket extends Chars {
     } else {
       if (dy != -7) dy += 0.3;
     }
+    dy += 0.05;
     if (dy > 10) dy = 10;
     if (dy < -10) dy = -10;
   }
