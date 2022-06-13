@@ -7,6 +7,8 @@ public class Levels {
   int HEIGHT;
   int[][] colors;
   int color1;
+  int jumps;
+  int attempts;
 
   public Levels(String file) {
     try {
@@ -23,6 +25,8 @@ public class Levels {
         color1 = 0;
         setColor(reader, numcol);
         setLevel(reader);
+        jumps = 0;
+        attempts = 1;
       }
     }
     catch(IOException e) {
