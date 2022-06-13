@@ -3,13 +3,18 @@ static Levels level;
 static boolean entered;
 static boolean autoSpawn;
 static boolean won;
-static String currentS;
 static boolean jump;
+static String currentS;
 static int[] colors;
 static PImage blockIm;
 PImage startUp;
 PImage startText;
-int timer;
+PImage skin;
+PImage deathScr;
+PImage pauseScr;
+PImage menuP;
+PFont font;
+PFont fontW;
 ArrayList<levelsMenu> levelList;
 levelsMenu info = new levelsMenu();
 levelsMenu level1 = new levelsMenu(950, 50, color(50, 95, 170), "backontrack0");
@@ -17,49 +22,47 @@ levelsMenu level2 = new levelsMenu(1850, 50, color(100, 125, 30), "level2");
 levelsMenu level3 = new levelsMenu(2750, 50, color(150, 45, 70), "level3"); 
 levelsMenu level4 = new levelsMenu(3650, 50, color(150, 45, 70), "level4"); 
 boolean inMenu;
-int currLevel;
-PImage skin;
-int size;
-PImage deathScr;
-PImage pauseScr;
-int opaqCheck;
-PFont font;
-PFont fontW;
-boolean progBar;
-int cbU;
 boolean perc;
+boolean progBar;
+int currLevel;
+int size;
+int opaqCheck;
+int cbU;
+int timer;
 
 void setup() {
   size(900, 600);
   character = new Chars();
   blockIm = loadImage("geoBlockImg.jpg");
   blockIm.resize(30, 30);
-  inMenu = true;
   startUp = loadImage("startUp.jpg");
   startUp.resize(900, 600);
   startText = loadImage("startText.png");
+  deathScr = loadImage("deathScreen.png");
+  pauseScr = loadImage("pauseScreen.png");
+  menuP = loadImage("menuPart.png");
+  menuP.resize(900, 600);
   image(startUp, 0, 0);
   image(startText, 75, 200);
-  timer = 120;
-  currLevel = 0;
   levelList = new ArrayList<levelsMenu>();
   levelList.add(info);
   levelList.add(level1);
   levelList.add(level2);
   levelList.add(level3);
   levelList.add(level4);
+  inMenu = true;
   entered = false;
   won = false;
   autoSpawn = false;
-  size = levelList.size();
-  deathScr = loadImage("deathScreen.png");
-  opaqCheck = 0;
-  font = createFont("PUSAB___.otf", 40);
-  textFont(font);
-  fontW = createFont("OXYGENE1.TTF", 40);
-  pauseScr = loadImage("pauseScreen.png");
   progBar = false;
   perc = false;
+  timer = 120;
+  size = levelList.size();
+  opaqCheck = 0;
+  currLevel = 0;
+  font = createFont("PUSAB___.otf", 40);
+  fontW = createFont("OXYGENE1.TTF", 40);
+  textFont(font);
   //colors = level1.colors[level1.color1];
 }
 
@@ -77,13 +80,15 @@ void draw() {
     currentS = levelList.get(currLevel).levelName + ".txt";
     if (inMenu) {
       stroke(255);
-      background(0);
+      background(255);
       fill(0);
       for (int i = 0; i < size; i++) {
         levelList.get(i).move();
-        levelList.get(i).display(width - 100, height - 100);
+        levelList.get(i).display(width, height);
       }
-      if (!levelList.get(currLevel).levelName.equals("tutorial")) text(levelList.get(currLevel).levelName, levelList.get(currLevel).x + 400, 200);
+      image(menuP, 0, 0);
+      fill(255);
+      if (!levelList.get(currLevel).levelName.equals("tutorial")) text(levelList.get(currLevel).levelName, levelList.get(currLevel).x + 400, 125);
     } else {
       if (!entered) {
         if (!character.dead) {
@@ -304,8 +309,7 @@ void mouseClicked() {
         level.attempts = attempt + 1;
         opaqCheck = 0;
       } else if (dist(mouseX, mouseY, 550, 440) < 40)inMenu = true;
-    } 
-    else if (entered && !character.dead) {
+    } else if (entered && !character.dead) {
       if (dist(mouseX, mouseY, 343, 325) < 87) {
         entered = false;
         opaqCheck = 0;

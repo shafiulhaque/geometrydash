@@ -25,7 +25,7 @@ public class levelsMenu {
   void display(int sideX, int sideY) {
     if (levelName.equals("tutorial")) {
       fill(col);
-      rect(x, y, sideX, sideY);
+      rect(x - 50, y - 50, sideX, sideY);
       fill(0);
       textSize(20);
       textAlign(LEFT);
@@ -39,15 +39,15 @@ public class levelsMenu {
       text("CLICK RIGHT BUTTON: RETURN TO MENU", x + 70, 430);
     } else {
       fill(col);
-      rect(x, y, sideX, sideY);
-      fill(col + 50);
-      rect(x + 100, y + 100, sideX - 200, sideY - 200);
+      rect(x - 50, y - 50, sideX, sideY);
+      fill(0, 0, 0, 100);
+      rect(x + 100, y + 25, sideX - 300, sideY - 410);
       fill(255);
       ellipse(x + 400, 300, 50, 50);
       fill(0);
       textSize(30);
       textAlign(CENTER);
-      text("PLAY!", x + 400, 250);
+      text("PLAY!", x + 400, 190);
       fill(0, 255, 0);
       triangle(x + 403 + (25 * (cos(PI / 6) / 2)), 300, x + 403 - (25 * (cos(PI / 6) / 2)), 300 + 12.5, x + 403 - (25 * (cos(PI / 6) / 2)), 300 - 12.5);
     }
