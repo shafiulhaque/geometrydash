@@ -8,6 +8,8 @@ public class Levels {
   int[][] colors;
   int color1;
   PImage[] blockskin;
+  int jumps;
+  int attempts;
 
   public Levels(String file) {
     try {
@@ -33,6 +35,8 @@ public class Levels {
         blockskin[2].resize(30, 30);
         blockskin[3] = loadImage("Slab.png");
         blockskin[3].resize(30, 10);
+        jumps = 0;
+        attempts = 1;
       }
     }
     catch(IOException e) {
