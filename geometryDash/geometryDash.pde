@@ -300,8 +300,8 @@ void mouseClicked() {
         level.attempts = attempt + 1;
         opaqCheck = 0;
       } else if (dist(mouseX, mouseY, 550, 440) < 40)inMenu = true;
-    }
-    if (entered && !character.dead) {
+    } 
+    else if (entered && !character.dead) {
       if (dist(mouseX, mouseY, 343, 325) < 87) {
         entered = false;
         opaqCheck = 0;
@@ -312,12 +312,13 @@ void mouseClicked() {
       else if (dist(mouseX, mouseY, 483, 490) < 23) progBar = !progBar;
       else if (dist(mouseX, mouseY, 635, 490) < 23) perc = !perc;
     }
-    if (won) {
+    if (won && level.map[level.HEIGHT - 1][level.WIDTH - 1].x < 270) {
       if (dist(mouseX, mouseY, 297, 440) < 40) {
-        character.dead = false;
+        character = new Chars();
         level = new Levels(currentS);
         opaqCheck = 0;
       } else if (dist(mouseX, mouseY, 550, 440) < 40)inMenu = true;
+      won = false;
     }
   }
 }
